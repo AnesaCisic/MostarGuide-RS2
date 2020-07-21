@@ -19,7 +19,7 @@ namespace MostarGuide.WebAPI.Database
         public int BrojMjesta { get; set; }
         public decimal Cijena { get; set; }
         public byte[] Slika { get; set; }
-        public bool? Status { get; set; }
+        //public bool? Status { get; set; }
 
         public virtual ICollection<Ocjene> Ocjene { get; set; }
         public virtual ICollection<Termini> Termini { get; set; }

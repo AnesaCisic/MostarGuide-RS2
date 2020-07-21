@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MostarGuide.WebAPI.Database;
 
 namespace MostarGuide.WebAPI.Migrations
 {
     [DbContext(typeof(MostarGuideContext))]
-    partial class MostarGuideContextModelSnapshot : ModelSnapshot
+    [Migration("20200721062449_izmjenanazivakolonevodic_utabelitermini")]
+    partial class izmjenanazivakolonevodic_utabelitermini
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -419,7 +421,7 @@ namespace MostarGuide.WebAPI.Migrations
                     b.HasOne("MostarGuide.WebAPI.Database.Korisnici", "Korisnik")
                         .WithMany("Termini")
                         .HasForeignKey("KorisnikId")
-                        .HasConstraintName("FK_Termin_Korisnik_Id")
+                        .HasConstraintName("FK_Termin_Vodic_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

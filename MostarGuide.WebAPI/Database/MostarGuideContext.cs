@@ -122,10 +122,10 @@ namespace MostarGuide.WebAPI.Database
 
                 entity.Property(e => e.VrijemeTermina).HasColumnType("datetime");
 
-                entity.HasOne(d => d.Vodic)
+                entity.HasOne(d => d.Korisnik)
                     .WithMany(p => p.Termini)
-                    .HasForeignKey(d => d.VodicId)
-                    .HasConstraintName("FK_Termin_Vodic_Id");
+                    .HasForeignKey(d => d.KorisnikId)
+                    .HasConstraintName("FK_Termin_Korisnik_Id");
 
                 entity.HasOne(d => d.Izlet)
                    .WithMany(p => p.Termini)
@@ -141,9 +141,9 @@ namespace MostarGuide.WebAPI.Database
 
                 entity.Property(e => e.Cijena).HasColumnType("decimal(5, 2)");
 
-                entity.Property(e => e.Status)
-                    .IsRequired()
-                    .HasDefaultValueSql("((1))");
+                //entity.Property(e => e.Status)
+                //    .IsRequired()
+                //    .HasDefaultValueSql("((1))");
 
             });
 

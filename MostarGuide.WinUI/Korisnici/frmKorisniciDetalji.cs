@@ -15,27 +15,47 @@ namespace MostarGuide.WinUI.Korisnici
     {
         private readonly APIService _aPIService = new APIService("korisnik");
         private int? _id = null;
-        public frmKorisniciDetalji(int? korinikId = null)
+        public frmKorisniciDetalji(int? korisnikId = null)
         {
             InitializeComponent();
-            _id = korinikId;
+            _id = korisnikId;
         }
 
+        KorisniciInsertRequest request = new KorisniciInsertRequest();
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
             //popunjavamo objekat iz textboxova
             if (this.ValidateChildren())
             {
-                var request = new KorisniciInsertRequest()
+                request.Ime = txtIme.Text;
+                request.Prezime = txtPrezime.Text;
+                request.Email = txtEmail.Text;
+                request.Telefon = txtTelefon.Text;
+                request.KorisnickoIme = txtKorisnickoIme.Text;
+                request.Password = txtPassword.Text;
+                request.PasswordConfirmation = txtPasswordConfirmation.Text;
+
+                if(cbAktivan.Checked == true)
                 {
-                    Ime = txtIme.Text,
-                    Prezime = txtPrezime.Text,
-                    Email = txtEmail.Text,
-                    Telefon = txtTelefon.Text,
-                    KorisnickoIme = txtKorisnickoIme.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtPasswordConfirmation.Text,
-                };
+                    request.Status = true;
+                }
+                else
+                {
+                    request.Status = false;
+                }
+
+
+                //var request = new KorisniciInsertRequest()
+                //{
+                //    Ime = txtIme.Text,
+                //    Prezime = txtPrezime.Text,
+                //    Email = txtEmail.Text,
+                //    Telefon = txtTelefon.Text,
+                //    KorisnickoIme = txtKorisnickoIme.Text,
+                //    Password = txtPassword.Text,
+                //    PasswordConfirmation = txtPasswordConfirmation.Text,
+
+                //};
 
                 //da li je insert ili update
                 if (_id.HasValue)
@@ -69,6 +89,12 @@ namespace MostarGuide.WinUI.Korisnici
                 {
                     cbAktivan.Checked = true;
                 }
+                else
+                {
+                    cbAktivan.Checked = false;
+                }
+
+
 
             }
         }
@@ -140,6 +166,22 @@ namespace MostarGuide.WinUI.Korisnici
             else
             {
                 errorProvider1.SetError(txtKorisnickoIme, null);
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            char empty = new char();
+            if(txtPassword.PasswordChar == empty && txtPasswordConfirmation.PasswordChar == empty)
+            {
+                txtPassword.PasswordChar = '*';
+                txtPasswordConfirmation.PasswordChar = '*';
+            }
+
+            else
+            {
+                txtPassword.PasswordChar = empty;
+                txtPasswordConfirmation.PasswordChar = empty;
             }
         }
     }

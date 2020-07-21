@@ -14,10 +14,10 @@ namespace MostarGuide.WebAPI.Database
 
         public int TerminId { get; set; }
         public int IzletId { get; set; }
-        public int VodicId { get; set; }
+        public int KorisnikId { get; set; }
         public DateTime VrijemeTermina { get; set; }
 
-        public virtual Korisnici Vodic { get; set; }
+        public virtual Korisnici Korisnik { get; set; }
         public virtual Izleti Izlet { get; set; }
         public virtual ICollection<Rezervacije> Rezervacije { get; set; }
     }

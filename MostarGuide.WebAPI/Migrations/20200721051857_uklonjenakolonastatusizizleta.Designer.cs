@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MostarGuide.WebAPI.Database;
 
 namespace MostarGuide.WebAPI.Migrations
 {
     [DbContext(typeof(MostarGuideContext))]
-    partial class MostarGuideContextModelSnapshot : ModelSnapshot
+    [Migration("20200721051857_uklonjenakolonastatusizizleta")]
+    partial class uklonjenakolonastatusizizleta
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -312,7 +314,7 @@ namespace MostarGuide.WebAPI.Migrations
                     b.Property<int>("IzletId")
                         .HasColumnType("int");
 
-                    b.Property<int>("KorisnikId")
+                    b.Property<int>("VodicId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("VrijemeTermina")
@@ -322,7 +324,7 @@ namespace MostarGuide.WebAPI.Migrations
 
                     b.HasIndex("IzletId");
 
-                    b.HasIndex("KorisnikId");
+                    b.HasIndex("VodicId");
 
                     b.ToTable("Termini");
                 });
@@ -416,10 +418,10 @@ namespace MostarGuide.WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MostarGuide.WebAPI.Database.Korisnici", "Korisnik")
+                    b.HasOne("MostarGuide.WebAPI.Database.Korisnici", "Vodic")
                         .WithMany("Termini")
-                        .HasForeignKey("KorisnikId")
-                        .HasConstraintName("FK_Termin_Korisnik_Id")
+                        .HasForeignKey("VodicId")
+                        .HasConstraintName("FK_Termin_Vodic_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

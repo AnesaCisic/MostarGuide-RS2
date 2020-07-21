@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKorisniciDetalji));
             this.btnSnimi = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPasswordConfirmation = new System.Windows.Forms.TextBox();
@@ -46,12 +47,14 @@
             this.txtIme = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbAktivan = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSnimi
             // 
-            this.btnSnimi.Location = new System.Drawing.Point(238, 370);
+            this.btnSnimi.Location = new System.Drawing.Point(273, 369);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(102, 23);
             this.btnSnimi.TabIndex = 29;
@@ -72,6 +75,7 @@
             // 
             this.txtPasswordConfirmation.Location = new System.Drawing.Point(206, 322);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
+            this.txtPasswordConfirmation.PasswordChar = '*';
             this.txtPasswordConfirmation.Size = new System.Drawing.Size(134, 20);
             this.txtPasswordConfirmation.TabIndex = 27;
             // 
@@ -88,6 +92,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(47, 322);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(133, 20);
             this.txtPassword.TabIndex = 25;
             // 
@@ -192,11 +197,24 @@
             this.cbAktivan.Text = "Aktivan";
             this.cbAktivan.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(347, 316);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // frmKorisniciDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(387, 477);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbAktivan);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.label7);
@@ -213,10 +231,12 @@
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtIme);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "frmKorisniciDetalji";
             this.Text = "frmKorisniciDetalji";
             this.Load += new System.EventHandler(this.frmKorisniciDetalji_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +261,6 @@
         private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckBox cbAktivan;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MostarGuide.WebAPI.Database;
 
 namespace MostarGuide.WebAPI.Migrations
 {
     [DbContext(typeof(MostarGuideContext))]
-    partial class MostarGuideContextModelSnapshot : ModelSnapshot
+    [Migration("20200721062631_izmjenanazivakolonevodic_utabelitermini2")]
+    partial class izmjenanazivakolonevodic_utabelitermini2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -8,7 +8,7 @@ namespace MostarGuide.Model
     {
         public int TerminId { get; set; }
         public int? IzletId { get; set; }
-        public int? VodicId { get; set; }
+        public int? KorisnikId { get; set; }
         public DateTime VrijemeTermina { get; set; }
     }
 }

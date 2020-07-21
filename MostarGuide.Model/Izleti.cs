@@ -10,8 +10,8 @@ namespace MostarGuide.Model
         public string Naziv { get; set; }
         public string Opis { get; set; }
         public int BrojMjesta { get; set; }
-        public float Cijena { get; set; }
+        public decimal Cijena { get; set; }
         public byte[] Slika { get; set; }
-        public bool? Status { get; set; }
+        //public bool? Status { get; set; }
     }
 }

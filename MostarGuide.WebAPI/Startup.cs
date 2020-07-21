@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-
+using MostarGuide.Model.Requests;
 using MostarGuide.WebAPI.Database;
 using MostarGuide.WebAPI.Filters;
 using MostarGuide.WebAPI.Services;
@@ -43,6 +43,9 @@ namespace MostarGuide.WebAPI
             });
 
             services.AddScoped<IKorisniciService, KorisniciService>();
+            services.AddScoped<ICRUDService<Model.Izleti, IzletiSearchRequest, IzletiUpsertRequest, IzletiUpsertRequest>, IzletService>();
+            services.AddScoped<ICRUDService<Model.Termini, TerminiSearchRequest, TerminiUpsertRequest, TerminiUpsertRequest>, TerminService>();
+
 
 
             var connection = @"Server=.;Database=IB160037;Trusted_Connection=True;ConnectRetryCount=0";

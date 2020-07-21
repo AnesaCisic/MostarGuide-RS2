@@ -1,4 +1,6 @@
-﻿using MostarGuide.WinUI.Korisnici;
+﻿using MostarGuide.WinUI.Izleti;
+using MostarGuide.WinUI.Korisnici;
+using MostarGuide.WinUI.Termini;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,6 +118,34 @@ namespace MostarGuide.WinUI
         private void noviKorisnikToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmKorisniciDetalji frm = new frmKorisniciDetalji();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmIzleti frm = new frmIzleti();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void noviIzletToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIzletiDetalji frm = new frmIzletiDetalji();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmTermini frm = new frmTermini();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmTerminiDetalji frm = new frmTerminiDetalji();
             frm.MdiParent = this;
             frm.Show();
         }

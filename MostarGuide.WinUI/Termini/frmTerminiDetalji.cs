@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MostarGuide.WinUI
+namespace MostarGuide.WinUI.Termini
 {
-    public partial class Form1 : Form
+    public partial class frmTerminiDetalji : Form
     {
-        public Form1()
+        public frmTerminiDetalji()
         {
             InitializeComponent();
         }
