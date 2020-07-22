@@ -98,6 +98,12 @@
     <Compile Include="Termini\frmTermini.Designer.cs">
       <DependentUpon>frmTermini.cs</DependentUpon>
     </Compile>
+    <Compile Include="Termini\frmTerminiDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Termini\frmTerminiDetalji.Designer.cs">
+      <DependentUpon>frmTerminiDetalji.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +131,9 @@
     </Compile>
     <EmbeddedResource Include="Termini\frmTermini.resx">
       <DependentUpon>frmTermini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Termini\frmTerminiDetalji.resx">
+      <DependentUpon>frmTerminiDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

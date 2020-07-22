@@ -14,7 +14,7 @@ namespace MostarGuide.WinUI.Termini
     public partial class frmTermini : Form
     {
         private readonly APIService _vodici = new APIService("korisnik");
-        private readonly APIService _izleti = new APIService("izlet");
+        //private readonly APIService _izleti = new APIService("izlet");
         private readonly APIService _termini = new APIService("termin");
         public frmTermini()
         {
@@ -24,8 +24,8 @@ namespace MostarGuide.WinUI.Termini
         private async void frmTermini_Load(object sender, EventArgs e)
         {
             await LoadVodici();
-            await LoadIzleti();
-            dgvTermini.AutoGenerateColumns = false;
+            //await LoadIzleti();
+            //dgvTermini.AutoGenerateColumns = false;
         }
 
         private async Task LoadVodici()
@@ -37,14 +37,14 @@ namespace MostarGuide.WinUI.Termini
             cmbVodic.ValueMember = "KorisnikId";
         }
 
-        private async Task LoadIzleti()
-        {
-            var result = await _izleti.Get<List<Model.Izleti>>(null); //dohvatimo podatke
-            result.Insert(0, new Model.Izleti());
-            cmbIzlet.DataSource = result;//ucitavamo u combo box podatke
-            cmbIzlet.DisplayMember = "Naziv";
-            cmbIzlet.ValueMember = "IzletId";
-        }
+        //private async Task LoadIzleti()
+        //{
+        //    var result = await _izleti.Get<List<Model.Izleti>>(null); //dohvatimo podatke
+        //    result.Insert(0, new Model.Izleti());
+        //    cmbIzlet.DataSource = result;//ucitavamo u combo box podatke
+        //    cmbIzlet.DisplayMember = "Naziv";
+        //    cmbIzlet.ValueMember = "IzletId";
+        //}
 
         private void cmbVodic_Format(object sender, ListControlConvertEventArgs e)
         {
@@ -70,33 +70,52 @@ namespace MostarGuide.WinUI.Termini
                 KorisnikId = korisnikId
             });
 
-
             dgvTermini.DataSource = result;
         }
 
-        private async void btnDodaj_Click(object sender, EventArgs e)
+        private void btnDodaj_Click(object sender, EventArgs e)
         {
-            TerminiUpsertRequest request = new TerminiUpsertRequest();
-
-            var izletObj = cmbIzlet.SelectedValue;
-
-            if (int.TryParse(izletObj.ToString(), out int izletId))
-            {
-                request.IzletId = izletId;
-            }
-
-            var vodicObj = cmbIzlet.SelectedValue;
-
-            if (int.TryParse(vodicObj.ToString(), out int vodicId))
-            {
-                request.KorisnikId = vodicId;
-            }
-
-            request.VrijemeTermina = dtpVrijemeTermina.Value.Date + dtpVrijemeTermina.Value.TimeOfDay;
-
-            await _termini.Insert<Model.Termini>(request);
-            MessageBox.Show("Uspješno izvršeno");
-            //this.Close();
+            frmTerminiDetalji frm = new frmTerminiDetalji();
+            frm.Show();
         }
+
+        private void dgvTermini_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = dgvTermini.SelectedRows[0].Cells[0].Value;
+            frmTerminiDetalji frm = new frmTerminiDetalji(int.Parse(id.ToString())); //parsamo jer selectedrows metoda vraca object pa ne znamo da li je string, int itd.
+            frm.Show();
+        }
+
+        private async void btnPrikazi_Click(object sender, EventArgs e)
+        {
+            var result = await _termini.Get<List<Model.Termini>>(null);
+            dgvTermini.AutoGenerateColumns = false;
+            dgvTermini.DataSource = result;
+        }
+
+        //private async void btnDodaj_Click(object sender, EventArgs e)
+        //{
+        //    TerminiUpsertRequest request = new TerminiUpsertRequest();
+
+        //    //var izletObj = cmbIzlet.SelectedValue;
+
+        //    //if (int.TryParse(izletObj.ToString(), out int izletId))
+        //    //{
+        //    //    request.IzletId = izletId;
+        //    //}
+
+        //    var vodicObj = cmbVodic.SelectedValue;
+
+        //    if (int.TryParse(vodicObj.ToString(), out int vodicId))
+        //    {
+        //        request.KorisnikId = vodicId;
+        //    }
+
+        //    //request.VrijemeTermina = dtpVrijemeTermina.Value.Date + dtpVrijemeTermina.Value.TimeOfDay;
+
+        //    await _termini.Insert<Model.Termini>(request);
+        //    MessageBox.Show("Uspješno izvršeno");
+        //    //this.Close();
+        //}
     }
 }

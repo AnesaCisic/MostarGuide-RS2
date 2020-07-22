@@ -45,6 +45,7 @@
             this.btnDodaj.TabIndex = 34;
             this.btnDodaj.Text = "Sačuvaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // cmbIzlet
             // 
@@ -110,6 +111,7 @@
             this.Controls.Add(this.dtpVrijemeTermina);
             this.Name = "frmTerminiDetalji";
             this.Text = "frmTerminiDetalji";
+            this.Load += new System.EventHandler(this.frmTerminiDetalji_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -20,7 +20,13 @@ namespace MostarGuide.WebAPI.Mappers
             CreateMap<Database.Termini, Model.Termini>().ReverseMap();
             CreateMap<Database.Termini, TerminiUpsertRequest>().ReverseMap();
 
+            CreateMap<Database.Kategorije, Model.Kategorije>().ReverseMap();
+
+            CreateMap<Database.Sekcije, Model.Sekcije>().ReverseMap();
+            CreateMap<Database.Sekcije, SekcijeUpsertRequest>().ReverseMap();
+
+
         }
-         
+
     }
 }
