@@ -28,87 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDodaj = new System.Windows.Forms.Button();
-            this.cmbIzlet = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbVodic = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Datum = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dtpVrijemeTermina = new System.Windows.Forms.DateTimePicker();
+            this.btnSacuvaj = new System.Windows.Forms.Button();
+            this.cmbVodic = new System.Windows.Forms.ComboBox();
+            this.cmbIzlet = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // btnDodaj
-            // 
-            this.btnDodaj.Location = new System.Drawing.Point(185, 231);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(82, 21);
-            this.btnDodaj.TabIndex = 34;
-            this.btnDodaj.Text = "Sačuvaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
-            // 
-            // cmbIzlet
-            // 
-            this.cmbIzlet.FormattingEnabled = true;
-            this.cmbIzlet.Location = new System.Drawing.Point(62, 124);
-            this.cmbIzlet.Name = "cmbIzlet";
-            this.cmbIzlet.Size = new System.Drawing.Size(205, 21);
-            this.cmbIzlet.TabIndex = 33;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 106);
+            this.label2.Location = new System.Drawing.Point(65, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Izlet";
-            // 
-            // cmbVodic
-            // 
-            this.cmbVodic.FormattingEnabled = true;
-            this.cmbVodic.Location = new System.Drawing.Point(62, 182);
-            this.cmbVodic.Name = "cmbVodic";
-            this.cmbVodic.Size = new System.Drawing.Size(205, 21);
-            this.cmbVodic.TabIndex = 31;
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Vodič";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 161);
+            this.label1.Location = new System.Drawing.Point(65, 119);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Vodič";
+            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Izlet";
             // 
-            // Datum
+            // label3
             // 
-            this.Datum.AutoSize = true;
-            this.Datum.Location = new System.Drawing.Point(59, 48);
-            this.Datum.Name = "Datum";
-            this.Datum.Size = new System.Drawing.Size(79, 13);
-            this.Datum.TabIndex = 29;
-            this.Datum.Text = "Datum i vrijeme";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(65, 180);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Datum izleta";
             // 
             // dtpVrijemeTermina
             // 
-            this.dtpVrijemeTermina.Location = new System.Drawing.Point(62, 71);
+            this.dtpVrijemeTermina.Location = new System.Drawing.Point(66, 210);
             this.dtpVrijemeTermina.Name = "dtpVrijemeTermina";
-            this.dtpVrijemeTermina.Size = new System.Drawing.Size(205, 20);
-            this.dtpVrijemeTermina.TabIndex = 28;
+            this.dtpVrijemeTermina.Size = new System.Drawing.Size(193, 20);
+            this.dtpVrijemeTermina.TabIndex = 39;
+            // 
+            // btnSacuvaj
+            // 
+            this.btnSacuvaj.Location = new System.Drawing.Point(177, 266);
+            this.btnSacuvaj.Name = "btnSacuvaj";
+            this.btnSacuvaj.Size = new System.Drawing.Size(82, 21);
+            this.btnSacuvaj.TabIndex = 40;
+            this.btnSacuvaj.Text = "Sačuvaj";
+            this.btnSacuvaj.UseVisualStyleBackColor = true;
+            this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
+            // 
+            // cmbVodic
+            // 
+            this.cmbVodic.FormattingEnabled = true;
+            this.cmbVodic.Location = new System.Drawing.Point(68, 79);
+            this.cmbVodic.Name = "cmbVodic";
+            this.cmbVodic.Size = new System.Drawing.Size(190, 21);
+            this.cmbVodic.TabIndex = 41;
+            this.cmbVodic.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbVodic_Format);
+            // 
+            // cmbIzlet
+            // 
+            this.cmbIzlet.FormattingEnabled = true;
+            this.cmbIzlet.Location = new System.Drawing.Point(66, 146);
+            this.cmbIzlet.Name = "cmbIzlet";
+            this.cmbIzlet.Size = new System.Drawing.Size(191, 21);
+            this.cmbIzlet.TabIndex = 42;
             // 
             // frmTerminiDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 297);
-            this.Controls.Add(this.btnDodaj);
+            this.ClientSize = new System.Drawing.Size(334, 330);
             this.Controls.Add(this.cmbIzlet);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbVodic);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Datum);
+            this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.dtpVrijemeTermina);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Name = "frmTerminiDetalji";
             this.Text = "frmTerminiDetalji";
             this.Load += new System.EventHandler(this.frmTerminiDetalji_Load);
@@ -119,12 +120,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnDodaj;
-        private System.Windows.Forms.ComboBox cmbIzlet;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbVodic;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label Datum;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpVrijemeTermina;
+        private System.Windows.Forms.Button btnSacuvaj;
+        private System.Windows.Forms.ComboBox cmbVodic;
+        private System.Windows.Forms.ComboBox cmbIzlet;
     }
 }

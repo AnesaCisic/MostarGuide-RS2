@@ -90,14 +90,14 @@
     <Compile Include="Korisnici\frmKorisniciDetalji.Designer.cs">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Termini\frmTermini.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Termini\frmTermini.Designer.cs">
       <DependentUpon>frmTermini.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Termini\frmTerminiDetalji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +119,9 @@
     <EmbeddedResource Include="Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Termini\frmTermini.resx">
+      <DependentUpon>frmTermini.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -129,9 +132,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Termini\frmTermini.resx">
-      <DependentUpon>frmTermini.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Termini\frmTerminiDetalji.resx">
       <DependentUpon>frmTerminiDetalji.cs</DependentUpon>
     </EmbeddedResource>

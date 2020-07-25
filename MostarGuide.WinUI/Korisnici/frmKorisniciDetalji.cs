@@ -56,18 +56,29 @@ namespace MostarGuide.WinUI.Korisnici
                 //    PasswordConfirmation = txtPasswordConfirmation.Text,
 
                 //};
-
-                //da li je insert ili update
-                if (_id.HasValue)
+                if(txtPassword.Text != txtPasswordConfirmation.Text)
                 {
-                    await _aPIService.Update<Model.Korisnici>(_id, request);
+                    MessageBox.Show("Passwordi nisu jednaki");
+
                 }
                 else
                 {
-                    await _aPIService.Insert<Model.Korisnici>(request);
+                    //da li je insert ili update
+                    if (_id.HasValue)
+                    {
+                        await _aPIService.Update<Model.Korisnici>(_id, request);
+                    }
+                    else
+                    {
+
+                        await _aPIService.Insert<Model.Korisnici>(request);
+                    }
+
+                    MessageBox.Show("Operacija uspješna!");
+                    this.Close();
                 }
 
-                MessageBox.Show("Operacija uspješna!");
+                
             }
         }
 
@@ -93,9 +104,6 @@ namespace MostarGuide.WinUI.Korisnici
                 {
                     cbAktivan.Checked = false;
                 }
-
-
-
             }
         }
 

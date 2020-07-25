@@ -37,9 +37,9 @@ namespace MostarGuide.WebAPI.Services
                 query = query.Where(x => x.KorisnikId == search.KorisnikId);
             }
 
-
-            query = query.OrderByDescending(x => x.VrijemeTermina);
-            var list = query.ToList();
+     
+          var  list = query.OrderByDescending(x => x.VrijemeTermina).ToList();
+   
             return _mapper.Map<List<Model.Termini>>(list);
         }
 

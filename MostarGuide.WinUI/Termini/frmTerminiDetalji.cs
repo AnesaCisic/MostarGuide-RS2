@@ -13,92 +13,97 @@ namespace MostarGuide.WinUI.Termini
 {
     public partial class frmTerminiDetalji : Form
     {
-        private readonly APIService _termini = new APIService("termin");
-        private readonly APIService _izleti = new APIService("izlet");
         private readonly APIService _vodici = new APIService("korisnik");
+        private readonly APIService _izleti = new APIService("izlet");
+        private readonly APIService _termini = new APIService("termin");
         private int? _id = null;
 
-        public frmTerminiDetalji(int? terminId = null)
+        public frmTerminiDetalji(int? korisnikId = null)
         {
             InitializeComponent();
-            _id = terminId;
-
+            _id = korisnikId;
         }
-
         private async Task LoadVodici()
         {
             var result = await _vodici.Get<List<Model.Korisnici>>(null);
-            cmbVodic.DataSource = result;
             cmbVodic.DisplayMember = "Ime";
             cmbVodic.ValueMember = "KorisnikId";
+            cmbVodic.DataSource = result;
+            cmbIzlet.SelectedItem = null;
         }
 
         private async Task LoadIzleti()
         {
-            var result = await _izleti.Get<List<Model.Izleti>>(null); //dohvatimo podatke
-            cmbIzlet.DataSource = result;//ucitavamo u combo box podatke
+            var result = await _izleti.Get<List<Model.Izleti>>(null);
             cmbIzlet.DisplayMember = "Naziv";
             cmbIzlet.ValueMember = "IzletId";
+            cmbIzlet.DataSource = result;
+            cmbIzlet.SelectedItem = null;
         }
 
+        //UPDATE ODRADITI NIJE DOBRO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         private async void frmTerminiDetalji_Load(object sender, EventArgs e)
         {
             await LoadVodici();
             await LoadIzleti();
 
-            dtpVrijemeTermina.Format = DateTimePickerFormat.Custom;
-            dtpVrijemeTermina.CustomFormat = "dd/MM/yyyy hh:mm";
-
             if (_id.HasValue)
             {
                 var termin = await _termini.GetById<Model.Termini>(_id);
-
-                var k = await _vodici.GetById<Model.Korisnici>(termin.KorisnikId);//trazimo odredjenog korisnika
-                cmbVodic.SelectedIndex = cmbVodic.FindStringExact(k.Ime + " " + k.Prezime);
-
+                var k = await _vodici.GetById<Model.Korisnici>(termin.KorisnikId);
                 var i = await _izleti.GetById<Model.Izleti>(termin.IzletId);
+
+                cmbVodic.SelectedIndex = cmbVodic.FindStringExact(k.Ime + " " + k.Prezime);
                 cmbIzlet.SelectedIndex = cmbIzlet.FindStringExact(i.Naziv);
 
-                dtpVrijemeTermina.Value = termin.VrijemeTermina.Date + termin.VrijemeTermina.TimeOfDay;
+                //cmbVodic.SelectedIndex = int.Parse(termin.KorisnikId.ToString());
+                //cmbIzlet.SelectedIndex = int.Parse(termin.IzletId.ToString());
+                dtpVrijemeTermina.Value = termin.VrijemeTermina;
             }
-
         }
 
 
-        private async void btnDodaj_Click(object sender, EventArgs e)
+        private async void btnSacuvaj_Click(object sender, EventArgs e)
         {
             TerminiUpsertRequest request = new TerminiUpsertRequest();
 
-            var izletObj = cmbIzlet.SelectedValue;
+            var vodic = cmbVodic.SelectedValue;
 
-            if (int.TryParse(izletObj.ToString(), out int izletId))
+            if (int.TryParse(vodic.ToString(), out int idVodic))
             {
-                request.IzletId = izletId;
+                request.KorisnikId = idVodic;
             }
 
-            var vodicObj = cmbVodic.SelectedValue;
+            var izlet = cmbIzlet.SelectedValue;
 
-            if (int.TryParse(vodicObj.ToString(), out int vodicId))
+            if (int.TryParse(izlet.ToString(), out int idIzlet))
             {
-                request.KorisnikId = vodicId;
+                request.IzletId = idIzlet;
             }
 
-            request.VrijemeTermina = dtpVrijemeTermina.Value.Date + dtpVrijemeTermina.Value.TimeOfDay;
-
-            Model.Termini entity = null;
+            request.VrijemeTermina = dtpVrijemeTermina.Value;
 
             if (_id.HasValue)
             {
-                request.TerminId = _id.Value;
-                entity = await _termini.Update<Model.Termini>(_id, request);
+                await _termini.Update<Model.Termini>(_id, request);
             }
             else
             {
-                entity = await _termini.Insert<Model.Termini>(request);
+                await _termini.Insert<Model.Termini>(request);
+
             }
 
-            if (entity != null)
-               MessageBox.Show("Operacija uspješna!");
+            MessageBox.Show("Uspješno sačuvani podaci");
+            this.Close();
         }
+
+        private void cmbVodic_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string ime = ((Model.Korisnici)e.ListItem).Ime;
+            string prezime = ((Model.Korisnici)e.ListItem).Prezime;
+            e.Value = ime + " " + prezime;
+        }
+
+
     }
 }
