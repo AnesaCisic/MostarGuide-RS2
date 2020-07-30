@@ -70,8 +70,9 @@ namespace MostarGuide.WinUI.Termini
                     TerminId = t.TerminId,
                     Izlet = i.Naziv,
                     Vodic = k.Ime + " " + k.Prezime,
-                    Datum = t.VrijemeTermina.Date.ToShortDateString() + t.VrijemeTermina.TimeOfDay.ToString()
-
+                    //Datum = t.VrijemeTermina.Date.ToShortDateString() + t.VrijemeTermina.TimeOfDay.ToString()
+                    Datum = t.Datum,
+                    Vrijeme = t.Vrijeme
                 });
             }
 

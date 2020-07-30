@@ -9,7 +9,8 @@ namespace MostarGuide.WebAPI.Database
     {
         public KorisniciMob()
         {
-            Ocjene = new HashSet<Ocjene>();
+            OcjeneIzleti = new HashSet<OcjeneIzleti>();
+            OcjeneSekcije = new HashSet<OcjeneSekcije>();
             Rezervacije = new HashSet<Rezervacije>();
         }
 
@@ -23,7 +24,8 @@ namespace MostarGuide.WebAPI.Database
         public string LozinkaSalt { get; set; }
         public bool Status { get; set; }
 
-        public virtual ICollection<Ocjene> Ocjene { get; set; }
+        public virtual ICollection<OcjeneIzleti> OcjeneIzleti { get; set; }
+        public virtual ICollection<OcjeneSekcije> OcjeneSekcije { get; set; }
         public virtual ICollection<Rezervacije> Rezervacije { get; set; }
     }
 }

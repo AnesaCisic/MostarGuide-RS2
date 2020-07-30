@@ -10,8 +10,8 @@ using MostarGuide.WebAPI.Database;
 namespace MostarGuide.WebAPI.Migrations
 {
     [DbContext(typeof(MostarGuideContext))]
-    [Migration("20200715190141_incijalna2")]
-    partial class incijalna2
+    [Migration("20200730160148_novabaza")]
+    partial class novabaza
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,12 +42,6 @@ namespace MostarGuide.WebAPI.Migrations
 
                     b.Property<byte[]>("Slika")
                         .HasColumnType("image");
-
-                    b.Property<bool?>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValueSql("((1))");
 
                     b.HasKey("IzletId");
 
@@ -136,7 +130,7 @@ namespace MostarGuide.WebAPI.Migrations
                 {
                     b.Property<int>("KorisnikId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("KoricnikID")
+                        .HasColumnName("KorisnikID")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -209,7 +203,7 @@ namespace MostarGuide.WebAPI.Migrations
                     b.ToTable("KorisniciUloge");
                 });
 
-            modelBuilder.Entity("MostarGuide.WebAPI.Database.Ocjene", b =>
+            modelBuilder.Entity("MostarGuide.WebAPI.Database.OcjeneIzleti", b =>
                 {
                     b.Property<int>("OcjenaId")
                         .ValueGeneratedOnAdd()
@@ -221,11 +215,12 @@ namespace MostarGuide.WebAPI.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<int>("IzletId")
-                        .HasColumnName("ProizvodID")
                         .HasColumnType("int");
 
                     b.Property<int>("KorisnikId")
-                        .HasColumnName("KupacID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Ocjena")
                         .HasColumnType("int");
 
                     b.HasKey("OcjenaId");
@@ -234,7 +229,36 @@ namespace MostarGuide.WebAPI.Migrations
 
                     b.HasIndex("KorisnikId");
 
-                    b.ToTable("Ocjene");
+                    b.ToTable("OcjeneIzleti");
+                });
+
+            modelBuilder.Entity("MostarGuide.WebAPI.Database.OcjeneSekcije", b =>
+                {
+                    b.Property<int>("OcjenaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("OcjenaID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Datum")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("KorisnikId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Ocjena")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SekcijaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OcjenaId");
+
+                    b.HasIndex("KorisnikId");
+
+                    b.HasIndex("SekcijaId");
+
+                    b.ToTable("OcjeneSekcije");
                 });
 
             modelBuilder.Entity("MostarGuide.WebAPI.Database.Rezervacije", b =>
@@ -317,20 +341,23 @@ namespace MostarGuide.WebAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("Datum")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("IzletId")
                         .HasColumnType("int");
 
-                    b.Property<int>("VodicId")
+                    b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("VrijemeTermina")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime>("Vrijeme")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("TerminId");
 
                     b.HasIndex("IzletId");
 
-                    b.HasIndex("VodicId");
+                    b.HasIndex("KorisnikId");
 
                     b.ToTable("Termini");
                 });
@@ -374,19 +401,36 @@ namespace MostarGuide.WebAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MostarGuide.WebAPI.Database.Ocjene", b =>
+            modelBuilder.Entity("MostarGuide.WebAPI.Database.OcjeneIzleti", b =>
                 {
                     b.HasOne("MostarGuide.WebAPI.Database.Izleti", "Izlet")
                         .WithMany("Ocjene")
                         .HasForeignKey("IzletId")
-                        .HasConstraintName("FK_Ocjene_Proizvodi")
+                        .HasConstraintName("FK_Ocjene_Izleti")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MostarGuide.WebAPI.Database.KorisniciMob", "Korisnik")
-                        .WithMany("Ocjene")
+                        .WithMany("OcjeneIzleti")
                         .HasForeignKey("KorisnikId")
-                        .HasConstraintName("FK_Ocjene_Kupci")
+                        .HasConstraintName("FK_OcjeneIzleti_Korisnici")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MostarGuide.WebAPI.Database.OcjeneSekcije", b =>
+                {
+                    b.HasOne("MostarGuide.WebAPI.Database.KorisniciMob", "Korisnik")
+                        .WithMany("OcjeneSekcije")
+                        .HasForeignKey("KorisnikId")
+                        .HasConstraintName("FK_OcjeneSekcije_Korisnici")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MostarGuide.WebAPI.Database.Sekcije", "Sekcije")
+                        .WithMany("Ocjene")
+                        .HasForeignKey("SekcijaId")
+                        .HasConstraintName("FK_Ocjene_Sekcije")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -424,10 +468,10 @@ namespace MostarGuide.WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MostarGuide.WebAPI.Database.Korisnici", "Vodic")
+                    b.HasOne("MostarGuide.WebAPI.Database.Korisnici", "Korisnik")
                         .WithMany("Termini")
-                        .HasForeignKey("VodicId")
-                        .HasConstraintName("FK_Termin_Vodic_Id")
+                        .HasForeignKey("KorisnikId")
+                        .HasConstraintName("FK_Termin_Korisnik_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

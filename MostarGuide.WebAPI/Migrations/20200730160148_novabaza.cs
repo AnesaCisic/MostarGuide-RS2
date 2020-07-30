@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MostarGuide.WebAPI.Migrations
 {
-    public partial class incijalna : Migration
+    public partial class novabaza : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,9 +16,8 @@ namespace MostarGuide.WebAPI.Migrations
                     Naziv = table.Column<string>(nullable: true),
                     Opis = table.Column<string>(nullable: true),
                     BrojMjesta = table.Column<int>(nullable: false),
-                    Cijena = table.Column<decimal>(nullable: false),
-                    Slika = table.Column<byte[]>(type: "image", nullable: true),
-                    Status = table.Column<bool>(nullable: false, defaultValueSql: "((1))")
+                    Cijena = table.Column<decimal>(type: "decimal(5, 2)", nullable: false),
+                    Slika = table.Column<byte[]>(type: "image", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,7 +61,7 @@ namespace MostarGuide.WebAPI.Migrations
                 name: "KorisniciMob",
                 columns: table => new
                 {
-                    KoricnikID = table.Column<int>(nullable: false)
+                    KorisnikID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Ime = table.Column<string>(maxLength: 50, nullable: false),
                     Prezime = table.Column<string>(maxLength: 50, nullable: false),
@@ -75,7 +74,7 @@ namespace MostarGuide.WebAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_KorisniciMob", x => x.KoricnikID);
+                    table.PrimaryKey("PK_KorisniciMob", x => x.KorisnikID);
                 });
 
             migrationBuilder.CreateTable(
@@ -124,8 +123,9 @@ namespace MostarGuide.WebAPI.Migrations
                     TerminId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IzletId = table.Column<int>(nullable: false),
-                    VodicId = table.Column<int>(nullable: false),
-                    VrijemeTermina = table.Column<DateTime>(type: "datetime", nullable: false)
+                    KorisnikId = table.Column<int>(nullable: false),
+                    Datum = table.Column<DateTime>(nullable: false),
+                    Vrijeme = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -137,37 +137,38 @@ namespace MostarGuide.WebAPI.Migrations
                         principalColumn: "IzletId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Termin_Vodic_Id",
-                        column: x => x.VodicId,
+                        name: "FK_Termin_Korisnik_Id",
+                        column: x => x.KorisnikId,
                         principalTable: "Korisnici",
                         principalColumn: "KorisnikID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ocjene",
+                name: "OcjeneIzleti",
                 columns: table => new
                 {
                     OcjenaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProizvodID = table.Column<int>(nullable: false),
-                    KupacID = table.Column<int>(nullable: false),
-                    Datum = table.Column<DateTime>(type: "datetime", nullable: false)
+                    IzletId = table.Column<int>(nullable: false),
+                    KorisnikId = table.Column<int>(nullable: false),
+                    Datum = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Ocjena = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ocjene", x => x.OcjenaID);
+                    table.PrimaryKey("PK_OcjeneIzleti", x => x.OcjenaID);
                     table.ForeignKey(
-                        name: "FK_Ocjene_Proizvodi",
-                        column: x => x.ProizvodID,
+                        name: "FK_Ocjene_Izleti",
+                        column: x => x.IzletId,
                         principalTable: "Izleti",
                         principalColumn: "IzletId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Ocjene_Kupci",
-                        column: x => x.KupacID,
+                        name: "FK_OcjeneIzleti_Korisnici",
+                        column: x => x.KorisnikId,
                         principalTable: "KorisniciMob",
-                        principalColumn: "KoricnikID",
+                        principalColumn: "KorisnikID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -199,6 +200,34 @@ namespace MostarGuide.WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OcjeneSekcije",
+                columns: table => new
+                {
+                    OcjenaID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SekcijaId = table.Column<int>(nullable: false),
+                    KorisnikId = table.Column<int>(nullable: false),
+                    Datum = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Ocjena = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OcjeneSekcije", x => x.OcjenaID);
+                    table.ForeignKey(
+                        name: "FK_OcjeneSekcije_Korisnici",
+                        column: x => x.KorisnikId,
+                        principalTable: "KorisniciMob",
+                        principalColumn: "KorisnikID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Ocjene_Sekcije",
+                        column: x => x.SekcijaId,
+                        principalTable: "Sekcije",
+                        principalColumn: "SekcijaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Rezervacije",
                 columns: table => new
                 {
@@ -216,7 +245,7 @@ namespace MostarGuide.WebAPI.Migrations
                         name: "FK_Rezervacije_KorisniciMob_KorisnikMobId",
                         column: x => x.KorisnikMobId,
                         principalTable: "KorisniciMob",
-                        principalColumn: "KoricnikID",
+                        principalColumn: "KorisnikID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Rezervacije_Termini_TerminId",
@@ -250,14 +279,24 @@ namespace MostarGuide.WebAPI.Migrations
                 column: "UlogaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ocjene_ProizvodID",
-                table: "Ocjene",
-                column: "ProizvodID");
+                name: "IX_OcjeneIzleti_IzletId",
+                table: "OcjeneIzleti",
+                column: "IzletId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ocjene_KupacID",
-                table: "Ocjene",
-                column: "KupacID");
+                name: "IX_OcjeneIzleti_KorisnikId",
+                table: "OcjeneIzleti",
+                column: "KorisnikId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OcjeneSekcije_KorisnikId",
+                table: "OcjeneSekcije",
+                column: "KorisnikId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OcjeneSekcije_SekcijaId",
+                table: "OcjeneSekcije",
+                column: "SekcijaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rezervacije_KorisnikMobId",
@@ -280,9 +319,9 @@ namespace MostarGuide.WebAPI.Migrations
                 column: "IzletId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Termini_VodicId",
+                name: "IX_Termini_KorisnikId",
                 table: "Termini",
-                column: "VodicId");
+                column: "KorisnikId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -291,16 +330,19 @@ namespace MostarGuide.WebAPI.Migrations
                 name: "KorisniciUloge");
 
             migrationBuilder.DropTable(
-                name: "Ocjene");
+                name: "OcjeneIzleti");
+
+            migrationBuilder.DropTable(
+                name: "OcjeneSekcije");
 
             migrationBuilder.DropTable(
                 name: "Rezervacije");
 
             migrationBuilder.DropTable(
-                name: "Sekcije");
+                name: "Uloge");
 
             migrationBuilder.DropTable(
-                name: "Uloge");
+                name: "Sekcije");
 
             migrationBuilder.DropTable(
                 name: "KorisniciMob");

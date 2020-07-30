@@ -37,6 +37,7 @@
             this.Vodic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Izlet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vrijeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,8 @@
             this.TerminId,
             this.Vodic,
             this.Izlet,
-            this.Datum});
+            this.Datum,
+            this.Vrijeme});
             this.dgvTermini.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTermini.Location = new System.Drawing.Point(3, 16);
             this.dgvTermini.Name = "dgvTermini";
@@ -120,6 +122,12 @@
             this.Datum.HeaderText = "Datum";
             this.Datum.Name = "Datum";
             // 
+            // Vrijeme
+            // 
+            this.Vrijeme.DataPropertyName = "Vrijeme";
+            this.Vrijeme.HeaderText = "Vrijeme";
+            this.Vrijeme.Name = "Vrijeme";
+            // 
             // frmTermini
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,5 +158,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Vodic;
         private System.Windows.Forms.DataGridViewTextBoxColumn Izlet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vrijeme;
     }
 }

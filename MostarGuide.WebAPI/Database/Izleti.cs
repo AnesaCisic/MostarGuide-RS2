@@ -9,7 +9,7 @@ namespace MostarGuide.WebAPI.Database
     {
         public Izleti()
         {
-            Ocjene = new HashSet<Ocjene>();
+            Ocjene = new HashSet<OcjeneIzleti>();
             Termini = new HashSet<Termini>();
         }
 
@@ -21,7 +21,7 @@ namespace MostarGuide.WebAPI.Database
         public byte[] Slika { get; set; }
         //public bool? Status { get; set; }
 
-        public virtual ICollection<Ocjene> Ocjene { get; set; }
+        public virtual ICollection<OcjeneIzleti> Ocjene { get; set; }
         public virtual ICollection<Termini> Termini { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace MostarGuide.WebAPI.Services
             }
 
      
-          var  list = query.OrderByDescending(x => x.VrijemeTermina).ToList();
+            var  list = query.OrderByDescending(x => x.Datum).ToList();
    
             return _mapper.Map<List<Model.Termini>>(list);
         }

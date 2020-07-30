@@ -25,7 +25,8 @@ namespace MostarGuide.WebAPI.Mappers
             CreateMap<Database.Sekcije, Model.Sekcije>().ReverseMap();
             CreateMap<Database.Sekcije, SekcijeUpsertRequest>().ReverseMap();
 
-
+            CreateMap<Database.Rezervacije, Model.Rezervacije>().ReverseMap();
+            CreateMap<Database.Rezervacije, RezervacijeUpsertRequest>().ReverseMap();
         }
 
     }

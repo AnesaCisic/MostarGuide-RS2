@@ -47,6 +47,7 @@ namespace MostarGuide.WebAPI
             services.AddScoped<ICRUDService<Model.Termini, TerminiSearchRequest, TerminiUpsertRequest, TerminiUpsertRequest>, TerminService>();
             services.AddScoped<IService<Model.Kategorije, object>, BaseService<Model.Kategorije, object, Kategorije>> ();
             services.AddScoped<ICRUDService<Model.Sekcije, SekcijeSearchRequest, SekcijeUpsertRequest, SekcijeUpsertRequest>, SekcijaService>();
+            services.AddScoped<ICRUDService<Model.Rezervacije, RezervacijeSearchRequest, RezervacijeUpsertRequest, RezervacijeUpsertRequest>, RezervacijaService>();
 
 
             var connection = @"Server=.;Database=IB160037;Trusted_Connection=True;ConnectRetryCount=0";

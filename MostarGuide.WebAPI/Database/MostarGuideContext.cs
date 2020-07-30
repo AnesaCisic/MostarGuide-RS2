@@ -16,7 +16,8 @@ namespace MostarGuide.WebAPI.Database
         public virtual DbSet<Izleti> Izleti { get; set; }
         public virtual DbSet<Kategorije> Kategorije { get; set; }
         public virtual DbSet<Sekcije> Sekcije { get; set; }
-        public virtual DbSet<Ocjene> Ocjene { get; set; }
+        public virtual DbSet<OcjeneIzleti> OcjeneIzleti { get; set; }
+        public virtual DbSet<OcjeneSekcije> OcjeneSekcije { get; set; }
         public virtual DbSet<Korisnici> Korisnici { get; set; }
         public virtual DbSet<KorisniciUloge> KorisniciUloge { get; set; }
         public virtual DbSet<KorisniciMob> KorisniciMob { get; set; }
@@ -120,7 +121,7 @@ namespace MostarGuide.WebAPI.Database
             {
                 entity.HasKey(e => e.TerminId);
 
-                entity.Property(e => e.VrijemeTermina).HasColumnType("datetime");
+                //entity.Property(e => e.VrijemeTermina).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Korisnik)
                     .WithMany(p => p.Termini)
@@ -211,7 +212,7 @@ namespace MostarGuide.WebAPI.Database
                     .HasForeignKey(d => d.KategorijaId);
             });
 
-            modelBuilder.Entity<Ocjene>(entity =>
+            modelBuilder.Entity<OcjeneIzleti>(entity =>
             {
                 entity.HasKey(e => e.OcjenaId);
 
@@ -219,26 +220,26 @@ namespace MostarGuide.WebAPI.Database
 
                 entity.Property(e => e.Datum).HasColumnType("datetime");
 
-                entity.Property(e => e.KorisnikId).HasColumnName("KupacID");
+                //entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
 
-                entity.Property(e => e.IzletId).HasColumnName("ProizvodID");
+                //entity.Property(e => e.IzletId).HasColumnName("IzletID");
 
                 entity.HasOne(d => d.Korisnik)
-                    .WithMany(p => p.Ocjene)
+                    .WithMany(p => p.OcjeneIzleti)
                     .HasForeignKey(d => d.KorisnikId)
-                    .HasConstraintName("FK_Ocjene_Kupci");
+                    .HasConstraintName("FK_OcjeneIzleti_Korisnici");
 
                 entity.HasOne(d => d.Izlet)
                     .WithMany(p => p.Ocjene)
                     .HasForeignKey(d => d.IzletId)
-                    .HasConstraintName("FK_Ocjene_Proizvodi");
+                    .HasConstraintName("FK_Ocjene_Izleti");
             });
 
             modelBuilder.Entity<KorisniciMob>(entity =>
             {
                 entity.HasKey(e => e.KorisnikId);
 
-                entity.Property(e => e.KorisnikId).HasColumnName("KoricnikID");
+                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
 
                 entity.Property(e => e.DatumRegistracije).HasColumnType("datetime");
 
@@ -267,6 +268,28 @@ namespace MostarGuide.WebAPI.Database
                     .HasMaxLength(50);
             });
 
+            modelBuilder.Entity<OcjeneSekcije>(entity =>
+            {
+                entity.HasKey(e => e.OcjenaId);
+
+                entity.Property(e => e.OcjenaId).HasColumnName("OcjenaID");
+
+                entity.Property(e => e.Datum).HasColumnType("datetime");
+
+                //entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
+
+                //entity.Property(e => e.SekcijaId).HasColumnName("SekcijaID");
+
+                entity.HasOne(d => d.Korisnik)
+                    .WithMany(p => p.OcjeneSekcije)
+                    .HasForeignKey(d => d.KorisnikId)
+                    .HasConstraintName("FK_OcjeneSekcije_Korisnici");
+
+                entity.HasOne(d => d.Sekcije)
+                    .WithMany(p => p.Ocjene)
+                    .HasForeignKey(d => d.SekcijaId)
+                    .HasConstraintName("FK_Ocjene_Sekcije");
+            });
         }
 
 
