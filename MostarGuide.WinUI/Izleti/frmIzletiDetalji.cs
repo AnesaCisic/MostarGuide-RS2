@@ -31,6 +31,7 @@ namespace MostarGuide.WinUI.Izleti
             return Image.FromStream(m);
         }
 
+
         private async void frmIzletiDetalji_Load(object sender, EventArgs e)
         {
             if (_id.HasValue)

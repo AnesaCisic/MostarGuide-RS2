@@ -90,6 +90,24 @@
     <Compile Include="Korisnici\frmKorisniciDetalji.Designer.cs">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sekcije\frmSekcije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sekcije\frmSekcije.Designer.cs">
+      <DependentUpon>frmSekcije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sekcije\frmSekcijeDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sekcije\frmSekcijeDetalji.Designer.cs">
+      <DependentUpon>frmSekcijeDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sekcije\frmSekcijeDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sekcije\frmSekcijeDodaj.Designer.cs">
+      <DependentUpon>frmSekcijeDodaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Termini\frmTermini.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +136,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sekcije\frmSekcije.resx">
+      <DependentUpon>frmSekcije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sekcije\frmSekcijeDetalji.resx">
+      <DependentUpon>frmSekcijeDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sekcije\frmSekcijeDodaj.resx">
+      <DependentUpon>frmSekcijeDodaj.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Termini\frmTermini.resx">
       <DependentUpon>frmTermini.cs</DependentUpon>
