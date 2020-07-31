@@ -48,7 +48,7 @@ namespace MostarGuide.WebAPI
             services.AddScoped<IService<Model.Kategorije, object>, BaseService<Model.Kategorije, object, Kategorije>> ();
             services.AddScoped<ICRUDService<Model.Sekcije, SekcijeSearchRequest, SekcijeUpsertRequest, SekcijeUpsertRequest>, SekcijaService>();
             services.AddScoped<ICRUDService<Model.Rezervacije, RezervacijeSearchRequest, RezervacijeUpsertRequest, RezervacijeUpsertRequest>, RezervacijaService>();
-
+            services.AddScoped<ICRUDService<Model.KorisniciMob, KorisniciMobSearchRequest, KorisniciMobUpsertRequest, KorisniciMobUpsertRequest>, KorisnikMobService>();
 
             var connection = @"Server=.;Database=IB160037;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<MostarGuideContext>(options => options.UseSqlServer(connection));

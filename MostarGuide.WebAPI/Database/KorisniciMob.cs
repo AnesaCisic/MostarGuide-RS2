@@ -17,12 +17,14 @@ namespace MostarGuide.WebAPI.Database
         public int KorisnikId { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
-        public DateTime DatumRegistracije { get; set; }
         public string Email { get; set; }
+        public string BrojTelefona { get; set; }
         public string KorisnickoIme { get; set; }
         public string LozinkaHash { get; set; }
         public string LozinkaSalt { get; set; }
-        public bool Status { get; set; }
+
+        //public bool Status { get; set; }
+        //public DateTime DatumRegistracije { get; set; }
 
         public virtual ICollection<OcjeneIzleti> OcjeneIzleti { get; set; }
         public virtual ICollection<OcjeneSekcije> OcjeneSekcije { get; set; }

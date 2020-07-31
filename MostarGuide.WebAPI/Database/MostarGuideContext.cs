@@ -241,7 +241,7 @@ namespace MostarGuide.WebAPI.Database
 
                 entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
 
-                entity.Property(e => e.DatumRegistracije).HasColumnType("datetime");
+                //entity.Property(e => e.DatumRegistracije).HasColumnType("datetime");
 
                 entity.Property(e => e.Email)
                     .IsRequired()
