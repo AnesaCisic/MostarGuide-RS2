@@ -21,6 +21,8 @@ namespace MostarGuide.WebAPI.Mappers
             CreateMap<Database.Termini, TerminiUpsertRequest>().ReverseMap();
 
             CreateMap<Database.Kategorije, Model.Kategorije>().ReverseMap();
+            CreateMap<Database.Kategorije, KategorijeUpsertRequest>().ReverseMap();
+
 
             CreateMap<Database.Sekcije, Model.Sekcije>().ReverseMap();
             CreateMap<Database.Sekcije, SekcijeUpsertRequest>().ReverseMap();
@@ -30,6 +32,13 @@ namespace MostarGuide.WebAPI.Mappers
 
             CreateMap<Database.KorisniciMob, Model.KorisniciMob>().ReverseMap();
             CreateMap<Database.KorisniciMob, KorisniciMobUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.OcjeneIzleti, Model.OcjeneIzleti>().ReverseMap();
+            CreateMap<Database.OcjeneIzleti, OcjeneIzletiUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.OcjeneSekcije, Model.OcjeneSekcije>().ReverseMap();
+            CreateMap<Database.OcjeneSekcije, OcjeneSekcijeUpsertRequest>().ReverseMap();
+
         }
 
     }

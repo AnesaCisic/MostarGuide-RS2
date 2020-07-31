@@ -44,11 +44,13 @@ namespace MostarGuide.WebAPI
 
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<ICRUDService<Model.Izleti, IzletiSearchRequest, IzletiUpsertRequest, IzletiUpsertRequest>, IzletService>();
+            services.AddScoped<ICRUDService<Model.Kategorije, object, KategorijeUpsertRequest, KategorijeUpsertRequest>, KategorijaService>();
             services.AddScoped<ICRUDService<Model.Termini, TerminiSearchRequest, TerminiUpsertRequest, TerminiUpsertRequest>, TerminService>();
-            services.AddScoped<IService<Model.Kategorije, object>, BaseService<Model.Kategorije, object, Kategorije>> ();
             services.AddScoped<ICRUDService<Model.Sekcije, SekcijeSearchRequest, SekcijeUpsertRequest, SekcijeUpsertRequest>, SekcijaService>();
             services.AddScoped<ICRUDService<Model.Rezervacije, RezervacijeSearchRequest, RezervacijeUpsertRequest, RezervacijeUpsertRequest>, RezervacijaService>();
             services.AddScoped<ICRUDService<Model.KorisniciMob, KorisniciMobSearchRequest, KorisniciMobUpsertRequest, KorisniciMobUpsertRequest>, KorisnikMobService>();
+            services.AddScoped<ICRUDService<Model.OcjeneIzleti, OcjeneIzletiSearchRequest, OcjeneIzletiUpsertRequest, OcjeneIzletiUpsertRequest>, OcjenaIzletService>();
+            services.AddScoped<ICRUDService<Model.OcjeneSekcije, OcjeneSekcijeSearchRequest, OcjeneSekcijeUpsertRequest, OcjeneSekcijeUpsertRequest>, OcjenaSekcijaService>();
 
             var connection = @"Server=.;Database=IB160037;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<MostarGuideContext>(options => options.UseSqlServer(connection));

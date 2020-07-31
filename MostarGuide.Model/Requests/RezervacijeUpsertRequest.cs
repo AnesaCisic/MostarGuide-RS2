@@ -6,7 +6,7 @@ namespace MostarGuide.Model.Requests
 {
     public class RezervacijeUpsertRequest
     {
-        public int RezervacijaId { get; set; }
+        //public int RezervacijaId { get; set; }
         public int TerminId { get; set; }
         public int KorisnikMobId { get; set; }
 

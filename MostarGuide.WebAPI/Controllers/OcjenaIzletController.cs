@@ -12,10 +12,11 @@ namespace MostarGuide.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class KategorijaController : BaseCRUDController<Model.Kategorije, object, KategorijeUpsertRequest, KategorijeUpsertRequest>
+    public class OcjenaIzletController : BaseCRUDController<Model.OcjeneIzleti, OcjeneIzletiSearchRequest, OcjeneIzletiUpsertRequest, OcjeneIzletiUpsertRequest>
     {
-        public KategorijaController(ICRUDService<Kategorije, object, KategorijeUpsertRequest, KategorijeUpsertRequest> service) : base(service)
+        public OcjenaIzletController(ICRUDService<OcjeneIzleti, OcjeneIzletiSearchRequest, OcjeneIzletiUpsertRequest, OcjeneIzletiUpsertRequest> service) : base(service)
         {
         }
+
     }
 }
