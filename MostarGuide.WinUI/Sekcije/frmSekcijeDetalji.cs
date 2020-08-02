@@ -27,8 +27,6 @@ namespace MostarGuide.WinUI.Sekcije
 
         SekcijeUpsertRequest request = new SekcijeUpsertRequest();
 
-        
-
         private async void frmSekcijeDetalji_Load(object sender, EventArgs e)
         {
             if (_id.HasValue)

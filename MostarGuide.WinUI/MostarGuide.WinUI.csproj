@@ -78,6 +78,24 @@
     <Compile Include="Izleti\frmIzletiDetalji.Designer.cs">
       <DependentUpon>frmIzletiDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kategorije\frmKategorije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorije.Designer.cs">
+      <DependentUpon>frmKategorije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeDetalji.Designer.cs">
+      <DependentUpon>frmKategorijeDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Klijenti\frmKlijenti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Klijenti\frmKlijenti.Designer.cs">
+      <DependentUpon>frmKlijenti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Korisnici\frmKorisnici.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +107,18 @@
     </Compile>
     <Compile Include="Korisnici\frmKorisniciDetalji.Designer.cs">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OcjeneIzleti\frmOcjeneIzleti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OcjeneIzleti\frmOcjeneIzleti.Designer.cs">
+      <DependentUpon>frmOcjeneIzleti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OcjeneSekcije\frmOcjeneSekcije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OcjeneSekcije\frmOcjeneSekcije.Designer.cs">
+      <DependentUpon>frmOcjeneSekcije.cs</DependentUpon>
     </Compile>
     <Compile Include="Sekcije\frmSekcije.cs">
       <SubType>Form</SubType>
@@ -131,11 +161,26 @@
     <EmbeddedResource Include="Izleti\frmIzletiDetalji.resx">
       <DependentUpon>frmIzletiDetalji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmKategorije.resx">
+      <DependentUpon>frmKategorije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmKategorijeDetalji.resx">
+      <DependentUpon>frmKategorijeDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Klijenti\frmKlijenti.resx">
+      <DependentUpon>frmKlijenti.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisnici.resx">
       <DependentUpon>frmKorisnici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OcjeneIzleti\frmOcjeneIzleti.resx">
+      <DependentUpon>frmOcjeneIzleti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OcjeneSekcije\frmOcjeneSekcije.resx">
+      <DependentUpon>frmOcjeneSekcije.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sekcije\frmSekcije.resx">
       <DependentUpon>frmSekcije.cs</DependentUpon>

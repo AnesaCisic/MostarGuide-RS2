@@ -6,8 +6,8 @@ namespace MostarGuide.Model.Requests
 {
     public class OcjeneIzletiSearchRequest
     {
-        public string KorisnickoIme { get; set; }
-        public int Ocjena { get; set; }
+        public int? IzletId { get; set; }
+        //public int Ocjena { get; set; }
 
     }
 }

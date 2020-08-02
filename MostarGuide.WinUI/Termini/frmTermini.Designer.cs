@@ -37,23 +37,23 @@
             this.Vodic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Izlet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vrijeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvTermini
             // 
+            this.dgvTermini.AllowUserToDeleteRows = false;
             this.dgvTermini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTermini.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TerminId,
             this.Vodic,
             this.Izlet,
-            this.Datum,
-            this.Vrijeme});
+            this.Datum});
             this.dgvTermini.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTermini.Location = new System.Drawing.Point(3, 16);
             this.dgvTermini.Name = "dgvTermini";
+            this.dgvTermini.ReadOnly = true;
             this.dgvTermini.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTermini.Size = new System.Drawing.Size(550, 245);
             this.dgvTermini.TabIndex = 28;
@@ -103,30 +103,28 @@
             this.TerminId.DataPropertyName = "TerminId";
             this.TerminId.HeaderText = "TerminId";
             this.TerminId.Name = "TerminId";
+            this.TerminId.ReadOnly = true;
             // 
             // Vodic
             // 
             this.Vodic.DataPropertyName = "Vodic";
             this.Vodic.HeaderText = "Vodic";
             this.Vodic.Name = "Vodic";
+            this.Vodic.ReadOnly = true;
             // 
             // Izlet
             // 
             this.Izlet.DataPropertyName = "Izlet";
             this.Izlet.HeaderText = "Izlet";
             this.Izlet.Name = "Izlet";
+            this.Izlet.ReadOnly = true;
             // 
             // Datum
             // 
             this.Datum.DataPropertyName = "Datum";
             this.Datum.HeaderText = "Datum";
             this.Datum.Name = "Datum";
-            // 
-            // Vrijeme
-            // 
-            this.Vrijeme.DataPropertyName = "Vrijeme";
-            this.Vrijeme.HeaderText = "Vrijeme";
-            this.Vrijeme.Name = "Vrijeme";
+            this.Datum.ReadOnly = true;
             // 
             // frmTermini
             // 
@@ -158,6 +156,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Vodic;
         private System.Windows.Forms.DataGridViewTextBoxColumn Izlet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Vrijeme;
     }
 }

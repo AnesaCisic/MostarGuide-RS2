@@ -55,14 +55,11 @@ namespace MostarGuide.WinUI.Termini
 
                 cmbVodic.SelectedIndex = cmbVodic.FindStringExact(k.Ime + " " + k.Prezime);
                 cmbIzlet.SelectedIndex = cmbIzlet.FindStringExact(i.Naziv);
-
-                dtpDatum.Value = termin.Datum;
-                dtpVrijeme.Value = termin.Vrijeme;
+                dtpVrijemeTermina.Value = termin.VrijemeTermina;
 
                 //cmbVodic.SelectedIndex = int.Parse(termin.KorisnikId.ToString());
                 //cmbIzlet.SelectedIndex = int.Parse(termin.IzletId.ToString());
-                //dtpVrijemeTermina.Value = termin.VrijemeTermina;
-                
+
             }
         }
 
@@ -87,8 +84,8 @@ namespace MostarGuide.WinUI.Termini
 
             //request.VrijemeTermina = dtpDatum.Value;
 
-            request.DatumTermina = dtpDatum.Value.Date + dtpVrijeme.Value.TimeOfDay;
-            request.VrijemeTermina = dtpDatum.Value.Date + dtpVrijeme.Value.TimeOfDay;
+            //request.DatumTermina = dtpVrijemeTermina.Value.Date + dtpVrijeme.Value.TimeOfDay;
+            request.VrijemeTermina = dtpVrijemeTermina.Value.Date + dtpVrijeme.Value.TimeOfDay;
 
 
             if (_id.HasValue)

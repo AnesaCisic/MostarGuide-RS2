@@ -1,5 +1,9 @@
 ﻿using MostarGuide.WinUI.Izleti;
+using MostarGuide.WinUI.Kategorije;
+using MostarGuide.WinUI.Klijenti;
 using MostarGuide.WinUI.Korisnici;
+using MostarGuide.WinUI.OcjeneIzleti;
+using MostarGuide.WinUI.OcjeneSekcije;
 using MostarGuide.WinUI.Sekcije;
 using MostarGuide.WinUI.Termini;
 using System;
@@ -127,6 +131,7 @@ namespace MostarGuide.WinUI
         {
             frmIzleti frm = new frmIzleti();
             frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
         }
 
@@ -141,6 +146,7 @@ namespace MostarGuide.WinUI
         {
             frmTermini frm = new frmTermini();
             frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
         }
 
@@ -155,6 +161,7 @@ namespace MostarGuide.WinUI
         {
             frmSekcije frm = new frmSekcije();
             frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
         }
 
@@ -162,6 +169,44 @@ namespace MostarGuide.WinUI
         {
             frmSekcijeDodaj frm = new frmSekcijeDodaj();
             //frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void klijentiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmKlijenti frm = new frmKlijenti();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            frmOcjeneIzleti frm = new frmOcjeneIzleti();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            frmOcjeneSekcije frm = new frmOcjeneSekcije();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            frmKategorije frm = new frmKategorije();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void novaKategorijaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmKategorijeDetalji frm = new frmKategorijeDetalji();
             frm.Show();
         }
     }

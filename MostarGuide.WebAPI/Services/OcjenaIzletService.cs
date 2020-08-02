@@ -19,17 +19,12 @@ namespace MostarGuide.WebAPI.Services
 
             var query = _context.OcjeneIzleti.AsQueryable();
 
-            if (search.Ocjena != 0)
+            if (search.IzletId.HasValue == true)
             {
-                query = query.Where(x => x.Ocjena == search.Ocjena);
+                query = query.Where(x => x.IzletId == search.IzletId);
             }
 
-            if (!string.IsNullOrWhiteSpace(search?.KorisnickoIme))
-            {
-                query = query.Where(x => x.Korisnik.KorisnickoIme.StartsWith(search.KorisnickoIme));
-            }
-
-            var list = query.ToList();
+            var list = query.OrderByDescending(x=> x.Ocjena).ToList();
             return _mapper.Map<List<Model.OcjeneIzleti>>(list);
         }
     }

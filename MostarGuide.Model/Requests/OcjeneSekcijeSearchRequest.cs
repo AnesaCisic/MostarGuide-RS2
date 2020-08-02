@@ -6,8 +6,7 @@ namespace MostarGuide.Model.Requests
 {
     public class OcjeneSekcijeSearchRequest
     {
-        public string KorisnickoIme { get; set; }
-        public int Ocjena { get; set; }
+        public int? SekcijaId { get; set; }
 
     }
 }
