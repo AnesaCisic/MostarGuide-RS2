@@ -18,15 +18,15 @@ namespace MostarGuide.WebAPI.Services
         {
             var query = _context.Set<Rezervacije>().AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(search?.ImeKorisnika))
-            {
-                query = query.Where(x => x.Korisnik.Ime.StartsWith(search.ImeKorisnika));
-            }
+            //if (!string.IsNullOrWhiteSpace(search?.ImeKorisnika))
+            //{
+            //    query = query.Where(x => x.Korisnik.Ime.StartsWith(search.ImeKorisnika));
+            //}
 
-            if (!string.IsNullOrWhiteSpace(search?.PrezimeKorisnika))
-            {
-                query = query.Where(x => x.Korisnik.Prezime.StartsWith(search.PrezimeKorisnika));
-            }
+            //if (!string.IsNullOrWhiteSpace(search?.PrezimeKorisnika))
+            //{
+            //    query = query.Where(x => x.Korisnik.Prezime.StartsWith(search.PrezimeKorisnika));
+            //}
 
             if (!string.IsNullOrWhiteSpace(search?.Izlet))
             {

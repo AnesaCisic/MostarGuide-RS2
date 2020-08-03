@@ -34,9 +34,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbVodic = new System.Windows.Forms.ComboBox();
             this.TerminId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KorisnikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vodic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IzletId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Izlet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VrijemeTermina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -47,9 +49,11 @@
             this.dgvTermini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTermini.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TerminId,
+            this.KorisnikId,
             this.Vodic,
+            this.IzletId,
             this.Izlet,
-            this.Datum});
+            this.VrijemeTermina});
             this.dgvTermini.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTermini.Location = new System.Drawing.Point(3, 16);
             this.dgvTermini.Name = "dgvTermini";
@@ -105,12 +109,28 @@
             this.TerminId.Name = "TerminId";
             this.TerminId.ReadOnly = true;
             // 
+            // KorisnikId
+            // 
+            this.KorisnikId.DataPropertyName = "KorisnikId";
+            this.KorisnikId.HeaderText = "KorisnikId";
+            this.KorisnikId.Name = "KorisnikId";
+            this.KorisnikId.ReadOnly = true;
+            this.KorisnikId.Visible = false;
+            // 
             // Vodic
             // 
             this.Vodic.DataPropertyName = "Vodic";
             this.Vodic.HeaderText = "Vodic";
             this.Vodic.Name = "Vodic";
             this.Vodic.ReadOnly = true;
+            // 
+            // IzletId
+            // 
+            this.IzletId.DataPropertyName = "IzletId";
+            this.IzletId.HeaderText = "IzletId";
+            this.IzletId.Name = "IzletId";
+            this.IzletId.ReadOnly = true;
+            this.IzletId.Visible = false;
             // 
             // Izlet
             // 
@@ -119,12 +139,12 @@
             this.Izlet.Name = "Izlet";
             this.Izlet.ReadOnly = true;
             // 
-            // Datum
+            // VrijemeTermina
             // 
-            this.Datum.DataPropertyName = "Datum";
-            this.Datum.HeaderText = "Datum";
-            this.Datum.Name = "Datum";
-            this.Datum.ReadOnly = true;
+            this.VrijemeTermina.DataPropertyName = "VrijemeTermina";
+            this.VrijemeTermina.HeaderText = "Datum";
+            this.VrijemeTermina.Name = "VrijemeTermina";
+            this.VrijemeTermina.ReadOnly = true;
             // 
             // frmTermini
             // 
@@ -153,8 +173,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbVodic;
         private System.Windows.Forms.DataGridViewTextBoxColumn TerminId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vodic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IzletId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Izlet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VrijemeTermina;
     }
 }

@@ -36,7 +36,7 @@ namespace MostarGuide.WinUI.Termini
             cmbVodic.DisplayMember = "Ime";
             cmbVodic.ValueMember = "KorisnikId";
             cmbVodic.SelectedText = "--Odaberite--";
-            cmbVodic.SelectedItem = null;
+            //cmbVodic.SelectedItem = null;
         }
 
 
@@ -76,33 +76,44 @@ namespace MostarGuide.WinUI.Termini
                 });
 
             }
-            List<Model.TerminiTest> lista = new List<Model.TerminiTest>();
-
 
             foreach (var t in result)
             {
                 var k = await _vodici.GetById<Model.Korisnici>(t.KorisnikId);
                 var i = await _izleti.GetById<Model.Izleti>(t.IzletId);
-
-                lista.Add(new Model.TerminiTest
-                {
-                    TerminId = t.TerminId,
-                    Izlet = i.Naziv,
-                    Vodic = k.Ime + " " + k.Prezime,
-                    Datum = t.VrijemeTermina.Date.ToShortDateString() + t.VrijemeTermina.TimeOfDay.ToString()
-                    //Datum = t.Datum,
-                    //Vrijeme = t.Vrijeme
-                }); ;
+                t.Izlet = i.Naziv;
+                t.Vodic = k.Ime + " " + k.Prezime;
             }
 
-            if (lista.Count == 0)
-            {
-                MessageBox.Show(" Nema termina!");
-
-            }
-
-            dgvTermini.DataSource = lista;
+            dgvTermini.DataSource = result;
             dgvTermini.AutoGenerateColumns = false;
+
+            //List<Model.TerminiTest> lista = new List<Model.TerminiTest>();
+
+
+            //foreach (var t in result)
+            //{
+            //    var k = await _vodici.GetById<Model.Korisnici>(t.KorisnikId);
+            //    var i = await _izleti.GetById<Model.Izleti>(t.IzletId);
+
+            //    lista.Add(new Model.TerminiTest
+            //    {
+            //        TerminId = t.TerminId,
+            //        Izlet = i.Naziv,
+            //        Vodic = k.Ime + " " + k.Prezime,
+            //        Datum = t.VrijemeTermina.Date.ToShortDateString() + t.VrijemeTermina.TimeOfDay.ToString()
+            //        //Datum = t.Datum,
+            //        //Vrijeme = t.Vrijeme
+            //    }); ;
+            //}
+
+            //if (lista.Count == 0)
+            //{
+            //    MessageBox.Show(" Nema termina!");
+
+            //}
+
+
         }
 
         private async void cmbVodic_SelectedIndexChanged(object sender, EventArgs e)

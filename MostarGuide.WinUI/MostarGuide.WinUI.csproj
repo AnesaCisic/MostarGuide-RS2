@@ -120,6 +120,12 @@
     <Compile Include="OcjeneSekcije\frmOcjeneSekcije.Designer.cs">
       <DependentUpon>frmOcjeneSekcije.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rezervacije\frmRezervacije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezervacije\frmRezervacije.Designer.cs">
+      <DependentUpon>frmRezervacije.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sekcije\frmSekcije.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OcjeneSekcije\frmOcjeneSekcije.resx">
       <DependentUpon>frmOcjeneSekcije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rezervacije\frmRezervacije.resx">
+      <DependentUpon>frmRezervacije.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sekcije\frmSekcije.resx">
       <DependentUpon>frmSekcije.cs</DependentUpon>

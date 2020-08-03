@@ -31,13 +31,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpVrijemeTermina = new System.Windows.Forms.DateTimePicker();
+            this.dtpDatum = new System.Windows.Forms.DateTimePicker();
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.cmbVodic = new System.Windows.Forms.ComboBox();
             this.cmbIzlet = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpVrijeme = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label2
@@ -67,14 +66,14 @@
             this.label3.TabIndex = 38;
             this.label3.Text = "Datum izleta";
             // 
-            // dtpVrijemeTermina
+            // dtpDatum
             // 
-            this.dtpVrijemeTermina.CustomFormat = "ddd dd MMM yyyy";
-            this.dtpVrijemeTermina.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVrijemeTermina.Location = new System.Drawing.Point(66, 184);
-            this.dtpVrijemeTermina.Name = "dtpVrijemeTermina";
-            this.dtpVrijemeTermina.Size = new System.Drawing.Size(225, 20);
-            this.dtpVrijemeTermina.TabIndex = 39;
+            this.dtpDatum.CustomFormat = "ddd dd MMM yyyy";
+            this.dtpDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDatum.Location = new System.Drawing.Point(66, 184);
+            this.dtpDatum.Name = "dtpDatum";
+            this.dtpDatum.Size = new System.Drawing.Size(225, 20);
+            this.dtpDatum.TabIndex = 39;
             // 
             // btnSacuvaj
             // 
@@ -123,27 +122,17 @@
             this.dtpVrijeme.TabIndex = 45;
             this.dtpVrijeme.Value = new System.DateTime(2019, 7, 23, 16, 24, 0, 0);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(66, 324);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(225, 20);
-            this.dateTimePicker1.TabIndex = 46;
-            // 
             // frmTerminiDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(355, 356);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dtpVrijeme);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbIzlet);
             this.Controls.Add(this.cmbVodic);
             this.Controls.Add(this.btnSacuvaj);
-            this.Controls.Add(this.dtpVrijemeTermina);
+            this.Controls.Add(this.dtpDatum);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -160,12 +149,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpVrijemeTermina;
+        private System.Windows.Forms.DateTimePicker dtpDatum;
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.ComboBox cmbVodic;
         private System.Windows.Forms.ComboBox cmbIzlet;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpVrijeme;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

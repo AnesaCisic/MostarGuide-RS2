@@ -10,17 +10,12 @@ namespace MostarGuide.Model
         public int TerminId { get; set; }
 
         public int? KorisnikId { get; set; }
-        //public string Vodic { get; set; }
+        public string Vodic { get; set; }
 
         public int? IzletId { get; set; }
-        //public string Izlet { get; set; }
+        public string Izlet { get; set; }
 
         public DateTime VrijemeTermina { get; set; }
 
-        //[DataType(DataType.Date)]
-        //public DateTime Datum { get; set; }
-
-        //[DataType(DataType.Time)]
-        //public DateTime Vrijeme { get; set; }
     }
 }

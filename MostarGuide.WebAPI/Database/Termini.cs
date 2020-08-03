@@ -18,12 +18,6 @@ namespace MostarGuide.WebAPI.Database
         public int KorisnikId { get; set; }
         public DateTime VrijemeTermina { get; set; }
 
-        //[DataType(DataType.Date)]
-        //public DateTime Datum { get; set; }
-
-        //[DataType(DataType.Time)]
-        //public DateTime Vrijeme{ get; set; }
-
         public virtual Korisnici Korisnik { get; set; }
         public virtual Izleti Izlet { get; set; }
         public virtual ICollection<Rezervacije> Rezervacije { get; set; }

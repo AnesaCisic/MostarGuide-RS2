@@ -23,6 +23,8 @@ namespace MostarGuide.WinUI.Termini
             InitializeComponent();
             _id = korisnikId;
         }
+       
+       
         private async Task LoadVodici()
         {
             var result = await _vodici.Get<List<Model.Korisnici>>(null);
@@ -53,12 +55,13 @@ namespace MostarGuide.WinUI.Termini
                 var k = await _vodici.GetById<Model.Korisnici>(termin.KorisnikId);
                 var i = await _izleti.GetById<Model.Izleti>(termin.IzletId);
 
-                cmbVodic.SelectedIndex = cmbVodic.FindStringExact(k.Ime + " " + k.Prezime);
-                cmbIzlet.SelectedIndex = cmbIzlet.FindStringExact(i.Naziv);
-                dtpVrijemeTermina.Value = termin.VrijemeTermina;
+                //cmbVodic.SelectedIndex = cmbVodic.FindStringExact(k.Ime + " " + k.Prezime);
+                //cmbIzlet.SelectedIndex = cmbIzlet.FindStringExact(i.Naziv);
 
-                //cmbVodic.SelectedIndex = int.Parse(termin.KorisnikId.ToString());
-                //cmbIzlet.SelectedIndex = int.Parse(termin.IzletId.ToString());
+                cmbVodic.SelectedValue = int.Parse(termin.KorisnikId.ToString());
+                cmbIzlet.SelectedValue = int.Parse(termin.IzletId.ToString());
+                dtpDatum.Value = termin.VrijemeTermina.Date;
+                dtpVrijeme.Value = termin.VrijemeTermina;
 
             }
         }
@@ -85,7 +88,7 @@ namespace MostarGuide.WinUI.Termini
             //request.VrijemeTermina = dtpDatum.Value;
 
             //request.DatumTermina = dtpVrijemeTermina.Value.Date + dtpVrijeme.Value.TimeOfDay;
-            request.VrijemeTermina = dtpVrijemeTermina.Value.Date + dtpVrijeme.Value.TimeOfDay;
+            request.VrijemeTermina = dtpDatum.Value.Date + dtpVrijeme.Value.TimeOfDay;
 
 
             if (_id.HasValue)
