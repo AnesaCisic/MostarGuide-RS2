@@ -43,7 +43,6 @@ namespace MostarGuide.WinUI.Termini
             cmbIzlet.SelectedItem = null;
         }
 
-        //UPDATE ODRADITI NIJE DOBRO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         private async void frmTerminiDetalji_Load(object sender, EventArgs e)
         {
             await LoadVodici();

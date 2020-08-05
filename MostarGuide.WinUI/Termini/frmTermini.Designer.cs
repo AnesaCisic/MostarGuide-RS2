@@ -108,6 +108,7 @@
             this.TerminId.HeaderText = "TerminId";
             this.TerminId.Name = "TerminId";
             this.TerminId.ReadOnly = true;
+            this.TerminId.Visible = false;
             // 
             // KorisnikId
             // 

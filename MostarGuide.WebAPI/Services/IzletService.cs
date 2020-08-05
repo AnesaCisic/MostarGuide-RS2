@@ -20,7 +20,7 @@ namespace MostarGuide.WebAPI.Services
             var query = _context.Izleti.AsQueryable();
             if (!string.IsNullOrWhiteSpace(search?.Naziv))
             {
-                query = query.Where(x => x.Naziv.StartsWith(search.Naziv));
+                query = query.Where(x => x.Naziv.ToLower().StartsWith(search.Naziv.ToLower()));
             }
 
             var list = query.ToList();

@@ -36,7 +36,6 @@ namespace MostarGuide.WinUI.Termini
             cmbVodic.DisplayMember = "Ime";
             cmbVodic.ValueMember = "KorisnikId";
             cmbVodic.SelectedText = "--Odaberite--";
-            //cmbVodic.SelectedItem = null;
         }
 
 
@@ -44,25 +43,6 @@ namespace MostarGuide.WinUI.Termini
 
         private async Task LoadTermini(int korisnikId)
         {
-
-            //var result = await _termini.Get<List<Model.Termini>>(new TerminiSearchRequest()
-            //{
-            //    KorisnikId = korisnikId
-            //});
-
-            //foreach(var t in result)
-            //{
-            //    var k = await _vodici.GetById<Model.Korisnici>(t.KorisnikId);
-            //    var i = await _izleti.GetById<Model.Izleti>(t.IzletId);
-            //    t.Izlet = i.Naziv;
-            //    t.Vodic = k.Ime + " " + k.Prezime;
-            //    t.Datum = t.Datum.Date;
-
-            //}
-
-            //dgvTermini.AutoGenerateColumns = false;
-            //dgvTermini.DataSource = result;
-
 
             if (korisnikId == 0)
             {
@@ -87,32 +67,6 @@ namespace MostarGuide.WinUI.Termini
 
             dgvTermini.DataSource = result;
             dgvTermini.AutoGenerateColumns = false;
-
-            //List<Model.TerminiTest> lista = new List<Model.TerminiTest>();
-
-
-            //foreach (var t in result)
-            //{
-            //    var k = await _vodici.GetById<Model.Korisnici>(t.KorisnikId);
-            //    var i = await _izleti.GetById<Model.Izleti>(t.IzletId);
-
-            //    lista.Add(new Model.TerminiTest
-            //    {
-            //        TerminId = t.TerminId,
-            //        Izlet = i.Naziv,
-            //        Vodic = k.Ime + " " + k.Prezime,
-            //        Datum = t.VrijemeTermina.Date.ToShortDateString() + t.VrijemeTermina.TimeOfDay.ToString()
-            //        //Datum = t.Datum,
-            //        //Vrijeme = t.Vrijeme
-            //    }); ;
-            //}
-
-            //if (lista.Count == 0)
-            //{
-            //    MessageBox.Show(" Nema termina!");
-
-            //}
-
 
         }
 

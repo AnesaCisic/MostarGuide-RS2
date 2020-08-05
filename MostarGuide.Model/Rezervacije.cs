@@ -8,9 +8,11 @@ namespace MostarGuide.Model
     {
 
         public int RezervacijaId { get; set; }
-        public int? TerminId { get; set; }
         public int? KorisnikMobId { get; set; }
-
+        public string  Korisnik { get; set; }
+        public int? TerminId { get; set; }
+        public string Izlet { get; set; }
+        public DateTime TerminDatum { get; set; }
         public DateTime DatumRezervacije { get; set; }
         public int BrojOsoba { get; set; }
 

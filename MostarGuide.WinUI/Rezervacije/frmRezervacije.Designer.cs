@@ -29,47 +29,149 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvRezervacije = new System.Windows.Forms.DataGridView();
+            this.cmbTermini = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.RezervacijaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KorisnikMobId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TerminId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Izlet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TerminDatum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatumRezervacije = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BrojOsoba = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(35, 147);
+            this.groupBox1.Controls.Add(this.dgvRezervacije);
+            this.groupBox1.Location = new System.Drawing.Point(52, 114);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(553, 185);
+            this.groupBox1.Size = new System.Drawing.Size(608, 234);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rezervacije";
             // 
-            // dataGridView1
+            // dgvRezervacije
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(547, 166);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvRezervacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRezervacije.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RezervacijaId,
+            this.KorisnikMobId,
+            this.Korisnik,
+            this.TerminId,
+            this.Izlet,
+            this.TerminDatum,
+            this.DatumRezervacije,
+            this.BrojOsoba});
+            this.dgvRezervacije.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRezervacije.Location = new System.Drawing.Point(3, 16);
+            this.dgvRezervacije.Name = "dgvRezervacije";
+            this.dgvRezervacije.Size = new System.Drawing.Size(602, 215);
+            this.dgvRezervacije.TabIndex = 0;
+            // 
+            // cmbTermini
+            // 
+            this.cmbTermini.FormattingEnabled = true;
+            this.cmbTermini.Location = new System.Drawing.Point(52, 53);
+            this.cmbTermini.Name = "cmbTermini";
+            this.cmbTermini.Size = new System.Drawing.Size(162, 21);
+            this.cmbTermini.TabIndex = 1;
+            this.cmbTermini.SelectedIndexChanged += new System.EventHandler(this.cmbTermini_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Termini";
+            // 
+            // RezervacijaId
+            // 
+            this.RezervacijaId.DataPropertyName = "RezervacijaId";
+            this.RezervacijaId.HeaderText = "RezervacijaId";
+            this.RezervacijaId.Name = "RezervacijaId";
+            this.RezervacijaId.Visible = false;
+            // 
+            // KorisnikMobId
+            // 
+            this.KorisnikMobId.DataPropertyName = "KorisnikMobId";
+            this.KorisnikMobId.HeaderText = "KorisnikMobId";
+            this.KorisnikMobId.Name = "KorisnikMobId";
+            this.KorisnikMobId.Visible = false;
+            // 
+            // Korisnik
+            // 
+            this.Korisnik.DataPropertyName = "Korisnik";
+            this.Korisnik.HeaderText = "Korisnik";
+            this.Korisnik.Name = "Korisnik";
+            // 
+            // TerminId
+            // 
+            this.TerminId.DataPropertyName = "TerminId";
+            this.TerminId.HeaderText = "TerminId";
+            this.TerminId.Name = "TerminId";
+            this.TerminId.Visible = false;
+            // 
+            // Izlet
+            // 
+            this.Izlet.DataPropertyName = "Izlet";
+            this.Izlet.HeaderText = "Izlet";
+            this.Izlet.Name = "Izlet";
+            // 
+            // TerminDatum
+            // 
+            this.TerminDatum.DataPropertyName = "TerminDatum";
+            this.TerminDatum.HeaderText = "Termin datum";
+            this.TerminDatum.Name = "TerminDatum";
+            // 
+            // DatumRezervacije
+            // 
+            this.DatumRezervacije.DataPropertyName = "DatumRezervacije";
+            this.DatumRezervacije.HeaderText = "Datum rezervacije";
+            this.DatumRezervacije.Name = "DatumRezervacije";
+            // 
+            // BrojOsoba
+            // 
+            this.BrojOsoba.DataPropertyName = "BrojOsoba";
+            this.BrojOsoba.HeaderText = "Broj osoba";
+            this.BrojOsoba.Name = "BrojOsoba";
             // 
             // frmRezervacije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 360);
+            this.ClientSize = new System.Drawing.Size(713, 360);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbTermini);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmRezervacije";
             this.Text = "frmRezervacije";
+            this.Load += new System.EventHandler(this.frmRezervacije_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvRezervacije;
+        private System.Windows.Forms.ComboBox cmbTermini;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RezervacijaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikMobId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Korisnik;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TerminId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Izlet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TerminDatum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatumRezervacije;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BrojOsoba;
     }
 }

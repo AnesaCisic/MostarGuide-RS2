@@ -17,20 +17,7 @@ namespace MostarGuide.WebAPI.Services
         public override List<Model.Termini> Get(TerminiSearchRequest search)
         {
             var query = _context.Set<Termini>().AsQueryable();
-            //if (!string.IsNullOrWhiteSpace(search?.ImeVodica))
-            //{
-            //    query = query.Where(x => x.Vodic.Ime.StartsWith(search.ImeVodica));
-            //}
-
-            //if (!string.IsNullOrWhiteSpace(search?.PrezimeVodica))
-            //{
-            //    query = query.Where(x => x.Vodic.Prezime.StartsWith(search.PrezimeVodica));
-            //}
-
-            //if (!string.IsNullOrWhiteSpace(search?.Izlet))
-            //{
-            //    query = query.Where(x => x.Izlet.Naziv.StartsWith(search.Izlet));
-            //}
+           
 
             if (search.KorisnikId.HasValue == true)
             {

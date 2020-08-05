@@ -6,8 +6,10 @@ namespace MostarGuide.Model.Requests
 {
     public class RezervacijeSearchRequest
     {
-        public string KoriscnickoIme { get; set; }
-        public string Izlet { get; set; }
-        public DateTime DatumIzleta { get; set; }
+        public int? TerminId { get; set; }
+
+        //public string KoriscnickoIme { get; set; }
+        //public string Izlet { get; set; }
+        //public DateTime DatumIzleta { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using MostarGuide.WinUI.Klijenti;
 using MostarGuide.WinUI.Korisnici;
 using MostarGuide.WinUI.OcjeneIzleti;
 using MostarGuide.WinUI.OcjeneSekcije;
+using MostarGuide.WinUI.Rezervacije;
 using MostarGuide.WinUI.Sekcije;
 using MostarGuide.WinUI.Termini;
 using System;
@@ -207,6 +208,14 @@ namespace MostarGuide.WinUI
         private void novaKategorijaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmKategorijeDetalji frm = new frmKategorijeDetalji();
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            frmRezervacije frm = new frmRezervacije();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
         }
     }
