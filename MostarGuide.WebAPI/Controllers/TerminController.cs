@@ -10,8 +10,6 @@ using MostarGuide.WebAPI.Services;
 
 namespace MostarGuide.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class TerminController : BaseCRUDController<Model.Termini, TerminiSearchRequest, TerminiUpsertRequest, TerminiUpsertRequest>
     {
         public TerminController(ICRUDService<Termini, TerminiSearchRequest, TerminiUpsertRequest, TerminiUpsertRequest> service) : base(service)

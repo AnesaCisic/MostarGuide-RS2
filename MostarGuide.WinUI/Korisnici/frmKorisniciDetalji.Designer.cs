@@ -48,6 +48,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbAktivan = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.clbRole = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -190,7 +191,7 @@
             this.cbAktivan.AutoSize = true;
             this.cbAktivan.Checked = true;
             this.cbAktivan.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAktivan.Location = new System.Drawing.Point(53, 373);
+            this.cbAktivan.Location = new System.Drawing.Point(47, 372);
             this.cbAktivan.Name = "cbAktivan";
             this.cbAktivan.Size = new System.Drawing.Size(62, 17);
             this.cbAktivan.TabIndex = 30;
@@ -208,12 +209,21 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // clbRole
+            // 
+            this.clbRole.FormattingEnabled = true;
+            this.clbRole.Location = new System.Drawing.Point(47, 413);
+            this.clbRole.Name = "clbRole";
+            this.clbRole.Size = new System.Drawing.Size(292, 34);
+            this.clbRole.TabIndex = 32;
+            // 
             // frmKorisniciDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(387, 477);
+            this.ClientSize = new System.Drawing.Size(387, 501);
+            this.Controls.Add(this.clbRole);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbAktivan);
             this.Controls.Add(this.btnSnimi);
@@ -262,5 +272,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckBox cbAktivan;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckedListBox clbRole;
     }
 }

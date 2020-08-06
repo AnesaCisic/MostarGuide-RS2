@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,6 +17,7 @@ using Microsoft.OpenApi.Models;
 using MostarGuide.Model.Requests;
 using MostarGuide.WebAPI.Database;
 using MostarGuide.WebAPI.Filters;
+using MostarGuide.WebAPI.Security;
 using MostarGuide.WebAPI.Services;
 
 namespace MostarGuide.WebAPI
@@ -40,7 +42,28 @@ namespace MostarGuide.WebAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eProdaja API", Version = "v1" });
+
+                c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basicAuth" }
+                        },
+                        new string[]{}
+                    }
+                });
             });
+
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
 
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<ICRUDService<Model.Izleti, IzletiSearchRequest, IzletiUpsertRequest, IzletiUpsertRequest>, IzletService>();
@@ -50,7 +73,7 @@ namespace MostarGuide.WebAPI
             services.AddScoped<ICRUDService<Model.Rezervacije, RezervacijeSearchRequest, RezervacijeUpsertRequest, RezervacijeUpsertRequest>, RezervacijaService>();
             services.AddScoped<ICRUDService<Model.KorisniciMob, KorisniciMobSearchRequest, KorisniciMobUpsertRequest, KorisniciMobUpsertRequest>, KorisnikMobService>();
             services.AddScoped<ICRUDService<Model.OcjeneIzleti, OcjeneIzletiSearchRequest, OcjeneIzletiUpsertRequest, OcjeneIzletiUpsertRequest>, OcjenaIzletService>();
-            services.AddScoped<ICRUDService<Model.OcjeneSekcije, OcjeneSekcijeSearchRequest, OcjeneSekcijeUpsertRequest, OcjeneSekcijeUpsertRequest>, OcjenaSekcijaService>();
+            services.AddScoped<IService<Model.Uloge, object>, BaseService<Model.Uloge, object, Uloge>>();
 
             var connection = @"Server=.;Database=IB160037;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<MostarGuideContext>(options => options.UseSqlServer(connection));
@@ -73,7 +96,7 @@ namespace MostarGuide.WebAPI
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MostarGuide.Model.Requests;
@@ -27,6 +28,7 @@ namespace MostarGuide.WebAPI.Controllers
 
         }
 
+        //[Authorize(Roles = "Administrator")]
         [HttpGet("{id}")]
         public Model.Korisnici GetById(int id)
         {

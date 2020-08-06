@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MostarGuide.Model.Requests;
 using MostarGuide.WebAPI.Database;
 using MostarGuide.WebAPI.Exceptions;
@@ -82,10 +83,21 @@ namespace MostarGuide.WebAPI.Services
             _context.Korisnici.Add(entity);
             _context.SaveChanges();
 
+            //kada je many to many veza 
+            foreach(var uloga in request.Uloge)
+            {
+                _context.KorisniciUloge.Add(new KorisniciUloge()
+                {
+                    DatumIzmjene = DateTime.Now,
+                    KorisnikId = entity.KorisnikId,
+                    UlogaId = uloga
+                });
+            }
+
+            _context.SaveChanges();
+
             return _mapper.Map<Model.Korisnici>(entity);
         }
-
-
 
         public Model.Korisnici Update(int id, KorisniciInsertRequest request)
         {
@@ -111,29 +123,10 @@ namespace MostarGuide.WebAPI.Services
             return _mapper.Map<Model.Korisnici>(entity);
         }
 
-        //public Model.Korisnici Login(KorisniciLoginRequest request)
-        //{
-        //    var entity = _context.Korisnici.Include("KorisniciUloge.Uloga").FirstOrDefault(x => x.KorisnickoIme == request.Username);
-
-        //    if (entity == null)
-        //    {
-        //        throw new UserException("Pogrešan username ili password");
-        //    }
-
-        //    var hash = GenerateHash(entity.LozinkaSalt, request.Password);
-
-        //    if (hash != entity.LozinkaHash)
-        //    {
-        //        throw new UserException("Pogrešan username ili password");
-        //    }
-
-        //    return _mapper.Map<Model.Korisnici>(entity);
-        //}
-
         public Model.Korisnici Authenticiraj(string username, string pass)
         {
             //provjerravamo da li imamo usera u bazi
-            var user = _context.Korisnici.FirstOrDefault(x => x.KorisnickoIme == username);
+            var user = _context.Korisnici.Include("KorisniciUloge.Uloga").FirstOrDefault(x => x.KorisnickoIme == username);
 
             //ako ga nadjemo provjeravamo pasvorde, ako ne vracamo null
             if (user != null)

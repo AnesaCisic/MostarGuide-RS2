@@ -10,8 +10,6 @@ using MostarGuide.WebAPI.Services;
 
 namespace MostarGuide.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class OcjenaIzletController : BaseCRUDController<Model.OcjeneIzleti, OcjeneIzletiSearchRequest, OcjeneIzletiUpsertRequest, OcjeneIzletiUpsertRequest>
     {
         public OcjenaIzletController(ICRUDService<OcjeneIzleti, OcjeneIzletiSearchRequest, OcjeneIzletiUpsertRequest, OcjeneIzletiUpsertRequest> service) : base(service)

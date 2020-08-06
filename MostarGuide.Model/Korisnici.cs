@@ -14,7 +14,7 @@ namespace MostarGuide.Model
         public string KorisnickoIme { get; set; }
         public string FirstLastName { get { return Ime + " " + Prezime; } }
         public bool? Status { get; set; }
-        public IEnumerable<object> KorisniciUloge { get; set; }
+        public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
 
     }
 }

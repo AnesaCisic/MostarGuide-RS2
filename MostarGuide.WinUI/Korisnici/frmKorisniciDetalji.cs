@@ -14,6 +14,8 @@ namespace MostarGuide.WinUI.Korisnici
     public partial class frmKorisniciDetalji : Form
     {
         private readonly APIService _aPIService = new APIService("korisnik");
+        private readonly APIService _uloge = new APIService("uloga");
+
         private int? _id = null;
         public frmKorisniciDetalji(int? korisnikId = null)
         {
@@ -24,6 +26,8 @@ namespace MostarGuide.WinUI.Korisnici
         KorisniciInsertRequest request = new KorisniciInsertRequest();
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
+            var uloge = clbRole.CheckedItems.Cast<Model.Uloge>().Select(x => x.UlogaId).ToList();
+
             //popunjavamo objekat iz textboxova
             if (this.ValidateChildren())
             {
@@ -34,6 +38,7 @@ namespace MostarGuide.WinUI.Korisnici
                 request.KorisnickoIme = txtKorisnickoIme.Text;
                 request.Password = txtPassword.Text;
                 request.PasswordConfirmation = txtPasswordConfirmation.Text;
+                request.Uloge = uloge;
 
                 if(cbAktivan.Checked == true)
                 {
@@ -84,6 +89,10 @@ namespace MostarGuide.WinUI.Korisnici
 
         private async void frmKorisniciDetalji_Load(object sender, EventArgs e)
         {
+            var uloge = await _uloge.Get<List<Model.Uloge>>(null);
+            clbRole.DisplayMember = "Naziv";
+            clbRole.DataSource = uloge;
+
             //popunjavamo textboxove iz objekta
 
             if (_id.HasValue)

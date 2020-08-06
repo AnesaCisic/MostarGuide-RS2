@@ -39,6 +39,9 @@ namespace MostarGuide.WebAPI.Mappers
             CreateMap<Database.OcjeneSekcije, Model.OcjeneSekcije>().ReverseMap();
             CreateMap<Database.OcjeneSekcije, OcjeneSekcijeUpsertRequest>().ReverseMap();
 
+            CreateMap<Database.Uloge, Model.Uloge>().ReverseMap();
+
+
         }
 
     }
