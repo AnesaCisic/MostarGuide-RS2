@@ -17,6 +17,8 @@ namespace MostarGuide.WebAPI.Database
         public int IzletId { get; set; }
         public int KorisnikId { get; set; }
         public DateTime VrijemeTermina { get; set; }
+        //public int SlobodnaMjesta { get; set; } 
+
 
         public virtual Korisnici Korisnik { get; set; }
         public virtual Izleti Izlet { get; set; }

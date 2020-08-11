@@ -30,8 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvRezervacije = new System.Windows.Forms.DataGridView();
-            this.cmbTermini = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.RezervacijaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KorisnikMobId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +38,10 @@
             this.TerminDatum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumRezervacije = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrojOsoba = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbTermini = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMjesta = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).BeginInit();
             this.SuspendLayout();
@@ -71,24 +73,6 @@
             this.dgvRezervacije.Name = "dgvRezervacije";
             this.dgvRezervacije.Size = new System.Drawing.Size(602, 215);
             this.dgvRezervacije.TabIndex = 0;
-            // 
-            // cmbTermini
-            // 
-            this.cmbTermini.FormattingEnabled = true;
-            this.cmbTermini.Location = new System.Drawing.Point(52, 53);
-            this.cmbTermini.Name = "cmbTermini";
-            this.cmbTermini.Size = new System.Drawing.Size(162, 21);
-            this.cmbTermini.TabIndex = 1;
-            this.cmbTermini.SelectedIndexChanged += new System.EventHandler(this.cmbTermini_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Termini";
             // 
             // RezervacijaId
             // 
@@ -141,11 +125,47 @@
             this.BrojOsoba.HeaderText = "Broj osoba";
             this.BrojOsoba.Name = "BrojOsoba";
             // 
+            // cmbTermini
+            // 
+            this.cmbTermini.FormattingEnabled = true;
+            this.cmbTermini.Location = new System.Drawing.Point(52, 53);
+            this.cmbTermini.Name = "cmbTermini";
+            this.cmbTermini.Size = new System.Drawing.Size(162, 21);
+            this.cmbTermini.TabIndex = 1;
+            this.cmbTermini.SelectedIndexChanged += new System.EventHandler(this.cmbTermini_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Termini";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(544, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Broj slobodnih mjesta";
+            // 
+            // txtMjesta
+            // 
+            this.txtMjesta.Location = new System.Drawing.Point(547, 54);
+            this.txtMjesta.Name = "txtMjesta";
+            this.txtMjesta.Size = new System.Drawing.Size(110, 20);
+            this.txtMjesta.TabIndex = 36;
+            // 
             // frmRezervacije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 360);
+            this.Controls.Add(this.txtMjesta);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbTermini);
             this.Controls.Add(this.groupBox1);
@@ -173,5 +193,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TerminDatum;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumRezervacije;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrojOsoba;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMjesta;
     }
 }

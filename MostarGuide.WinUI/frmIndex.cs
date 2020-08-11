@@ -1,7 +1,8 @@
 ﻿using MostarGuide.WinUI.Izleti;
+using MostarGuide.WinUI.Izvještaji;
 using MostarGuide.WinUI.Kategorije;
-using MostarGuide.WinUI.Klijenti;
 using MostarGuide.WinUI.Korisnici;
+using MostarGuide.WinUI.KorisniciMob;
 using MostarGuide.WinUI.OcjeneIzleti;
 using MostarGuide.WinUI.OcjeneSekcije;
 using MostarGuide.WinUI.Rezervacije;
@@ -173,13 +174,7 @@ namespace MostarGuide.WinUI
             frm.Show();
         }
 
-        private void klijentiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmKlijenti frm = new frmKlijenti();
-            frm.MdiParent = this;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
-        }
+      
 
         private void pretragaToolStripMenuItem5_Click(object sender, EventArgs e)
         {
@@ -214,6 +209,35 @@ namespace MostarGuide.WinUI
         private void pretragaToolStripMenuItem8_Click(object sender, EventArgs e)
         {
             frmRezervacije frm = new frmRezervacije();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void izvještajPoIzletuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIzvjestajPoIzletu frm = new frmIzvjestajPoIzletu();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void odjaviSeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void izvještajPoVodičuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIzvjestajPoVodicu frm = new frmIzvjestajPoVodicu();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            frmKorisniciMob frm = new frmKorisniciMob();
             frm.MdiParent = this;
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();

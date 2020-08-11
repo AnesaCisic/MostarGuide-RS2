@@ -41,7 +41,7 @@ namespace MostarGuide.WebAPI
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "eProdaja API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MostarGuide API", Version = "v1" });
 
                 c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
                 {
@@ -73,7 +73,9 @@ namespace MostarGuide.WebAPI
             services.AddScoped<ICRUDService<Model.Rezervacije, RezervacijeSearchRequest, RezervacijeUpsertRequest, RezervacijeUpsertRequest>, RezervacijaService>();
             services.AddScoped<ICRUDService<Model.KorisniciMob, KorisniciMobSearchRequest, KorisniciMobUpsertRequest, KorisniciMobUpsertRequest>, KorisnikMobService>();
             services.AddScoped<ICRUDService<Model.OcjeneIzleti, OcjeneIzletiSearchRequest, OcjeneIzletiUpsertRequest, OcjeneIzletiUpsertRequest>, OcjenaIzletService>();
+            services.AddScoped<ICRUDService<Model.OcjeneSekcije, OcjeneSekcijeSearchRequest, OcjeneSekcijeUpsertRequest, OcjeneSekcijeUpsertRequest>, OcjenaSekcijaService>();
             services.AddScoped<IService<Model.Uloge, object>, BaseService<Model.Uloge, object, Uloge>>();
+            services.AddScoped<ILoginService, LoginService>();
 
             var connection = @"Server=.;Database=IB160037;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<MostarGuideContext>(options => options.UseSqlServer(connection));
@@ -96,7 +98,7 @@ namespace MostarGuide.WebAPI
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

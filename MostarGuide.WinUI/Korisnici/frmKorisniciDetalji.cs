@@ -49,18 +49,6 @@ namespace MostarGuide.WinUI.Korisnici
                     request.Status = false;
                 }
 
-
-                //var request = new KorisniciInsertRequest()
-                //{
-                //    Ime = txtIme.Text,
-                //    Prezime = txtPrezime.Text,
-                //    Email = txtEmail.Text,
-                //    Telefon = txtTelefon.Text,
-                //    KorisnickoIme = txtKorisnickoIme.Text,
-                //    Password = txtPassword.Text,
-                //    PasswordConfirmation = txtPasswordConfirmation.Text,
-
-                //};
                 if(txtPassword.Text != txtPasswordConfirmation.Text)
                 {
                     MessageBox.Show("Passwordi nisu jednaki");
@@ -71,7 +59,7 @@ namespace MostarGuide.WinUI.Korisnici
                     //da li je insert ili update
                     if (_id.HasValue)
                     {
-                        await _aPIService.Update<Model.Korisnici>(_id, request);
+                        await _aPIService.Update<Model.Korisnici>(_id.Value, request);
                     }
                     else
                     {

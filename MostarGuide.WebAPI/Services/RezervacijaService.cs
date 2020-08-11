@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using MostarGuide.Model.Requests;
 using MostarGuide.WebAPI.Database;
 using System;
@@ -18,6 +19,11 @@ namespace MostarGuide.WebAPI.Services
         {
             var query = _context.Set<Rezervacije>().AsQueryable();
 
+            if (search.TerminId.HasValue && search.Godina.HasValue)
+            {
+                query = query.Where(x => x.TerminId == search.TerminId && x.DatumRezervacije.Year == search.Godina);
+            }
+
             if (search.TerminId.HasValue == true)
             {
                 query = query.Where(x => x.TerminId == search.TerminId);
@@ -27,5 +33,23 @@ namespace MostarGuide.WebAPI.Services
 
             return _mapper.Map<List<Model.Rezervacije>>(list);
         }
+
+        //public override Model.Rezervacije Insert(RezervacijeUpsertRequest request)
+        //{
+        //    var termin = _context.Termini.Find(request.TerminId);
+
+        //    try
+        //    {
+        //        if (termin.SlobodnaMjesta > 0)
+        //        {
+        //            return _mapper.Map<Model.Rezervacije>(request);
+
+        //        }
+        //    }
+        //    catch
+        //    {
+        //    }
+        //}
+
     }
 }

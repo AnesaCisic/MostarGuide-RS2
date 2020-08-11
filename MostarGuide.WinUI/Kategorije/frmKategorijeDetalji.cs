@@ -41,7 +41,7 @@ namespace MostarGuide.WinUI.Kategorije
 
             if (_id.HasValue)
             {
-                await _kategorije.Update<Model.Kategorije>(_id, request);
+                await _kategorije.Update<Model.Kategorije>(_id.Value, request);
             }
             else
             {

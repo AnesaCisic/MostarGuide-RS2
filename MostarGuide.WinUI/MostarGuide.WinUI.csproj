@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +85,18 @@
     <Compile Include="Izleti\frmIzletiDetalji.Designer.cs">
       <DependentUpon>frmIzletiDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Izvještaji\frmIzvjestajPoIzletu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvještaji\frmIzvjestajPoIzletu.Designer.cs">
+      <DependentUpon>frmIzvjestajPoIzletu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvještaji\frmIzvjestajPoVodicu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvještaji\frmIzvjestajPoVodicu.Designer.cs">
+      <DependentUpon>frmIzvjestajPoVodicu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kategorije\frmKategorije.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +109,11 @@
     <Compile Include="Kategorije\frmKategorijeDetalji.Designer.cs">
       <DependentUpon>frmKategorijeDetalji.cs</DependentUpon>
     </Compile>
-    <Compile Include="Klijenti\frmKlijenti.cs">
+    <Compile Include="KorisniciMob\frmKorisniciMob.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Klijenti\frmKlijenti.Designer.cs">
-      <DependentUpon>frmKlijenti.cs</DependentUpon>
+    <Compile Include="KorisniciMob\frmKorisniciMob.Designer.cs">
+      <DependentUpon>frmKorisniciMob.cs</DependentUpon>
     </Compile>
     <Compile Include="Korisnici\frmKorisnici.cs">
       <SubType>Form</SubType>
@@ -176,14 +189,20 @@
     <EmbeddedResource Include="Izleti\frmIzletiDetalji.resx">
       <DependentUpon>frmIzletiDetalji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Izvještaji\frmIzvjestajPoIzletu.resx">
+      <DependentUpon>frmIzvjestajPoIzletu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvještaji\frmIzvjestajPoVodicu.resx">
+      <DependentUpon>frmIzvjestajPoVodicu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kategorije\frmKategorije.resx">
       <DependentUpon>frmKategorije.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kategorije\frmKategorijeDetalji.resx">
       <DependentUpon>frmKategorijeDetalji.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Klijenti\frmKlijenti.resx">
-      <DependentUpon>frmKlijenti.cs</DependentUpon>
+    <EmbeddedResource Include="KorisniciMob\frmKorisniciMob.resx">
+      <DependentUpon>frmKorisniciMob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisnici.resx">
       <DependentUpon>frmKorisnici.cs</DependentUpon>
@@ -245,5 +264,6 @@
       <Name>MostarGuide.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

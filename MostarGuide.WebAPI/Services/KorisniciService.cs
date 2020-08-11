@@ -36,6 +36,12 @@ namespace MostarGuide.WebAPI.Services
                 query = query.Where(x => x.Prezime.ToLower().StartsWith(request.Prezime.ToLower()));
             }
 
+            if (!string.IsNullOrWhiteSpace(request?.KorisnickoIme))
+            {
+                query = query.Where(x => x.KorisnickoIme == request.KorisnickoIme);
+
+            }
+
             var list = query.ToList();
             return _mapper.Map<List<Model.Korisnici>>(list);
         }

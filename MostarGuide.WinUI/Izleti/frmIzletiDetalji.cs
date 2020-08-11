@@ -70,7 +70,7 @@ namespace MostarGuide.WinUI.Izleti
 
             if (_id.HasValue)
             {
-                await _izleti.Update<Model.Izleti>(_id, request);
+                await _izleti.Update<Model.Izleti>(_id.Value, request);
             }
             else
             {

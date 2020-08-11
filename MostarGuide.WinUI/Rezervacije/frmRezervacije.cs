@@ -26,6 +26,16 @@ namespace MostarGuide.WinUI.Rezervacije
         private async Task LoadTermini()
         {
             var result = await _termini.Get<List<Model.Termini>>(null);
+            foreach (var r in result)
+            {
+               
+                var i = await _izleti.GetById<Model.Izleti>(r.IzletId);
+
+
+                r.Izlet = i.Naziv;
+               
+
+            }
             cmbTermini.DisplayMember = "IzletDatum";
             cmbTermini.ValueMember = "TerminId";
             cmbTermini.DataSource = result;
@@ -50,18 +60,22 @@ namespace MostarGuide.WinUI.Rezervacije
         private async Task LoadRezervacije(int terminId)
         {
 
-            if (terminId == 0)
-            {
-                result = await _rezervacije.Get<List<Model.Rezervacije>>(null);
-            }
-            else
-            {
+            //if (terminId == 0)
+            //{
+            //    result = await _rezervacije.Get<List<Model.Rezervacije>>(null);
+            //}
+            //else
+            //{
                 result = await _rezervacije.Get<List<Model.Rezervacije>>(new RezervacijeSearchRequest()
                 {
                     TerminId = terminId
                 });
 
-            }
+            //}
+
+            var brojrezervacija = 0;
+            var maxbrojosoba = 0;
+
 
             foreach (var r in result)
             {
@@ -73,7 +87,14 @@ namespace MostarGuide.WinUI.Rezervacije
                 r.Korisnik = k.ImePrezime;
                 r.Izlet = i.Naziv;
                 r.TerminDatum = t.VrijemeTermina;
+
+                maxbrojosoba = i.BrojMjesta;
+                brojrezervacija += r.BrojOsoba;
             }
+
+
+            txtMjesta.Text = (maxbrojosoba - brojrezervacija).ToString();
+
 
             dgvRezervacije.DataSource = result;
             dgvRezervacije.AutoGenerateColumns = false;

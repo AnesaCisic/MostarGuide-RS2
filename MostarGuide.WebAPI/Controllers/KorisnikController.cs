@@ -20,7 +20,6 @@ namespace MostarGuide.WebAPI.Controllers
             _korisnikService = korisnikService;
         }
 
-
         [HttpGet]
         public List<Model.Korisnici> Get([FromQuery] KorisniciSearchRequest request)
         {
@@ -35,7 +34,6 @@ namespace MostarGuide.WebAPI.Controllers
             return _korisnikService.GetById(id);
         }
 
-
         [HttpPost]
         public Model.Korisnici Insert(KorisniciInsertRequest request)
         {
@@ -48,10 +46,5 @@ namespace MostarGuide.WebAPI.Controllers
             return _korisnikService.Update(id, request);
         }
 
-        //[HttpPost("login")]
-        //public Model.Korisnici Login(KorisniciLoginRequest request)
-        //{
-        //    return _korisnikService.Login(request);
-        //}
     }
 }

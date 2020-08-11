@@ -84,24 +84,30 @@ namespace MostarGuide.WinUI.Termini
                 request.IzletId = idIzlet;
             }
 
-            //request.VrijemeTermina = dtpDatum.Value;
-
-            //request.DatumTermina = dtpVrijemeTermina.Value.Date + dtpVrijeme.Value.TimeOfDay;
             request.VrijemeTermina = dtpDatum.Value.Date + dtpVrijeme.Value.TimeOfDay;
-
 
             if (_id.HasValue)
             {
-                await _termini.Update<Model.Termini>(_id, request);
+                await _termini.Update<Model.Termini>(_id.Value, request);
             }
             else
             {
-                await _termini.Insert<Model.Termini>(request);
+                var termini = await _termini.Get<List<Model.Termini>>(
+                    new TerminiSearchRequest { KorisnikId = request.KorisnikId, Datum = request.VrijemeTermina });
+                if (termini.Count() > 0)
+                {
+                    MessageBox.Show("Vodic je zauzet; na drugom je izletu!");
+                }
+                else
+                {
+                    await _termini.Insert<Model.Termini>(request);
+                    MessageBox.Show("Uspješno sačuvani podaci");
+                    this.Close();
+
+                }
 
             }
 
-            MessageBox.Show("Uspješno sačuvani podaci");
-            this.Close();
         }
 
         private void cmbVodic_Format(object sender, ListControlConvertEventArgs e)

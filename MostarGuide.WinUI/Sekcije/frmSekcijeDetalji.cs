@@ -57,7 +57,7 @@ namespace MostarGuide.WinUI.Sekcije
             request.Webstranica = txtWebStr.Text;
             request.Adresa = txtAdresa.Text;
 
-            await _sekcije.Update<Model.Sekcije>(_id, request);
+            await _sekcije.Update<Model.Sekcije>(_id.Value, request);
             
             MessageBox.Show("Operacija uspješna!");
             this.Close();

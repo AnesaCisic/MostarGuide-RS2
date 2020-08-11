@@ -7,6 +7,9 @@ namespace MostarGuide.Model.Requests
     public class TerminiSearchRequest
     {
         public int? KorisnikId { get; set; }
+        public int? IzletId { get; set; }
+        public DateTime? Datum { get; set; }
+
 
         //public string ImeVodica { get; set; }
         //public string PrezimeVodica { get; set; }

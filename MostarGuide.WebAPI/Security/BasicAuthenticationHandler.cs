@@ -15,14 +15,15 @@ namespace MostarGuide.WebAPI.Security
 {
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-        private readonly IKorisniciService _userService;
+        private readonly ILoginService _userService;
+        private bool _korisnikMob = false;
 
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
             ISystemClock clock,
-            IKorisniciService userService)
+            ILoginService userService)
             : base(options, logger, encoder, clock)
         {
             _userService = userService;
@@ -33,7 +34,7 @@ namespace MostarGuide.WebAPI.Security
             if (!Request.Headers.ContainsKey("Authorization"))
                 return AuthenticateResult.Fail("Missing Authorization Header");
 
-            Model.Korisnici user = null;
+            Model.KorisnikLogin user = null;
             try
             {
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
@@ -41,13 +42,13 @@ namespace MostarGuide.WebAPI.Security
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
                 var username = credentials[0];
                 var password = credentials[1];
-                //user = _userService.Authenticiraj(username, password);
-                //user = _userService.Login(
-                //new Model.Requests.KorisniciLoginRequest()
-                //{
-                //    Username = username,
-                //    Password = password
-                //}); ;//Authenticiraj(username, password);
+                user = _userService.Authenticiraj(username, password);
+
+                if (user == null)
+                {
+                    user = _userService.AuthenticirajKorisnikMob(username, password);
+                    _korisnikMob = true;
+                }
             }
             catch
             {
@@ -57,15 +58,19 @@ namespace MostarGuide.WebAPI.Security
             if (user == null)
                 return AuthenticateResult.Fail("Invalid Username or Password");
 
+
             var claims = new List<Claim> {
                 new Claim(ClaimTypes.NameIdentifier, user.KorisnickoIme),
                 new Claim(ClaimTypes.Name, user.Ime),
             };
 
             //da provjerimo koje role korisnik ima
-            foreach (var role in user.KorisniciUloge)
+            if (!_korisnikMob)
             {
-                claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv));
+                foreach (var role in user.KorisniciUloge)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv));
+                }
             }
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);

@@ -9,9 +9,10 @@ using MostarGuide.WebAPI.Services;
 
 namespace MostarGuide.WebAPI.Controllers
 {
-    //[Authorize]
+ 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BaseController<T, TSearch> : ControllerBase
     {
         private readonly IService<T, TSearch> _service;
