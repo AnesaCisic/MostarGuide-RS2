@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvOcjene = new System.Windows.Forms.DataGridView();
-            this.cmbIzlet = new System.Windows.Forms.ComboBox();
             this.OcjenaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IzletId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Izlet = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,7 @@
             this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbIzlet = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOcjene)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             this.groupBox1.Controls.Add(this.dgvOcjene);
             this.groupBox1.Location = new System.Drawing.Point(33, 107);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(463, 185);
+            this.groupBox1.Size = new System.Drawing.Size(492, 185);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ocjene";
@@ -76,17 +76,8 @@
             this.dgvOcjene.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOcjene.Location = new System.Drawing.Point(3, 16);
             this.dgvOcjene.Name = "dgvOcjene";
-            this.dgvOcjene.Size = new System.Drawing.Size(457, 166);
+            this.dgvOcjene.Size = new System.Drawing.Size(486, 166);
             this.dgvOcjene.TabIndex = 0;
-            // 
-            // cmbIzlet
-            // 
-            this.cmbIzlet.FormattingEnabled = true;
-            this.cmbIzlet.Location = new System.Drawing.Point(36, 52);
-            this.cmbIzlet.Name = "cmbIzlet";
-            this.cmbIzlet.Size = new System.Drawing.Size(193, 21);
-            this.cmbIzlet.TabIndex = 24;
-            this.cmbIzlet.SelectedIndexChanged += new System.EventHandler(this.cmbIzlet_SelectedIndexChanged);
             // 
             // OcjenaId
             // 
@@ -133,11 +124,20 @@
             this.Ocjena.HeaderText = "Ocjena";
             this.Ocjena.Name = "Ocjena";
             // 
+            // cmbIzlet
+            // 
+            this.cmbIzlet.FormattingEnabled = true;
+            this.cmbIzlet.Location = new System.Drawing.Point(36, 52);
+            this.cmbIzlet.Name = "cmbIzlet";
+            this.cmbIzlet.Size = new System.Drawing.Size(193, 21);
+            this.cmbIzlet.TabIndex = 24;
+            this.cmbIzlet.SelectedIndexChanged += new System.EventHandler(this.cmbIzlet_SelectedIndexChanged);
+            // 
             // frmOcjeneIzleti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 349);
+            this.ClientSize = new System.Drawing.Size(569, 349);
             this.Controls.Add(this.cmbIzlet);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

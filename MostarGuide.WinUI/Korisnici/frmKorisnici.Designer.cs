@@ -71,6 +71,7 @@
             this.Status});
             this.dgvKorisnici.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKorisnici.Location = new System.Drawing.Point(3, 16);
+            this.dgvKorisnici.MultiSelect = false;
             this.dgvKorisnici.Name = "dgvKorisnici";
             this.dgvKorisnici.ReadOnly = true;
             this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

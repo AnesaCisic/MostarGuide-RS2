@@ -15,7 +15,7 @@
             <Label Text="Password "/>
             <Entry Text="{Binding Password}" IsPassword="True"></Entry>
             <Button Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" Text="login"></Button>
-            <Label IsVisible="{Binding IsBusy}" Text="Working..."></Label>
+            <Label IsVisible="{Binding IsBusy}" Text="Prijavljivanje..."></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

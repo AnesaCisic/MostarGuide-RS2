@@ -4,12 +4,28 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MostarGuide.MobileApp.Views.IzletiDetaljiPage">
+             x:Class="MostarGuide.MobileApp.Views.IzletiDetaljiPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="{Binding Izlet.Naziv}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <CollectionView
+                ItemsSource="{Binding TerminiList}"
+                ItemsLayout="VerticalGrid, 3">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding VrijemeTerminaStr}" 
+                                LineBreakMode="NoWrap" 
+                                FontSize="16" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

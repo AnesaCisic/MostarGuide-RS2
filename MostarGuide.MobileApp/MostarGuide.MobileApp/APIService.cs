@@ -12,6 +12,7 @@ namespace MostarGuide.MobileApp
     {
         public static string Username { get; set; }
         public static string Password { get; set; }
+        public static KorisniciMob korisnik { get; set; }
 
         private string _route = null;
 
@@ -43,15 +44,13 @@ namespace MostarGuide.MobileApp
             }
             catch (FlurlHttpException ex)
             {
-                if(ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
+                if (ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
                 {
                     await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani!", "OK");
                 }
 
                 throw;
             }
-           
-
         }
 
         public async Task<T> GetById<T>(object id)

@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:MostarGuide.MobileApp.ViewModels" xmlns:converters="clr-namespace:MostarGuide.MobileApp.Converters"
              mc:Ignorable="d"
-             x:Class="MostarGuide.MobileApp.Views.IzletiPage">
+             x:Class="MostarGuide.MobileApp.Views.IzletiPage"
+             Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:IzletiViewModel/>
     </ContentPage.BindingContext>

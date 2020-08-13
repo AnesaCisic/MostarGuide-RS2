@@ -1,5 +1,4 @@
 ﻿using MostarGuide.MobileApp.ViewModels;
-using MostarGuide.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,25 +11,20 @@ using Xamarin.Forms.Xaml;
 namespace MostarGuide.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class IzletiDetaljiPage : ContentPage
+    public partial class KategorijePage : ContentPage
     {
-        private IzletiDetaljiViewModel model;
+        private KategorijeViewModel model = null;
 
-        public IzletiDetaljiPage(Izleti i)
+        public KategorijePage()
         {
             InitializeComponent();
-            BindingContext = model = new IzletiDetaljiViewModel(i);
+            BindingContext = model = new KategorijeViewModel();
         }
 
-        protected override async void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-        }
-
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            
         }
     }
 }

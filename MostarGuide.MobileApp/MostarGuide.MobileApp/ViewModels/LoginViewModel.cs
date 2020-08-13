@@ -1,4 +1,6 @@
 ﻿using MostarGuide.MobileApp.Views;
+using MostarGuide.Model;
+using MostarGuide.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +12,9 @@ namespace MostarGuide.MobileApp.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        private readonly APIService _service = new APIService("korisnik");
+        private readonly APIService _service = new APIService("sekcija");
+        private readonly APIService _serviceLogin = new APIService("korisnikmob");
+
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await Login());
@@ -32,6 +36,7 @@ namespace MostarGuide.MobileApp.ViewModels
         }
 
         public ICommand LoginCommand { get; set; }
+        KorisniciMob k;
 
         async Task Login()
         {
@@ -41,13 +46,25 @@ namespace MostarGuide.MobileApp.ViewModels
 
             try
             {
-                await _service.Get<dynamic>(null);
+
+                var list = await _serviceLogin.Get<List<KorisniciMob>>(new KorisniciMobSearchRequest { KorisnickoIme = APIService.Username });
+                foreach (var korisnik in list)
+                {
+                    if (korisnik.KorisnickoIme == APIService.Username)
+                    {
+                        k = korisnik;
+                        APIService.korisnik = korisnik;
+                    }
+                }
+
+                //await _service.Get<dynamic>(null);
+
                 Application.Current.MainPage = new MainPage();
             }
             catch (Exception)
             {
-
-                throw;
+                await Application.Current.MainPage.DisplayAlert("Mostar Guide", "Pogresno korisnicko ime ili password!", "OK");
+                Application.Current.MainPage = new LoginPage();
             }
         }
     }

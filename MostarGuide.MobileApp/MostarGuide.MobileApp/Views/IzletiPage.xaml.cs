@@ -21,10 +21,10 @@ namespace MostarGuide.MobileApp.Views
             BindingContext = model = new IzletiViewModel();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            model.Init();
+            await model.Init();
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

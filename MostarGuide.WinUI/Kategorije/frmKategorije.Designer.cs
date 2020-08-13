@@ -54,6 +54,7 @@
             this.Naziv});
             this.dgvKategorije.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKategorije.Location = new System.Drawing.Point(3, 16);
+            this.dgvKategorije.MultiSelect = false;
             this.dgvKategorije.Name = "dgvKategorije";
             this.dgvKategorije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKategorije.Size = new System.Drawing.Size(482, 220);

@@ -9,12 +9,13 @@ using Xamarin.Forms;
 
 namespace MostarGuide.MobileApp.ViewModels
 {
-    public class IzletiViewModel
+    public class IzletiViewModel: BaseViewModel
     {
         private readonly APIService _izleti = new APIService("izlet");
         public IzletiViewModel()
         {
             InitCommand = new Command(async () => await Init());
+            Title = "Izleti";
         }
         public ObservableCollection<Izleti> IzletiList { get; set; } = new ObservableCollection<Izleti>();
 

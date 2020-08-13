@@ -8,7 +8,8 @@ namespace MostarGuide.MobileApp.Models
     {
         Browse,
         About,
-        Izleti
+        Izleti,
+        Kategorije
     }
     public class HomeMenuItem
     {
