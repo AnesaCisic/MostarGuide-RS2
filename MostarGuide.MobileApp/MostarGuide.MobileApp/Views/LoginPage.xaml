@@ -9,12 +9,24 @@
         <vm:LoginViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-            <Label Text="Korisničko ime: "/>
-            <Entry Text="{Binding Username}"></Entry>
-            <Label Text="Password "/>
-            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
-            <Button Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" Text="login"></Button>
+            <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
+                
+                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image Source="mostarguide.png" ></Image>
+                </StackLayout>
+                
+                <Entry Text="{Binding Username}" Placeholder="Korisnicko ime"></Entry>
+                <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"></Entry>
+
+            <StackLayout Padding="0,20,0,0">
+                <Button Text="Login" BackgroundColor="RoyalBlue" TextColor="White" Command="{Binding LoginCommand}" Padding="6" BorderColor="LightGray" BorderWidth="1"></Button>
+            </StackLayout>
+
+            <StackLayout Padding="0,5,0,0">
+                <Button Text="Registriraj se" Clicked="Button_Clicked"
+                   BackgroundColor="RoyalBlue" Padding="6" TextColor="White" BorderColor="LightGray" BorderWidth="1"></Button>
+            </StackLayout>
+
             <Label IsVisible="{Binding IsBusy}" Text="Prijavljivanje..."></Label>
         </StackLayout>
     </ContentPage.Content>

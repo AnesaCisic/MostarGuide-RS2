@@ -2,16 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converters="clr-namespace:MostarGuide.MobileApp.Converters"
              mc:Ignorable="d"
              x:Class="MostarGuide.MobileApp.Views.IzletiDetaljiPage"
              Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Izlet.Naziv}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <ScrollView BackgroundColor="White">
+            <StackLayout>
+            <StackLayout Padding="15">
+                <Image Source="{Binding Izlet.Slika, Converter={StaticResource imgConv}}" HeightRequest="180" WidthRequest="180"></Image>
+            </StackLayout>
+            <StackLayout Padding="15">
 
+                <Label Text="{Binding Izlet.Naziv}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="RoyalBlue" FontSize="24" />
+
+            <Label Text="{Binding Izlet.Opis}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="16" />
+
+            <Label Text="{Binding Izlet.CijenaStr}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" FontAttributes="Bold" />
+            </StackLayout>
+
+
+                <StackLayout>
+
+                    <Label Text="Termini za izlet: "
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" />
             <CollectionView
                 ItemsSource="{Binding TerminiList}"
                 ItemsLayout="VerticalGrid, 3">
@@ -25,7 +51,16 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+                </StackLayout>
+
+
+                <StackLayout>
+                    <Button Text="Rezerviši" Clicked="Button_Clicked"
+                   BackgroundColor="RoyalBlue" TextColor="White"></Button>
+                </StackLayout>
+
+            </StackLayout>
             
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

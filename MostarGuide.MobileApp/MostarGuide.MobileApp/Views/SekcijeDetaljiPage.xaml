@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converters="clr-namespace:MostarGuide.MobileApp.Converters" xmlns:vm="clr-namespace:MostarGuide.MobileApp.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MostarGuide.MobileApp.Views.SekcijeDetaljiPage">
+    <ContentPage.BindingContext>
+        <vm:SekcijeDetaljiViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <StackLayout Padding="15">
+                    <Image Source="{Binding Sekcija.Slika, Converter={StaticResource imgConv}}" ></Image>
+                </StackLayout>
+                <StackLayout Padding="15">
+
+                    <Label Text="{Binding Sekcija.Naziv}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="RoyalBlue" FontSize="24" />
+
+                    <Label Text="{Binding Sekcija.Opis}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="16" />
+
+                    <Label Text="{Binding Sekcija.Adresa}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" FontAttributes="Bold" />
+
+                    <Label Text="{Binding Sekcija.Webstranica}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" FontAttributes="Bold" />
+                    
+                    <Label Text="{Binding Sekcija.Telefon}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" FontAttributes="Bold" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

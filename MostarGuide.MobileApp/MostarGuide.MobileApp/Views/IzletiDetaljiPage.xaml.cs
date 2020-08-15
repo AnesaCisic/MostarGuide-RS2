@@ -14,12 +14,17 @@ namespace MostarGuide.MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class IzletiDetaljiPage : ContentPage
     {
-        private IzletiDetaljiViewModel model;
+        private IzletiDetaljiViewModel model = null;
+        int _izletId = 0;
 
-        public IzletiDetaljiPage(Izleti i)
+        public IzletiDetaljiPage(Izleti izlet)
         {
             InitializeComponent();
-            BindingContext = model = new IzletiDetaljiViewModel(i);
+            BindingContext = model = new IzletiDetaljiViewModel()
+            {
+                Izlet = izlet
+            };
+            _izletId = izlet.IzletId;
         }
 
         protected override async void OnAppearing()
@@ -28,9 +33,10 @@ namespace MostarGuide.MobileApp.Views
             await model.Init();
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            
+            await Navigation.PushAsync(new RezervacijaPage(_izletId));
         }
     }
 }

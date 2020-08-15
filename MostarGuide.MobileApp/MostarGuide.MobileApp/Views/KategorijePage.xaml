@@ -9,26 +9,25 @@
         <vm:KategorijeViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <ListView ItemsSource="{Binding KategorijeList}">
+        <StackLayout VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+            <ListView ItemsSource="{Binding KategorijeList}" ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal">
-                                <!--<StackLayout>
-                                    <Image Source="{Binding Slika, Converter={StaticResource imgConv}}" HeightRequest="150" WidthRequest="150"></Image>
-                                </StackLayout>-->
-                                <StackLayout Orientation="Vertical">
+                            <StackLayout Padding="10" >
+                                <StackLayout  BackgroundColor="LightBlue" Padding="20">
                                     <Label Text="{Binding Naziv}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                FontSize="16" HorizontalTextAlignment="Center" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

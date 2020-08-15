@@ -16,9 +16,6 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Izleti!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
             <ListView ItemsSource="{Binding IzletiList}" ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -27,7 +24,7 @@
                                 <StackLayout>
                                     <Image Source="{Binding Slika, Converter={StaticResource imgConv}}" HeightRequest="150" WidthRequest="150"></Image>
                                 </StackLayout>
-                                <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Vertical" Padding="20">
                                     <Label Text="{Binding Naziv}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 

@@ -10,29 +10,17 @@ using Xamarin.Forms;
 
 namespace MostarGuide.MobileApp.ViewModels
 {
-    public class IzletiDetaljiViewModel: BaseViewModel
+    public class IzletiDetaljiViewModel : BaseViewModel
     {
-        private readonly APIService _izleti = new APIService("izlet");
         private readonly APIService _termini = new APIService("termin");
+        public Izleti Izlet { get; set; }
 
-      
-
-        public IzletiDetaljiViewModel(Izleti izlet)
+        public IzletiDetaljiViewModel()
         {
-            Izlet = izlet;
             InitCommand = new Command(async () => await Init());
             Title = "Prikaz izleta";
         }
         public ObservableCollection<Termini> TerminiList { get; set; } = new ObservableCollection<Termini>();
-
-        private Izleti _izlet;
-
-        public Izleti Izlet
-        {
-            get { return _izlet; }
-            set { SetProperty(ref _izlet, value); }
-        }
-
 
         public ICommand InitCommand { get; set; }
 
@@ -40,14 +28,13 @@ namespace MostarGuide.MobileApp.ViewModels
         {
             var request = new Model.Requests.TerminiSearchRequest
             {
-                IzletId = _izlet.IzletId
+                IzletId = Izlet.IzletId
             };
 
             var termini = await _termini.Get<IEnumerable<Termini>>(request);
 
             termini = termini.Where(x => x.VrijemeTermina.Date >= DateTime.Now.Date.AddDays(2)).OrderBy(x => x.VrijemeTermina).Take(3);
 
-            //dodajem termine 
             TerminiList.Clear();
             foreach (var termin in termini)
             {

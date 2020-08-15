@@ -11,6 +11,7 @@ namespace MostarGuide.Model
         public string Opis { get; set; }
         public int BrojMjesta { get; set; }
         public decimal Cijena { get; set; }
+        public string CijenaStr { get { return Cijena + "KM"; } }
         public byte[] Slika { get; set; }
         //public bool? Status { get; set; }
     }

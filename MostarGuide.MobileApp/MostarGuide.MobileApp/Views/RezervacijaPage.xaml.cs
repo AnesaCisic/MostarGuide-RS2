@@ -10,16 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace MostarGuide.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class RezervacijaPage : ContentPage
     {
-        public LoginPage()
+
+        
+        public RezervacijaPage(int izletid)
         {
             InitializeComponent();
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            Application.Current.MainPage = new NavigationPage(new RegistracijaPage());
         }
     }
 }
