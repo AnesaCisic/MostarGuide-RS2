@@ -91,6 +91,7 @@
             this.Opis});
             this.dgvIzleti.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvIzleti.Location = new System.Drawing.Point(3, 16);
+            this.dgvIzleti.MultiSelect = false;
             this.dgvIzleti.Name = "dgvIzleti";
             this.dgvIzleti.ReadOnly = true;
             this.dgvIzleti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

@@ -2,14 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:MostarGuide.MobileApp.ViewModels"
              mc:Ignorable="d"
              x:Class="MostarGuide.MobileApp.Views.RezervacijaPage">
+    <ContentPage.BindingContext>
+        <vm:RezervacijaViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+        <StackLayout HorizontalOptions="CenterAndExpand" Padding="20" VerticalOptions="CenterAndExpand" >
+            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <Image Source="mostarguide.png" HorizontalOptions="FillAndExpand" HeightRequest="150" WidthRequest="150"></Image>
+            </StackLayout>
+            
+            <Label Text="Odaberite termin:"/>
+            <Picker x:Name="Termini" ItemsSource="{Binding TerminiList}" ItemDisplayBinding="{Binding VrijemeTerminaStr}"></Picker>
+            <Label x:Name="terminigreska" Text=" " TextColor="Red" IsVisible="False"></Label>
+            <Label Text="Broj osoba: "/>
+            <Label x:Name="brojosobagreska" Text=" " TextColor="Red" IsVisible="False"></Label>
+            <StackLayout Orientation="Horizontal">
+            <Entry Text="{Binding BrojOsoba}" Keyboard="Numeric"></Entry>
+                <Button Text="+1" Command="{Binding PovecajBrojOsobaCommand}"></Button>
+            </StackLayout>
+
+            <Button Text="Rezerviraj" Clicked="Button_Clicked"
+                   BackgroundColor="RoyalBlue" Padding="6" TextColor="White" BorderColor="LightGray" BorderWidth="1"></Button>
+            <Label IsVisible="{Binding IsBusy}" Text="Kreiranje rezervacije u toku..." FontAttributes="Bold"></Label>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

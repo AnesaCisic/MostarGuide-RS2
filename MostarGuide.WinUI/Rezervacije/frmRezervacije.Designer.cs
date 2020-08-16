@@ -70,6 +70,7 @@
             this.BrojOsoba});
             this.dgvRezervacije.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRezervacije.Location = new System.Drawing.Point(3, 16);
+            this.dgvRezervacije.MultiSelect = false;
             this.dgvRezervacije.Name = "dgvRezervacije";
             this.dgvRezervacije.Size = new System.Drawing.Size(602, 215);
             this.dgvRezervacije.TabIndex = 0;

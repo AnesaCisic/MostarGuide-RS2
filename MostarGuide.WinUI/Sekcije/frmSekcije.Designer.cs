@@ -86,6 +86,7 @@
             this.Telefon});
             this.dgvSekcije.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSekcije.Location = new System.Drawing.Point(3, 16);
+            this.dgvSekcije.MultiSelect = false;
             this.dgvSekcije.Name = "dgvSekcije";
             this.dgvSekcije.ReadOnly = true;
             this.dgvSekcije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

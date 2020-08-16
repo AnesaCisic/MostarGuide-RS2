@@ -30,7 +30,6 @@
         {
             this.cmbSekcija = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.no = new System.Windows.Forms.Label();
             this.dgvOcjene = new System.Windows.Forms.DataGridView();
             this.OcjenaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SekcijaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,7 @@
             this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.no = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOcjene)).BeginInit();
             this.SuspendLayout();
@@ -62,15 +62,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ocjene";
             // 
-            // no
-            // 
-            this.no.AutoSize = true;
-            this.no.Location = new System.Drawing.Point(50, 37);
-            this.no.Name = "no";
-            this.no.Size = new System.Drawing.Size(42, 13);
-            this.no.TabIndex = 25;
-            this.no.Text = "Sekcija";
-            // 
             // dgvOcjene
             // 
             this.dgvOcjene.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -84,6 +75,7 @@
             this.Ocjena});
             this.dgvOcjene.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOcjene.Location = new System.Drawing.Point(3, 16);
+            this.dgvOcjene.MultiSelect = false;
             this.dgvOcjene.Name = "dgvOcjene";
             this.dgvOcjene.Size = new System.Drawing.Size(503, 195);
             this.dgvOcjene.TabIndex = 0;
@@ -132,6 +124,15 @@
             this.Ocjena.DataPropertyName = "Ocjena";
             this.Ocjena.HeaderText = "Ocjena";
             this.Ocjena.Name = "Ocjena";
+            // 
+            // no
+            // 
+            this.no.AutoSize = true;
+            this.no.Location = new System.Drawing.Point(50, 37);
+            this.no.Name = "no";
+            this.no.Size = new System.Drawing.Size(42, 13);
+            this.no.TabIndex = 25;
+            this.no.Text = "Sekcija";
             // 
             // frmOcjeneSekcije
             // 

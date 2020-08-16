@@ -75,6 +75,7 @@
             this.Ocjena});
             this.dgvOcjene.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOcjene.Location = new System.Drawing.Point(3, 16);
+            this.dgvOcjene.MultiSelect = false;
             this.dgvOcjene.Name = "dgvOcjene";
             this.dgvOcjene.Size = new System.Drawing.Size(486, 166);
             this.dgvOcjene.TabIndex = 0;

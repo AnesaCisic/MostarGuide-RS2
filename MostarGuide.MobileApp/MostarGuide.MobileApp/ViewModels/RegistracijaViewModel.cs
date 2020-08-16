@@ -13,7 +13,6 @@ namespace MostarGuide.MobileApp.ViewModels
     class RegistracijaViewModel : BaseViewModel
     {
         private readonly KorisnikAPIService _service = new KorisnikAPIService("korisnikmob");
-
         public RegistracijaViewModel()
         {
             RegistrationCommand = new Command(async () => await Registration());

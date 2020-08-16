@@ -33,10 +33,22 @@ namespace MostarGuide.MobileApp.Views
             await model.Init();
         }
 
-
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            
             await Navigation.PushAsync(new RezervacijaPage(_izletId));
+        }
+
+
+        private async void Termini_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Termini t = this.Termini.SelectedItem as Termini;
+            model.TerminID = t.TerminId;
+
+            await model.ProvjeraSlobodnihMjesta();
+
+            brojslobodnihmjesta.Text = "Broj slobodnih mjesta za odabrani termin: " + model.BrojSlobodnihMjesta.ToString();
+            brojslobodnihmjesta.IsVisible = true;
         }
     }
 }

@@ -11,8 +11,8 @@
     <ContentPage.Content>
             <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
                 
-                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Image Source="mostarguide.png" ></Image>
+                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+                    <Image Source="mostarguide.png" HeightRequest="200" WidthRequest="200" ></Image>
                 </StackLayout>
                 
                 <Entry Text="{Binding Username}" Placeholder="Korisnicko ime"></Entry>

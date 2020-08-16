@@ -1,4 +1,5 @@
-﻿using MostarGuide.MobileApp.ViewModels;
+﻿using LaavorRatingConception;
+using MostarGuide.MobileApp.ViewModels;
 using MostarGuide.Model;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace MostarGuide.MobileApp.Views
                 Sekcija = sekcija
             };
         }
+
+      
 
         //protected override async void OnAppearing()
         //{

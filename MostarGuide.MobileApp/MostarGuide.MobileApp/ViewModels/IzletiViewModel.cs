@@ -30,5 +30,6 @@ namespace MostarGuide.MobileApp.ViewModels
                 IzletiList.Add(izlet);
             }
         }
+
     }
 }
