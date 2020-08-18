@@ -32,14 +32,13 @@
             this.cmbKategorija = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSekcije = new System.Windows.Forms.DataGridView();
+            this.btnDodaj = new System.Windows.Forms.Button();
             this.SekcijaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KategorijaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Webstranica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDodaj = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSekcije)).BeginInit();
             this.SuspendLayout();
@@ -82,8 +81,7 @@
             this.Naziv,
             this.Opis,
             this.Adresa,
-            this.Webstranica,
-            this.Telefon});
+            this.Webstranica});
             this.dgvSekcije.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSekcije.Location = new System.Drawing.Point(3, 16);
             this.dgvSekcije.MultiSelect = false;
@@ -93,6 +91,16 @@
             this.dgvSekcije.Size = new System.Drawing.Size(552, 187);
             this.dgvSekcije.TabIndex = 0;
             this.dgvSekcije.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSekcije_MouseDoubleClick);
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(516, 67);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(81, 21);
+            this.btnDodaj.TabIndex = 37;
+            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // SekcijaId
             // 
@@ -138,23 +146,6 @@
             this.Webstranica.Name = "Webstranica";
             this.Webstranica.ReadOnly = true;
             // 
-            // Telefon
-            // 
-            this.Telefon.DataPropertyName = "Telefon";
-            this.Telefon.HeaderText = "Telefon";
-            this.Telefon.Name = "Telefon";
-            this.Telefon.ReadOnly = true;
-            // 
-            // btnDodaj
-            // 
-            this.btnDodaj.Location = new System.Drawing.Point(516, 67);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(81, 21);
-            this.btnDodaj.TabIndex = 37;
-            this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
-            // 
             // frmSekcije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,13 +171,12 @@
         private System.Windows.Forms.ComboBox cmbKategorija;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvSekcije;
+        private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridViewTextBoxColumn SekcijaId;
         private System.Windows.Forms.DataGridViewTextBoxColumn KategorijaId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Webstranica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefon;
-        private System.Windows.Forms.Button btnDodaj;
     }
 }

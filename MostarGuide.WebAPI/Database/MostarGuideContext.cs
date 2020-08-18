@@ -24,6 +24,7 @@ namespace MostarGuide.WebAPI.Database
         public virtual DbSet<Rezervacije> Rezervacije { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
         public virtual DbSet<Termini> Termini { get; set; }
+        public virtual DbSet<Uplate> Uplate { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -195,9 +196,6 @@ namespace MostarGuide.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(500);
 
-                entity.Property(e => e.Telefon)
-                    .IsRequired()
-                    .HasMaxLength(25);
 
                 entity.Property(e => e.Adresa)
                     .IsRequired()

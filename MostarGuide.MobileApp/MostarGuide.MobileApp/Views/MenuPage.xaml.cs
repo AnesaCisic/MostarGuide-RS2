@@ -23,7 +23,8 @@ namespace MostarGuide.MobileApp.Views
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.Izleti, Title="Izleti" },
-                new HomeMenuItem {Id = MenuItemType.Kategorije, Title="Sekcije" }
+                new HomeMenuItem {Id = MenuItemType.Kategorije, Title="Sekcije" },
+                new HomeMenuItem {Id = MenuItemType.Rezervacije, Title="Moje rezervacije" },
             };
 
             ListViewMenu.ItemsSource = menuItems;

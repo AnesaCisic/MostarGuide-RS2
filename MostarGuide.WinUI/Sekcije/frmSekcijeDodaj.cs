@@ -42,7 +42,6 @@ namespace MostarGuide.WinUI.Sekcije
         {
             request.Naziv = txtNaziv.Text;
             request.Opis = txtOpis.Text;
-            request.Telefon = txtTelefon.Text;
             request.Webstranica = txtWebStr.Text;
             request.Adresa = txtAdresa.Text;
 

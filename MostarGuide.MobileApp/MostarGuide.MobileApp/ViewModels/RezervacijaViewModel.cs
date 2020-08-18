@@ -62,6 +62,9 @@ namespace MostarGuide.MobileApp.ViewModels
         {
             IsBusy = true;
 
+            var izlet = await _izleti.GetById<Izleti>(_izletId);
+            decimal cijenaIzleta = izlet.Cijena;
+
             await ProvjeraSlobodnihMjesta();
 
             if (_brojSlobodnihMjesta > 0)
@@ -71,15 +74,17 @@ namespace MostarGuide.MobileApp.ViewModels
                     TerminId = _terminId,
                     KorisnikMobId = _korisnik.KorisnikId,
                     BrojOsoba = _brojOsoba,
-                    DatumRezervacije = DateTime.Now
+                    DatumRezervacije = DateTime.Now,
+                    Placeno = false,
+                    UkupanIznos = cijenaIzleta * _brojOsoba
                 });
+
                 await Application.Current.MainPage.DisplayAlert("Hvala!", "Uspjesno ste rezervisali vasa mjesta za izlet!", "OK");
             }
             else
             {
                 await Application.Current.MainPage.DisplayAlert("Žao nam je!", "Sva mjesta za odabrani termin su popunjena!", "Cancel");
             }
-
 
         }
 

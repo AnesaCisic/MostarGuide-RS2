@@ -124,7 +124,7 @@ namespace MostarGuide.MobileApp.Views
                 vm.Lozinka = this.Lozinka.Text;
                 vm.PotvrdaLozinke = this.PotvrdaLozinke.Text;
 
-                await vm.Registration();
+                await vm.Registration(); // error
             }
         }
 

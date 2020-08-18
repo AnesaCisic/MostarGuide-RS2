@@ -36,7 +36,6 @@ namespace MostarGuide.WinUI.Sekcije
                 txtNaziv.Text = s.Naziv;
                 txtOpis.Text = s.Opis;
                 txtAdresa.Text = s.Adresa;
-                txtTelefon.Text = s.Telefon;
                 txtWebStr.Text = s.Webstranica;
 
                 if (s.Slika.Length > 0)
@@ -53,7 +52,6 @@ namespace MostarGuide.WinUI.Sekcije
         {
             request.Naziv = txtNaziv.Text;
             request.Opis = txtOpis.Text;
-            request.Telefon = txtTelefon.Text;
             request.Webstranica = txtWebStr.Text;
             request.Adresa = txtAdresa.Text;
 

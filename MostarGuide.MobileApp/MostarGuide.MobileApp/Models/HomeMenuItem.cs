@@ -9,7 +9,9 @@ namespace MostarGuide.MobileApp.Models
         Browse,
         About,
         Izleti,
-        Kategorije
+        Kategorije,
+        Rezervacije,
+        Placanje
     }
     public class HomeMenuItem
     {

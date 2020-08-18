@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MostarGuide.WebAPI.Database;
 
 namespace MostarGuide.WebAPI.Migrations
 {
     [DbContext(typeof(MostarGuideContext))]
-    partial class MostarGuideContextModelSnapshot : ModelSnapshot
+    [Migration("20200816170629_tabelauplate")]
+    partial class tabelauplate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -272,14 +274,8 @@ namespace MostarGuide.WebAPI.Migrations
                     b.Property<int>("KorisnikMobId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Placeno")
-                        .HasColumnType("bit");
-
                     b.Property<int>("TerminId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("UkupanIznos")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("RezervacijaId");
 
@@ -395,10 +391,15 @@ namespace MostarGuide.WebAPI.Migrations
                     b.Property<int>("RezervacijaID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UplataID1")
+                        .HasColumnType("int");
+
                     b.HasKey("UplataID");
 
                     b.HasIndex("RezervacijaID")
                         .IsUnique();
+
+                    b.HasIndex("UplataID1");
 
                     b.ToTable("Uplate");
                 });
@@ -498,6 +499,10 @@ namespace MostarGuide.WebAPI.Migrations
                         .HasForeignKey("MostarGuide.WebAPI.Database.Uplate", "RezervacijaID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("MostarGuide.WebAPI.Database.Uplate", "Uplata")
+                        .WithMany()
+                        .HasForeignKey("UplataID1");
                 });
 #pragma warning restore 612, 618
         }

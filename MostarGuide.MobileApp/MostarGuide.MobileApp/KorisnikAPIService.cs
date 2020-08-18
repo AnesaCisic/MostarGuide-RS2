@@ -16,7 +16,7 @@ namespace MostarGuide.MobileApp
         private string _apiUrl = "http://localhost:64533/api";
 #endif
 #if RELEASE
-        private string apiUrl = "https://mywebsite.azure.com/api/";
+        private string apiUrl = "https://mywebsite.com/api/";
 
 #endif
         public KorisnikAPIService(string route)

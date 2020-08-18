@@ -37,8 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtWebStr = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTelefon = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtOpis = new System.Windows.Forms.TextBox();
@@ -121,25 +119,9 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Web stranica";
             // 
-            // txtTelefon
-            // 
-            this.txtTelefon.Location = new System.Drawing.Point(394, 212);
-            this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(220, 20);
-            this.txtTelefon.TabIndex = 29;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(391, 191);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Telefon";
-            // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(491, 300);
+            this.btnSacuvaj.Location = new System.Drawing.Point(491, 267);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(123, 25);
             this.btnSacuvaj.TabIndex = 35;
@@ -150,7 +132,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(392, 244);
+            this.label5.Location = new System.Drawing.Point(392, 199);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 37;
@@ -158,7 +140,7 @@
             // 
             // txtOpis
             // 
-            this.txtOpis.Location = new System.Drawing.Point(394, 261);
+            this.txtOpis.Location = new System.Drawing.Point(394, 216);
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(220, 20);
             this.txtOpis.TabIndex = 36;
@@ -184,8 +166,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtOpis);
             this.Controls.Add(this.btnSacuvaj);
-            this.Controls.Add(this.txtTelefon);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtWebStr);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtAdresa);
@@ -215,8 +195,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtWebStr;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTelefon;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtOpis;

@@ -19,7 +19,5 @@ namespace MostarGuide.Model
         public string IzletDatum { get { return Izlet + " - " + VrijemeTermina.ToString(); } }
         public string VrijemeTerminaStr { get { return VrijemeTermina.ToString("dd MMM yyyy HH:mm"); } }
 
-
-
     }
 }

@@ -76,6 +76,7 @@ namespace MostarGuide.WebAPI
             services.AddScoped<ICRUDService<Model.OcjeneSekcije, OcjeneSekcijeSearchRequest, OcjeneSekcijeUpsertRequest, OcjeneSekcijeUpsertRequest>, OcjenaSekcijaService>();
             services.AddScoped<IService<Model.Uloge, object>, BaseService<Model.Uloge, object, Uloge>>();
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<ICRUDService<Model.Uplate, UplateSearchRequest, UplateInsertRequest, UplateInsertRequest>, UplateService>();
 
             var connection = @"Server=.;Database=IB160037;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<MostarGuideContext>(options => options.UseSqlServer(connection));

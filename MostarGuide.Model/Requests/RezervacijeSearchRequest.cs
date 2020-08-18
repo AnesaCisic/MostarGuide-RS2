@@ -8,6 +8,7 @@ namespace MostarGuide.Model.Requests
     {
         public int? TerminId { get; set; }
         public int? Godina { get; set; }
+        public int? KorisnikId { get; set; }
 
 
         //public string KoriscnickoIme { get; set; }

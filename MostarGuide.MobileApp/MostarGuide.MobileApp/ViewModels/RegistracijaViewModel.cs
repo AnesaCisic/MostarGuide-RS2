@@ -24,11 +24,11 @@ namespace MostarGuide.MobileApp.ViewModels
         {
             IsBusy = true;
 
-            //var korisnici = await _service.Get<List<KorisniciMob>>(new KorisniciMobSearchRequest() { KorisnickoIme = _korisnickoIme });
-            
-            //if (korisnici.Count == 0)
-            //{
-                
+            var korisnici = await _service.Get<List<KorisniciMob>>(new KorisniciMobSearchRequest() { KorisnickoIme = _korisnickoIme });
+
+            if (korisnici.Count == 0)
+            {
+
                 await _service.Insert<KorisniciMob>(new KorisniciMobUpsertRequest()
                 {
                     Ime = _ime,
@@ -44,12 +44,12 @@ namespace MostarGuide.MobileApp.ViewModels
 
                 Application.Current.MainPage = new LoginPage();
 
-            //}
-            //else
-            //{
-            //    await Application.Current.MainPage.DisplayAlert("Greška", "Korisničko ime već postoji", "OK");
-            //    Application.Current.MainPage = new RegistracijaPage();
-            //}
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Greška", "Korisničko ime već postoji", "OK");
+                Application.Current.MainPage = new RegistracijaPage();
+            }
         }
 
         string _ime = string.Empty;

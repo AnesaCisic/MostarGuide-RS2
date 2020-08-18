@@ -14,7 +14,11 @@ namespace MostarGuide.Model
         public string Izlet { get; set; }
         public DateTime TerminDatum { get; set; }
         public DateTime DatumRezervacije { get; set; }
+        public decimal UkupanIznos { get; set; }
         public int BrojOsoba { get; set; }
+
+
+        public string DatumRezervacijeStr { get { return DatumRezervacije.ToString("dd MMM yyyy HH:mm"); } }
 
     }
 }

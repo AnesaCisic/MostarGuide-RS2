@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MostarGuide.MobileApp.Views.PlacanjePage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <StackLayout Margin="20">
+                    <Image Source="creditcard.png"  HeightRequest="180" WidthRequest="180"></Image>
+                </StackLayout>
+                <StackLayout x:Name="creditcard" HorizontalOptions="FillAndExpand">
+                    <Entry  x:Name="CreditCardNumber" Placeholder="Unesite broj kartice"></Entry>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Entry  x:Name="CreditCardExpMonth" Placeholder="Mjesec isteka"></Entry>
+                        <Entry  x:Name="CreditCardExpYear" Placeholder="Godina isteka"></Entry>
+                        <Entry  x:Name="CreditCardSecurityCode" Placeholder="CVV"></Entry>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Margin="0,20,0,0">
+                    <Button x:Name="btn" BorderColor="RoyalBlue" BackgroundColor="Transparent" TextColor="RoyalBlue" Text="Uplati iznos" Clicked="btn_Clicked"></Button>
+                </StackLayout>
+                <StackLayout>
+                    <Label x:Name="greska"></Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

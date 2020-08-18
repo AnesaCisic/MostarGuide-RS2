@@ -11,7 +11,6 @@ namespace MostarGuide.Model.Requests
         public string Opis { get; set; }
         public string Adresa { get; set; }
         public string Webstranica { get; set; }
-        public string Telefon { get; set; }
         public byte[] Slika { get; set; }
     }
 }

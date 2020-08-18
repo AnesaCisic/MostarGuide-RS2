@@ -29,27 +29,15 @@ namespace MostarGuide.WebAPI.Services
                 query = query.Where(x => x.TerminId == search.TerminId);
             }
 
+            if (search.KorisnikId.HasValue == true)
+            {
+                query = query.Where(x => x.KorisnikMobId == search.KorisnikId);
+            }
+
             var list = query.OrderBy(x => x.DatumRezervacije).ToList();
 
             return _mapper.Map<List<Model.Rezervacije>>(list);
         }
-
-        //public override Model.Rezervacije Insert(RezervacijeUpsertRequest request)
-        //{
-        //    var termin = _context.Termini.Find(request.TerminId);
-
-        //    try
-        //    {
-        //        if (termin.SlobodnaMjesta > 0)
-        //        {
-        //            return _mapper.Map<Model.Rezervacije>(request);
-
-        //        }
-        //    }
-        //    catch
-        //    {
-        //    }
-        //}
 
     }
 }
