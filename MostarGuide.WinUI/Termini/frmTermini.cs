@@ -65,8 +65,8 @@ namespace MostarGuide.WinUI.Termini
                 t.Vodic = k.Ime + " " + k.Prezime;
             }
 
-            dgvTermini.DataSource = result;
             dgvTermini.AutoGenerateColumns = false;
+            dgvTermini.DataSource = result;
 
         }
 

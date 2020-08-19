@@ -12,6 +12,7 @@ namespace MostarGuide.Model
         public string Opis { get; set; }
         public string Adresa { get; set; }
         public string Webstranica { get; set; }
+        public decimal Ocjena { get; set; }
         public byte[] Slika { get; set; }
     }
 }

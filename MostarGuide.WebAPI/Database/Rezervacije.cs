@@ -14,9 +14,7 @@ namespace MostarGuide.WebAPI.Database
         public DateTime DatumRezervacije { get; set; }
         public int BrojOsoba { get; set; }
         public decimal UkupanIznos { get; set; }
-
         public bool Placeno { get; set; }
-
 
         public virtual Termini Termin { get; set; }
         public virtual KorisniciMob Korisnik { get; set; }

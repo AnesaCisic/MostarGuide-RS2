@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -97,6 +98,58 @@ namespace MostarGuide.WinUI.Izleti
 
                 Image image = Image.FromFile(fileName);
                 pictureBox.Image = image;
+            }
+        }
+
+        private void txtNaziv_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNaziv.Text))
+            {
+                errorProvider1.SetError(txtNaziv, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true; 
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtNaziv, null);
+            }
+        }
+
+        private void txtBrojMjesta_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBrojMjesta.Text))
+            {
+                errorProvider1.SetError(txtBrojMjesta, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(txtBrojMjesta.Text, @"^[0-9]+$"))
+            {
+                errorProvider1.SetError(txtBrojMjesta, "Broj mjesta mora da sadrzi samo brojeve");
+                e.Cancel = true;
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtBrojMjesta, null);
+            }
+        }
+
+        private void txtCijena_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCijena.Text))
+            {
+                errorProvider1.SetError(txtCijena, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(txtCijena.Text, @"^[0-9]+$"))
+            {
+                errorProvider1.SetError(txtCijena, "Cijena mora da sadrzi samo brojeve");
+                e.Cancel = true;
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtCijena, null);
             }
         }
     }

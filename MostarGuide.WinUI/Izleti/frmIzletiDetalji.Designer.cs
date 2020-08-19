@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,7 +44,9 @@
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label4 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,6 +64,7 @@
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(293, 20);
             this.txtNaziv.TabIndex = 17;
+            this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
             // 
             // label2
             // 
@@ -85,6 +89,7 @@
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(56, 20);
             this.txtCijena.TabIndex = 29;
+            this.txtCijena.Validating += new System.ComponentModel.CancelEventHandler(this.txtCijena_Validating);
             // 
             // lblBrojMjesta
             // 
@@ -101,6 +106,7 @@
             this.txtBrojMjesta.Name = "txtBrojMjesta";
             this.txtBrojMjesta.Size = new System.Drawing.Size(56, 20);
             this.txtBrojMjesta.TabIndex = 27;
+            this.txtBrojMjesta.Validating += new System.ComponentModel.CancelEventHandler(this.txtBrojMjesta_Validating);
             // 
             // label3
             // 
@@ -171,6 +177,10 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "KM";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmIzletiDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +204,7 @@
             this.Text = "IzletiDetalji";
             this.Load += new System.EventHandler(this.frmIzletiDetalji_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +227,6 @@
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

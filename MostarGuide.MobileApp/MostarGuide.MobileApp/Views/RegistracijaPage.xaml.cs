@@ -23,7 +23,6 @@ namespace MostarGuide.MobileApp.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-
             if (!Regex.IsMatch(this.Ime.Text, @"^[a-zA-Z]+$") && this.Ime.Text.Length < 3)
             {
                 Imegreska.Text = "** Ime se sastoji samo od slova i mora da sadrzi minimalno 3 karaktera **";

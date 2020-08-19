@@ -10,9 +10,5 @@ namespace MostarGuide.Model.Requests
         public int? IzletId { get; set; }
         public DateTime? Datum { get; set; }
 
-
-        //public string ImeVodica { get; set; }
-        //public string PrezimeVodica { get; set; }
-        //public string Izlet { get; set; }
     }
 }

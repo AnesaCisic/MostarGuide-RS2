@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:MostarGuide.MobileApp.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MostarGuide.MobileApp.Views.OcjenjivanjePage">
+    <ContentPage.BindingContext>
+        <vm:OcjeneViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" Padding="20" VerticalOptions="CenterAndExpand">
+            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <Image Source="mostarguide.png" HorizontalOptions="FillAndExpand" HeightRequest="200" WidthRequest="200"></Image>
+            </StackLayout>
+
+            <Label Text="Unesite ocjenu za izlet:"/>
+            <StackLayout Orientation="Horizontal">
+
+             <Entry Text="{Binding Ocjena}" x:Name="ocjena"></Entry>
+            <Button Text="+1" Command="{Binding PovecajOcjenuCommand}"></Button>
+            </StackLayout>
+
+            <Button Text="Ocijeni" Clicked="Button_Clicked"
+              BackgroundColor="RoyalBlue" Padding="6" TextColor="White" BorderWidth="1"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

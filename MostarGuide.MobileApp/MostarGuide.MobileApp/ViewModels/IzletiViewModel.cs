@@ -1,4 +1,5 @@
 ﻿using MostarGuide.Model;
+using MostarGuide.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -31,6 +32,21 @@ namespace MostarGuide.MobileApp.ViewModels
             IzletiList.Clear();
             foreach (var izlet in list)
             {
+                var ocjenaizlet = await _ocjene.Get<IEnumerable<OcjeneIzleti>>(new OcjeneIzletiSearchRequest() { IzletId = izlet.IzletId});
+                var sum = 0;
+                
+                foreach (var oi in ocjenaizlet)
+                {
+                    sum += oi.Ocjena;
+                }
+
+                if(sum > 0 && ocjenaizlet.Count() > 0)
+                {
+                    izlet.Ocjena = sum / ocjenaizlet.Count();
+
+                }
+                
+
                 IzletiList.Add(izlet);
             }
         }

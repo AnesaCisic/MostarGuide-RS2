@@ -13,12 +13,12 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView BackgroundColor="White">
-            <StackLayout>
-            <StackLayout Padding="15">
-                <Image Source="{Binding Izlet.Slika, Converter={StaticResource imgConv}}" HeightRequest="180" WidthRequest="180"></Image>
-            </StackLayout>
-            <StackLayout Padding="15">
+            <StackLayout Padding="10">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Image Source="{Binding Izlet.Slika, Converter={StaticResource imgConv}}"></Image>
+                </StackLayout>
 
+                <StackLayout Padding="15">
                 <Label Text="{Binding Izlet.Naziv}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" TextColor="RoyalBlue" FontSize="24" />
@@ -43,6 +43,10 @@
 
                 <StackLayout>
                     <Button Text="Rezerviši" Clicked="Button_Clicked"
+                   BackgroundColor="RoyalBlue" TextColor="White"></Button>
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="Ocijeni" Clicked="Button_Clicked_1"
                    BackgroundColor="RoyalBlue" TextColor="White"></Button>
                 </StackLayout>
 

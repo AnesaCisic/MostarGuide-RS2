@@ -1,5 +1,4 @@
-﻿using LaavorRatingConception;
-using MostarGuide.MobileApp.ViewModels;
+﻿using MostarGuide.MobileApp.ViewModels;
 using MostarGuide.Model;
 using System;
 using System.Collections.Generic;
@@ -16,6 +15,8 @@ namespace MostarGuide.MobileApp.Views
     public partial class SekcijeDetaljiPage : ContentPage
     {
         private SekcijeDetaljiViewModel model = null;
+        int _sekcijaId = 0;
+
 
         public SekcijeDetaljiPage(Sekcije sekcija)
         {
@@ -24,13 +25,13 @@ namespace MostarGuide.MobileApp.Views
             {
                 Sekcija = sekcija
             };
+            _sekcijaId = sekcija.SekcijaId;
         }
 
-      
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OcjenjivanjeSekcijaPage(_sekcijaId));
 
-        //protected override async void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //}
+        }
     }
 }

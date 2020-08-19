@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNazivv = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSacuvaj
@@ -67,6 +70,7 @@
             this.txtNazivv.Name = "txtNazivv";
             this.txtNazivv.Size = new System.Drawing.Size(220, 20);
             this.txtNazivv.TabIndex = 40;
+            this.txtNazivv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNazivv_Validating);
             // 
             // label2
             // 
@@ -76,6 +80,10 @@
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 39;
             this.label2.Text = "Naziv";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmKategorijeDetalji
             // 
@@ -90,6 +98,7 @@
             this.Name = "frmKategorijeDetalji";
             this.Text = "frmKategorijeDetalji";
             this.Load += new System.EventHandler(this.frmKategorijeDetalji_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +111,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNazivv;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

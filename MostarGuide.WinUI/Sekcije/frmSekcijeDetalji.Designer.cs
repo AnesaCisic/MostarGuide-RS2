@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSlika = new System.Windows.Forms.TextBox();
@@ -42,7 +43,9 @@
             this.txtOpis = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -86,6 +89,7 @@
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(220, 20);
             this.txtNaziv.TabIndex = 23;
+            this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
             // 
             // txtAdresa
             // 
@@ -93,6 +97,7 @@
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(220, 20);
             this.txtAdresa.TabIndex = 25;
+            this.txtAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdresa_Validating);
             // 
             // label2
             // 
@@ -109,6 +114,7 @@
             this.txtWebStr.Name = "txtWebStr";
             this.txtWebStr.Size = new System.Drawing.Size(220, 20);
             this.txtWebStr.TabIndex = 27;
+            this.txtWebStr.Validating += new System.ComponentModel.CancelEventHandler(this.txtWebStr_Validating);
             // 
             // label3
             // 
@@ -157,6 +163,10 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmSekcijeDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +189,7 @@
             this.Text = "frmSekcijeDetalji";
             this.Load += new System.EventHandler(this.frmSekcijeDetalji_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +211,6 @@
         private System.Windows.Forms.TextBox txtOpis;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

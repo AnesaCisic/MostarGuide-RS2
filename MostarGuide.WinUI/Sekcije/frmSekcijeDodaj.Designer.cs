@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.txtSlika = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtOpis = new System.Windows.Forms.TextBox();
             this.btnSacuvaj = new System.Windows.Forms.Button();
-            this.txtTelefon = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtWebStr = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtAdresa = new System.Windows.Forms.TextBox();
@@ -45,7 +44,9 @@
             this.cmbKategorija = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodajSliku
@@ -77,7 +78,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 312);
+            this.label5.Location = new System.Drawing.Point(404, 244);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 48;
@@ -85,14 +86,14 @@
             // 
             // txtOpis
             // 
-            this.txtOpis.Location = new System.Drawing.Point(59, 329);
+            this.txtOpis.Location = new System.Drawing.Point(406, 261);
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(220, 20);
             this.txtOpis.TabIndex = 47;
             // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(503, 326);
+            this.btnSacuvaj.Location = new System.Drawing.Point(503, 309);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(123, 23);
             this.btnSacuvaj.TabIndex = 46;
@@ -100,28 +101,13 @@
             this.btnSacuvaj.UseVisualStyleBackColor = true;
             this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
             // 
-            // txtTelefon
-            // 
-            this.txtTelefon.Location = new System.Drawing.Point(406, 272);
-            this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(220, 20);
-            this.txtTelefon.TabIndex = 45;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(403, 251);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "Telefon";
-            // 
             // txtWebStr
             // 
             this.txtWebStr.Location = new System.Drawing.Point(406, 218);
             this.txtWebStr.Name = "txtWebStr";
             this.txtWebStr.Size = new System.Drawing.Size(220, 20);
             this.txtWebStr.TabIndex = 43;
+            this.txtWebStr.Validating += new System.ComponentModel.CancelEventHandler(this.txtWebStr_Validating);
             // 
             // label3
             // 
@@ -138,6 +124,7 @@
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(220, 20);
             this.txtAdresa.TabIndex = 41;
+            this.txtAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdresa_Validating);
             // 
             // label2
             // 
@@ -154,6 +141,7 @@
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(220, 20);
             this.txtNaziv.TabIndex = 39;
+            this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
             // 
             // label1
             // 
@@ -185,6 +173,10 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmSekcijeDodaj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,8 +187,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtOpis);
             this.Controls.Add(this.btnSacuvaj);
-            this.Controls.Add(this.txtTelefon);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtWebStr);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtAdresa);
@@ -210,6 +200,7 @@
             this.Text = "frmSekcijeDodaj";
             this.Load += new System.EventHandler(this.frmSekcijeDodaj_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,8 +214,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtOpis;
         private System.Windows.Forms.Button btnSacuvaj;
-        private System.Windows.Forms.TextBox txtTelefon;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtWebStr;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtAdresa;
@@ -234,5 +223,6 @@
         private System.Windows.Forms.ComboBox cmbKategorija;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

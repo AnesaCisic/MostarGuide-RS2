@@ -11,6 +11,5 @@ namespace MostarGuide.Model.Requests
         public int BrojMjesta { get; set; }
         public decimal Cijena { get; set; }
         public byte[] Slika { get; set; }
-        //public bool? Status { get; set; }
     }
 }

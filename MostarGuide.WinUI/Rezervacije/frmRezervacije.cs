@@ -95,9 +95,8 @@ namespace MostarGuide.WinUI.Rezervacije
 
             txtMjesta.Text = (maxbrojosoba - brojrezervacija).ToString();
 
-
-            dgvRezervacije.DataSource = result;
             dgvRezervacije.AutoGenerateColumns = false;
+            dgvRezervacije.DataSource = result;
         }
 
         private async void cmbTermini_SelectedIndexChanged(object sender, EventArgs e)

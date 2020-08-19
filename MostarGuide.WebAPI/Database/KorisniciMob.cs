@@ -23,9 +23,6 @@ namespace MostarGuide.WebAPI.Database
         public string LozinkaHash { get; set; }
         public string LozinkaSalt { get; set; }
 
-        //public bool Status { get; set; }
-        //public DateTime DatumRegistracije { get; set; }
-
         public virtual ICollection<OcjeneIzleti> OcjeneIzleti { get; set; }
         public virtual ICollection<OcjeneSekcije> OcjeneSekcije { get; set; }
         public virtual ICollection<Rezervacije> Rezervacije { get; set; }

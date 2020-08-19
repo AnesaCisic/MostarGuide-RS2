@@ -55,16 +55,6 @@ namespace MostarGuide.WebAPI.Services
             _context.KorisniciMob.Add(entity);
             _context.SaveChanges();
 
-            //var rezultat = new Model.KorisniciMob();
-            //rezultat.Ime = entity.Ime;
-            //rezultat.Prezime = entity.Prezime;
-            //rezultat.KorisnikId = entity.KorisnikId;
-            //rezultat.Email = entity.Email;
-            //rezultat.BrojTelefona = entity.BrojTelefona;
-            //rezultat.KorisnickoIme = entity.KorisnickoIme;
-
-            //return rezultat;
-
             return _mapper.Map<Model.KorisniciMob>(entity);
         }
 

@@ -23,15 +23,25 @@ namespace MostarGuide.WinUI.Korisnici
 
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
-            var search = new KorisniciSearchRequest()
+            try
             {
-                Ime = txtIme.Text,
-                Prezime = txtPrezime.Text
-            };
+                var search = new KorisniciSearchRequest()
+                {
+                    Ime = txtIme.Text,
+                    Prezime = txtPrezime.Text
+                };
 
-            var result = await _aPIService.Get<List<Model.Korisnici>>(search);
-            dgvKorisnici.AutoGenerateColumns = false;
-            dgvKorisnici.DataSource = result;
+                var result = await _aPIService.Get<List<Model.Korisnici>>(search);
+                dgvKorisnici.AutoGenerateColumns = false;
+                dgvKorisnici.DataSource = result;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ne mozete pristupiti podacima!");
+            }
+            
+            
         }
 
         private void dgvKorisnici_MouseDoubleClick(object sender, MouseEventArgs e)

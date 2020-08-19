@@ -41,6 +41,11 @@ namespace MostarGuide.WebAPI.Services
                 query = query.Where(x => x.KorisnickoIme == request.KorisnickoIme);
 
             }
+            if (!string.IsNullOrWhiteSpace(request?.KorisnickoIme))
+            {
+                query = query.Where(x => x.KorisnickoIme == request.KorisnickoIme);
+            }
+
 
             var list = query.ToList();
             return _mapper.Map<List<Model.Korisnici>>(list);
@@ -50,17 +55,17 @@ namespace MostarGuide.WebAPI.Services
         {
             var entity = _context.Korisnici.Find(id);
 
-            return _mapper.Map<Model.Korisnici>(entity); //pretvara database obj u model obj
+            return _mapper.Map<Model.Korisnici>(entity); 
         }
 
         public static string GenerateSalt()
         {
             var buf = new byte[16];
-            (new RNGCryptoServiceProvider()).GetBytes(buf); //generise random broj
-            return Convert.ToBase64String(buf); //zna pretvoriti bajte u string koji je citljiv iz browsera,pajtona...
+            (new RNGCryptoServiceProvider()).GetBytes(buf); 
+            return Convert.ToBase64String(buf); 
         }
 
-        public static string GenerateHash(string salt, string password) //kombinuje salt i password u hash
+        public static string GenerateHash(string salt, string password) 
         {
             byte[] src = Convert.FromBase64String(salt);
             byte[] bytes = Encoding.Unicode.GetBytes(password);
@@ -131,10 +136,8 @@ namespace MostarGuide.WebAPI.Services
 
         public Model.Korisnici Authenticiraj(string username, string pass)
         {
-            //provjerravamo da li imamo usera u bazi
             var user = _context.Korisnici.Include("KorisniciUloge.Uloga").FirstOrDefault(x => x.KorisnickoIme == username);
 
-            //ako ga nadjemo provjeravamo pasvorde, ako ne vracamo null
             if (user != null)
             {
                 var newHash = GenerateHash(user.LozinkaSalt, pass);

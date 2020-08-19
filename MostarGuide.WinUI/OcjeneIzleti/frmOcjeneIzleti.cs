@@ -61,8 +61,8 @@ namespace MostarGuide.WinUI.OcjeneIzleti
                 o.Izlet = i.Naziv;
             }
 
-            dgvOcjene.DataSource = result;
             dgvOcjene.AutoGenerateColumns = false;
+            dgvOcjene.DataSource = result;
 
         }
 

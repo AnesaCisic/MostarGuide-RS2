@@ -16,6 +16,7 @@ namespace MostarGuide.Model
         public DateTime DatumRezervacije { get; set; }
         public decimal UkupanIznos { get; set; }
         public int BrojOsoba { get; set; }
+        public bool Placeno { get; set; }
 
 
         public string DatumRezervacijeStr { get { return DatumRezervacije.ToString("dd MMM yyyy HH:mm"); } }

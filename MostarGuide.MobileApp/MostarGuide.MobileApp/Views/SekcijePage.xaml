@@ -29,6 +29,12 @@
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
+
+                                    <Label  Text="Ocjena :" ></Label>
+                                    <Label Text="{Binding Ocjena, StringFormat='Ocjena: {0:F2}'}"  
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" FontAttributes="Bold" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

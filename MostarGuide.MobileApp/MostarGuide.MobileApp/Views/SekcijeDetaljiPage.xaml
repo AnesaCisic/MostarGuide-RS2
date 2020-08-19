@@ -15,12 +15,15 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView BackgroundColor="White">
+
+            <StackLayout>
             <StackLayout>
                 <StackLayout Padding="15">
                     <Image Source="{Binding Sekcija.Slika, Converter={StaticResource imgConv}}" ></Image>
                 </StackLayout>
                 <StackLayout Padding="15">
+                    <ImageButton Source="website.png" HeightRequest="50" WidthRequest="50"></ImageButton>
 
                     <Label Text="{Binding Sekcija.Naziv}"
                 VerticalOptions="CenterAndExpand" 
@@ -42,9 +45,14 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" FontAttributes="Bold" />
                 </StackLayout>
+                    <StackLayout>
+                        <Button Text="Ocijeni" Clicked="Button_Clicked"
+                   BackgroundColor="RoyalBlue" TextColor="White"></Button>
+                    </StackLayout>
 
-               
-            </StackLayout>
+                </StackLayout>
         </StackLayout>
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>

@@ -51,5 +51,19 @@ namespace MostarGuide.WinUI.Kategorije
             MessageBox.Show("Operacija uspješna!");
             this.Close();
         }
+
+        private void txtNazivv_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNazivv.Text))
+            {
+                errorProvider1.SetError(txtNazivv, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtNazivv, null);
+            }
+        }
     }
 }

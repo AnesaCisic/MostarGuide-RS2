@@ -50,5 +50,10 @@ namespace MostarGuide.MobileApp.Views
             brojslobodnihmjesta.Text = "Broj slobodnih mjesta za odabrani termin: " + model.BrojSlobodnihMjesta.ToString();
             brojslobodnihmjesta.IsVisible = true;
         }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OcjenjivanjePage(_izletId));
+        }
     }
 }

@@ -3,6 +3,7 @@ using MostarGuide.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,6 +13,7 @@ namespace MostarGuide.MobileApp.ViewModels
 {
     public class SekcijeViewModel : BaseViewModel
     {
+        private readonly APIService _ocjene = new APIService("ocjenasekcija");
         private readonly APIService _sekcije = new APIService("sekcija");
         public Kategorije Kategorija { get; set; }
 
@@ -33,6 +35,20 @@ namespace MostarGuide.MobileApp.ViewModels
 
             foreach (var sekcija in list)
             {
+                var ocjenasekcija = await _ocjene.Get<IEnumerable<OcjeneSekcije>>(new OcjeneSekcijeSearchRequest() { SekcijaId = sekcija.SekcijaId });
+                var sum = 0;
+
+                foreach (var os in ocjenasekcija)
+                {
+                    sum += os.Ocjena;
+                }
+
+                if (sum > 0 && ocjenasekcija.Count() > 0)
+                {
+                    sekcija.Ocjena = sum / ocjenasekcija.Count();
+
+                }
+
                 SekcijeList.Add(sekcija);
             }
         }

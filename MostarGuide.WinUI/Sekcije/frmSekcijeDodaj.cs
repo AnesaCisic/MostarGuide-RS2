@@ -83,5 +83,49 @@ namespace MostarGuide.WinUI.Sekcije
                 pictureBox1.Image = image;
             }
         }
+
+        private void txtNaziv_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNaziv.Text))
+            {
+                errorProvider1.SetError(txtNaziv, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtNaziv, null);
+            }
+        }
+
+        private void txtAdresa_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAdresa.Text))
+            {
+                errorProvider1.SetError(txtAdresa, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtAdresa, null);
+            }
+        }
+
+        private void txtWebStr_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtWebStr.Text))
+            {
+                errorProvider1.SetError(txtWebStr, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtWebStr, null);
+            }
+        }
+
+       
     }
 }

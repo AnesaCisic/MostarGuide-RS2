@@ -26,7 +26,7 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical" Padding="20">
                                     <Label Text="{Binding Naziv}" 
-                                LineBreakMode="NoWrap" 
+                                LineBreakMode="NoWrap" TextColor="RoyalBlue"
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
                                     <Label Text="{Binding Opis}" 
@@ -34,7 +34,12 @@
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
                                     
-                                    
+                                        <Label  Text="Ocjena :" ></Label>
+                                    <Label Text="{Binding Ocjena, StringFormat='Ocjena: {0:F2}'}"  
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" FontAttributes="Bold" />
+                                   
                                 </StackLayout>
                         </StackLayout>
                             
