@@ -54,9 +54,6 @@ namespace MostarGuide.WinUI.Termini
                 var k = await _vodici.GetById<Model.Korisnici>(termin.KorisnikId);
                 var i = await _izleti.GetById<Model.Izleti>(termin.IzletId);
 
-                //cmbVodic.SelectedIndex = cmbVodic.FindStringExact(k.Ime + " " + k.Prezime);
-                //cmbIzlet.SelectedIndex = cmbIzlet.FindStringExact(i.Naziv);
-
                 cmbVodic.SelectedValue = int.Parse(termin.KorisnikId.ToString());
                 cmbIzlet.SelectedValue = int.Parse(termin.IzletId.ToString());
                 dtpDatum.Value = termin.VrijemeTermina.Date;
@@ -103,7 +100,6 @@ namespace MostarGuide.WinUI.Termini
                     await _termini.Insert<Model.Termini>(request);
                     MessageBox.Show("Uspješno sačuvani podaci");
                     this.Close();
-
                 }
 
             }

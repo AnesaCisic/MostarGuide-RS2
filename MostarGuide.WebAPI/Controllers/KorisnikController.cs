@@ -12,8 +12,10 @@ namespace MostarGuide.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator")]
     public class KorisnikController : ControllerBase
     {
+        
         private readonly IKorisniciService _korisnikService;
         public KorisnikController(IKorisniciService korisnikService)
         {

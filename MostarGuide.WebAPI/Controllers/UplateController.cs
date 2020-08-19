@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MostarGuide.Model;
@@ -12,6 +13,7 @@ namespace MostarGuide.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator")]
     public class UplateController : BaseCRUDController<Uplate, UplateSearchRequest, UplateInsertRequest, UplateInsertRequest>
     {
         public UplateController(ICRUDService<Uplate, UplateSearchRequest, UplateInsertRequest, UplateInsertRequest> service) : base(service)

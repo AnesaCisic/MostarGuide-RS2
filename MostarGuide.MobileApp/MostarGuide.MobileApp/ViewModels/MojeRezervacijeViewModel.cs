@@ -14,8 +14,10 @@ namespace MostarGuide.MobileApp.ViewModels
     {
         private readonly APIService _korisnici = new APIService("korisnikmob");
         private readonly APIService _rezervacije = new APIService("rezervacija");
-        public KorisniciMob _korisnik { get; set; }
+        private readonly APIService _termini = new APIService("termin");
+        private readonly APIService _izleti = new APIService("izlet");
 
+        public KorisniciMob _korisnik { get; set; }
 
         public MojeRezervacijeViewModel()
         {
@@ -45,8 +47,13 @@ namespace MostarGuide.MobileApp.ViewModels
             RezervacijeList.Clear();
             foreach (var rez in list)
             {
+                var t = await _termini.GetById<Termini>(rez.TerminId);
+                var i = await _izleti.GetById<Izleti>(t.IzletId);
+
+                rez.Izlet = i.Naziv;
                 RezervacijeList.Add(rez);
             }
+
         }
 
     }

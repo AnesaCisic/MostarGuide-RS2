@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Syncfusion.SfRating.XForms;
 
 namespace MostarGuide.MobileApp.Views
 {
@@ -19,7 +20,9 @@ namespace MostarGuide.MobileApp.Views
         {
             InitializeComponent();
             BindingContext = model = new IzletiViewModel();
+           
         }
+
 
         protected override async void OnAppearing()
         {

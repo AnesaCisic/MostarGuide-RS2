@@ -22,8 +22,13 @@
                 <Label Text="{Binding Izlet.Naziv}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" TextColor="RoyalBlue" FontSize="24" />
+                    
+                <Label Text="{Binding Ocjena}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="24" />
 
-            <Label Text="{Binding Izlet.Opis}"
+                    <Label Text="{Binding Izlet.Opis}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="16" />
 
@@ -35,48 +40,6 @@
                 <Label Text="Odaberite termin koji vas zanima: "/>
                 <Picker x:Name="Termini" ItemsSource="{Binding TerminiList}" ItemDisplayBinding="{Binding VrijemeTerminaStr}" SelectedIndexChanged="Termini_SelectedIndexChanged"></Picker>
                 <Label x:Name="brojslobodnihmjesta" Text=" " TextColor="SlateGray" IsVisible="False"></Label>
-
-                <!--<ListView ItemsSource="{Binding TerminiList}" ItemSelected="ListView_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                        <Label Text="{Binding VrijemeTerminaStr}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                                       
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>-->
-
-                <!--<Label Text="Broj slobodnih mjesta za odabrani termin:  "/>
-                <Label Text="{Binding BrojSlobodnihMjesta}"/>-->
-
-
-
-
-
-                <!--<StackLayout>
-
-                    <Label Text="Termini za izlet: "
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" />
-            <CollectionView
-                ItemsSource="{Binding TerminiList}"
-                ItemsLayout="VerticalGrid, 3">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding VrijemeTerminaStr}" 
-                                LineBreakMode="NoWrap" 
-                                FontSize="16" />
-                        </StackLayout>-->
-                    <!--</DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-                </StackLayout>-->
-
 
                 <StackLayout>
                     <Button Text="Rezerviši" Clicked="Button_Clicked"

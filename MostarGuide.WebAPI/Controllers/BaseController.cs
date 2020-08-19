@@ -12,7 +12,6 @@ namespace MostarGuide.WebAPI.Controllers
  
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class BaseController<T, TSearch> : ControllerBase
     {
         private readonly IService<T, TSearch> _service;

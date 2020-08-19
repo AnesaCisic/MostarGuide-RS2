@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,6 +13,8 @@ namespace MostarGuide.MobileApp.ViewModels
     public class IzletiViewModel: BaseViewModel
     {
         private readonly APIService _izleti = new APIService("izlet");
+        private readonly APIService _ocjene = new APIService("ocjenaizlet");
+
         public IzletiViewModel()
         {
             InitCommand = new Command(async () => await Init());
@@ -24,12 +27,15 @@ namespace MostarGuide.MobileApp.ViewModels
         public async Task Init()
         {
             var list = await _izleti.Get<IEnumerable<Izleti>>(null);
+
             IzletiList.Clear();
             foreach (var izlet in list)
             {
                 IzletiList.Add(izlet);
             }
         }
+
+      
 
     }
 }

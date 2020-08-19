@@ -7,22 +7,40 @@
              x:Class="MostarGuide.MobileApp.Views.MojeRezervacijePage">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout BackgroundColor="GhostWhite" HeightRequest="80">
+                <Label Text="Vaše rezervacije" VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="20"/>
+            </StackLayout>
+            <StackLayout Padding="8" BackgroundColor="GhostWhite">
+                <Label Text="Izvršite plaćanje klikom na rezervaciju!" FontAttributes="Italic"></Label>
+            </StackLayout>
+
             <ListView ItemsSource="{Binding RezervacijeList}" ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal">
+                            <StackLayout Padding="10" Orientation="Horizontal" BackgroundColor="GhostWhite" >
                                 
                                 <StackLayout Orientation="Vertical" Padding="20">
-                                    <Label Text="{Binding RezervacijaId}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+
+                                    <Label Text="Rezervacija za izlet: " FontAttributes="Italic"></Label>
+                                    <Label Text="{Binding Izlet}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" FontAttributes="Bold" />
+
+                                    <Label Text="Datum rezervacije: " FontAttributes="Italic"></Label>
                                     <Label Text="{Binding DatumRezervacijeStr}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-
+                                FontSize="13" FontAttributes="Bold" />
+                                    
+                                    <Label Text="Ukupan iznos za platiti: " FontAttributes="Italic"></Label>
+                                    <Label Text="{Binding UkupanIznos}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" FontAttributes="Bold"/>
+                                    
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

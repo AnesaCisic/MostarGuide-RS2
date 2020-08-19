@@ -29,5 +29,7 @@ namespace MostarGuide.WebAPI.Filters
 
             context.Result = new JsonResult(list);
         }
+
+        
     }
 }
