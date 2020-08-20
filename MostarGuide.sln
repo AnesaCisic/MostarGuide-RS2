@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MostarGuide.MobileApp.Andro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MostarGuide.MobileApp.iOS", "MostarGuide.MobileApp\MostarGuide.MobileApp.iOS\MostarGuide.MobileApp.iOS.csproj", "{B1E43C3D-B677-4334-9B58-6A008EBED175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MostarGuide.MobileApp", "MostarGuide.MobileApp\MostarGuide.MobileApp\MostarGuide.MobileApp.csproj", "{6DBD55AE-0F83-4B54-9F2E-E648C396F2E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MostarGuide.MobileApp", "MostarGuide.MobileApp\MostarGuide.MobileApp\MostarGuide.MobileApp.csproj", "{6DBD55AE-0F83-4B54-9F2E-E648C396F2E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

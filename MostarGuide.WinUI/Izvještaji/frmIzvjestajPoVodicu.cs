@@ -82,7 +82,16 @@ namespace MostarGuide.WinUI.Izvještaji
 
         private async void btnPrikaziIzvjestaj_Click(object sender, EventArgs e)
         {
-            await LoadIzvjestaj();
+            try
+            {
+                await LoadIzvjestaj();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ne mozete pristupiti podacima!");
+
+            }
         }
     }
 }

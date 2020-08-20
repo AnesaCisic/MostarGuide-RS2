@@ -40,7 +40,12 @@
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" FontAttributes="Bold"/>
-                                    
+
+                                    <Label Text="" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="10" FontAttributes="Bold"/>
+
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

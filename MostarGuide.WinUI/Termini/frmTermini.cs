@@ -24,8 +24,17 @@ namespace MostarGuide.WinUI.Termini
 
         private async void frmTermini_Load(object sender, EventArgs e)
         {
-            await LoadVodici();
-            await LoadTermini(0);
+            try
+            {
+                await LoadVodici();
+                await LoadTermini(0);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ne mozete pristupiti podacima!");
+            }
+            
         }
 
         private async Task LoadVodici()
@@ -41,30 +50,37 @@ namespace MostarGuide.WinUI.Termini
         List<Model.Termini> result = null;
         private async Task LoadTermini(int korisnikId)
         {
-
-            if (korisnikId == 0)
+            try
             {
-                result = await _termini.Get<List<Model.Termini>>(null);
-            }
-            else
-            {
-                result = await _termini.Get<List<Model.Termini>>(new TerminiSearchRequest()
+                if (korisnikId == 0)
                 {
-                    KorisnikId = korisnikId
-                });
+                    result = await _termini.Get<List<Model.Termini>>(null);
+                }
+                else
+                {
+                    result = await _termini.Get<List<Model.Termini>>(new TerminiSearchRequest()
+                    {
+                        KorisnikId = korisnikId
+                    });
 
+                }
+
+                foreach (var t in result)
+                {
+                    var k = await _vodici.GetById<Model.Korisnici>(t.KorisnikId);
+                    var i = await _izleti.GetById<Model.Izleti>(t.IzletId);
+                    t.Izlet = i.Naziv;
+                    t.Vodic = k.Ime + " " + k.Prezime;
+                }
+
+                dgvTermini.AutoGenerateColumns = false;
+                dgvTermini.DataSource = result;
             }
-
-            foreach (var t in result)
+            catch (Exception)
             {
-                var k = await _vodici.GetById<Model.Korisnici>(t.KorisnikId);
-                var i = await _izleti.GetById<Model.Izleti>(t.IzletId);
-                t.Izlet = i.Naziv;
-                t.Vodic = k.Ime + " " + k.Prezime;
+                MessageBox.Show("Ne mozete pristupiti podacima!");
             }
 
-            dgvTermini.AutoGenerateColumns = false;
-            dgvTermini.DataSource = result;
 
         }
 

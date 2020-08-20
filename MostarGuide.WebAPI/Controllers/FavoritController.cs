@@ -10,7 +10,6 @@ using MostarGuide.WebAPI.Services;
 
 namespace MostarGuide.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class FavoritController : BaseCRUDController<Model.Favoriti, FavoritiSearchRequest, FavoritiUpsertRequest, FavoritiUpsertRequest>
     {
