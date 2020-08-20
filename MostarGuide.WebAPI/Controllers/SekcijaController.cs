@@ -11,7 +11,7 @@ using MostarGuide.WebAPI.Services;
 
 namespace MostarGuide.WebAPI.Controllers
 {
-
+    [Authorize]
     public class SekcijaController : BaseCRUDController<Model.Sekcije, SekcijeSearchRequest, SekcijeUpsertRequest, SekcijeUpsertRequest>
     {
         public SekcijaController(ICRUDService<Sekcije, SekcijeSearchRequest, SekcijeUpsertRequest, SekcijeUpsertRequest> service) : base(service)

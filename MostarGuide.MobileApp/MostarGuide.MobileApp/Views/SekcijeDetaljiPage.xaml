@@ -22,7 +22,6 @@
                     <Image Source="{Binding Sekcija.Slika, Converter={StaticResource imgConv}}" ></Image>
                 </StackLayout>
                 <StackLayout Padding="15">
-                    <ImageButton Source="website.png" HeightRequest="50" WidthRequest="50"></ImageButton>
 
                     <Label Text="{Binding Sekcija.Naziv}"
                 VerticalOptions="CenterAndExpand" 
