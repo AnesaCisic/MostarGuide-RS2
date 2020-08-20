@@ -12,20 +12,15 @@ using Xamarin.Forms.Xaml;
 namespace MostarGuide.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SekcijePage : ContentPage
+    public partial class PreporukaPage : ContentPage
     {
-        private SekcijeViewModel model = null;
-
-        public SekcijePage(Kategorije kategorija)
+        PreporukaViewModel model = null;
+        public PreporukaPage()
         {
             InitializeComponent();
-            BindingContext = model = new SekcijeViewModel()
-            {
-                Kategorija = kategorija
-            };
+            BindingContext = model = new PreporukaViewModel();
         }
-
-        protected override async void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
@@ -45,6 +40,5 @@ namespace MostarGuide.MobileApp.Views
             model.sekcija = item;
             await model.Init();
         }
-
     }
 }

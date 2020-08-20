@@ -20,12 +20,10 @@ namespace MostarGuide.MobileApp.Views
 
         int _rezervacijaId = 0;
 
-
         public PlacanjePage(Rezervacije rezervacija)
         {
             InitializeComponent();
             _rezervacijaId = rezervacija.RezervacijaId;
-
         }
 
         protected async override void OnAppearing()
@@ -76,7 +74,7 @@ namespace MostarGuide.MobileApp.Views
 
                 var service = new ChargeService();
                 service.Create(options);
-                
+
                 await DisplayAlert("Obavijest", "Uspješno ste kupili kartu!", "OK");
 
                 await Navigation.PopToRootAsync();

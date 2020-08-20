@@ -21,8 +21,6 @@ namespace MostarGuide.MobileApp.ViewModels
         public ObservableCollection<Kategorije> KategorijeList { get; set; } = new ObservableCollection<Kategorije>();
         public ICommand InitCommand { get; set; }
 
-
-        //konkretan poziv na api koji mse ucitava lista kategorija 
         public async Task Init()
         {
             var list = await _kategorije.Get<IEnumerable<Kategorije>>(null);

@@ -36,6 +36,10 @@
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" FontAttributes="Bold" />
                                 </StackLayout>
+
+                                    <Button Clicked="Button_Clicked" Text="Dodaj u favorite" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="115" Padding="2"
+                  TextColor="White" BackgroundColor="RoyalBlue" HorizontalOptions="End" VerticalOptions="End"></Button>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

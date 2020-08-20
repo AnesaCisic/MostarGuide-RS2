@@ -1,4 +1,5 @@
-﻿using MostarGuide.Model.Requests;
+﻿using MostarGuide.Model;
+using MostarGuide.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace MostarGuide.WinUI.Termini
         private readonly APIService _vodici = new APIService("korisnik");
         private readonly APIService _izleti = new APIService("izlet");
         private readonly APIService _termini = new APIService("termin");
+
+
         private int? _id = null;
 
         public frmTerminiDetalji(int? korisnikId = null)
@@ -28,6 +31,7 @@ namespace MostarGuide.WinUI.Termini
         private async Task LoadVodici()
         {
             var result = await _vodici.Get<List<Model.Korisnici>>(null);
+
             cmbVodic.DisplayMember = "Ime";
             cmbVodic.ValueMember = "KorisnikId";
             cmbVodic.DataSource = result;

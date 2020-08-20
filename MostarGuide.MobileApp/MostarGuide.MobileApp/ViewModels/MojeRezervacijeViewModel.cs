@@ -30,7 +30,6 @@ namespace MostarGuide.MobileApp.ViewModels
 
         public async Task Init()
         {
-            //trazim korisnika
             var korisnickoIme = APIService.Username;
             List<KorisniciMob> listKorisnici = await _korisnici.Get<List<KorisniciMob>>(null);
             foreach (var k in listKorisnici)
@@ -42,7 +41,6 @@ namespace MostarGuide.MobileApp.ViewModels
                 }
             }
 
-            //lista rezervacija za korisnika
             var list = await _rezervacije.Get<IEnumerable<Rezervacije>>(new RezervacijeSearchRequest(){ KorisnikId = _korisnik.KorisnikId });
             RezervacijeList.Clear();
             foreach (var rez in list)

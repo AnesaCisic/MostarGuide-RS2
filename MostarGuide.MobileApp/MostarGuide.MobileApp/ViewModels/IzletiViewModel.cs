@@ -45,7 +45,6 @@ namespace MostarGuide.MobileApp.ViewModels
                     izlet.Ocjena = sum / ocjenaizlet.Count();
 
                 }
-                
 
                 IzletiList.Add(izlet);
             }

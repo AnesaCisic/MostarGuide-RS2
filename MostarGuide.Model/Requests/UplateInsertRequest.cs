@@ -8,5 +8,7 @@ namespace MostarGuide.Model.Requests
     {
         public int RezevacijaID { get; set; }
         public decimal Iznos { get; set; }
+        public DateTime DatumUplate { get; set; }
+
     }
 }

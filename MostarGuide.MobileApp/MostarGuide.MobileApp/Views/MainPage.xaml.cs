@@ -45,7 +45,15 @@ namespace MostarGuide.MobileApp.Views
                     case (int)MenuItemType.Rezervacije:
                         MenuPages.Add(id, new NavigationPage(new MojeRezervacijePage()));
                         break;
-                  
+                    case (int)MenuItemType.Favoriti:
+                        MenuPages.Add(id, new NavigationPage(new FavoritiPrikazPage()));
+                        break;
+                    case (int)MenuItemType.Preporuke:
+                        MenuPages.Add(id, new NavigationPage(new PreporukaPage()));
+                        break;
+                    case (int)MenuItemType.Odjava:
+                        MenuPages.Add(id, new NavigationPage(new OdjavaPage()));
+                        break;
                 }
 
             }

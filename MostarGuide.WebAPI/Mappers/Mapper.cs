@@ -23,7 +23,6 @@ namespace MostarGuide.WebAPI.Mappers
             CreateMap<Database.Kategorije, Model.Kategorije>().ReverseMap();
             CreateMap<Database.Kategorije, KategorijeUpsertRequest>().ReverseMap();
 
-
             CreateMap<Database.Sekcije, Model.Sekcije>().ReverseMap();
             CreateMap<Database.Sekcije, SekcijeUpsertRequest>().ReverseMap();
 
@@ -47,6 +46,9 @@ namespace MostarGuide.WebAPI.Mappers
 
             CreateMap<Database.Uplate, Model.Uplate>().ReverseMap();
             CreateMap<Database.OcjeneSekcije, OcjeneSekcijeUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Favoriti, Model.Favoriti>().ReverseMap();
+            CreateMap<Database.Favoriti, FavoritiUpsertRequest>().ReverseMap();
 
         }
 

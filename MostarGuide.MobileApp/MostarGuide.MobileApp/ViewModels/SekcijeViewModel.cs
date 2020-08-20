@@ -19,7 +19,6 @@ namespace MostarGuide.MobileApp.ViewModels
 
         public SekcijeViewModel()
         {
-            //Title = "Kategorija.Naziv";
             InitCommand = new Command(async () => await Init());
 
         }

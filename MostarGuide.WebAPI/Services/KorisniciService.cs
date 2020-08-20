@@ -34,6 +34,7 @@ namespace MostarGuide.WebAPI.Services
             if (!string.IsNullOrWhiteSpace(request?.Prezime))
             {
                 query = query.Where(x => x.Prezime.ToLower().StartsWith(request.Prezime.ToLower()));
+
             }
 
             if (!string.IsNullOrWhiteSpace(request?.KorisnickoIme))

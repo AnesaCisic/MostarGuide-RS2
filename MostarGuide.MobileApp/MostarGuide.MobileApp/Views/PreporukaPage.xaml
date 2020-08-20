@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:MostarGuide.MobileApp.ViewModels" xmlns:converters="clr-namespace:MostarGuide.MobileApp.Converters"
+             mc:Ignorable="d"
+             x:Class="MostarGuide.MobileApp.Views.PreporukaPage">
+    <ContentPage.BindingContext>
+        <vm:PreporukaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+        <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+    </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="10">
+                <Label Text="Preporučena mjesta koja možete posjetiti: " />
+                <ListView ItemsSource="{Binding SekcijeList}" ItemSelected="ListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Orientation="Horizontal">
+                                    <StackLayout>
+                                        <Image Source="{Binding Slika, Converter={StaticResource imgConv}}" HeightRequest="150" WidthRequest="150"></Image>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" Padding="20">
+                                        <Label Text="{Binding Naziv}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+
+                                        <Label  Text="Ocjena :" ></Label>
+                                        <Label Text="{Binding Ocjena, StringFormat='Ocjena: {0:F2}'}"  
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" FontAttributes="Bold" />
+                                    </StackLayout>
+
+                                    <Button Clicked="Button_Clicked" Text="Dodaj u favorite" CornerRadius="7" HeightRequest="35"
+                                            WidthRequest="115" Padding="2"
+                  TextColor="White" BackgroundColor="RoyalBlue" HorizontalOptions="End" VerticalOptions="End"></Button>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

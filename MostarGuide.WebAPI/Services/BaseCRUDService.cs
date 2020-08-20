@@ -36,5 +36,15 @@ namespace MostarGuide.WebAPI.Services
             return _mapper.Map<TModel>(entity);
         }
 
+        public virtual TModel Delete(int id)
+        {
+            var entity = _context.Set<TDatabase>().Find(id);
+            _context.Set<TDatabase>().Remove(entity);
+
+
+            _context.SaveChanges();
+            return _mapper.Map<TModel>(entity);
+        }
+
     }
 }

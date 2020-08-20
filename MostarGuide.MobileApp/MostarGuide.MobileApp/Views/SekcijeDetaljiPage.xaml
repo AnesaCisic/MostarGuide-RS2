@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converters="clr-namespace:MostarGuide.MobileApp.Converters" xmlns:vm="clr-namespace:MostarGuide.MobileApp.ViewModels"
              mc:Ignorable="d"
-             xmlns:lv="clr-namespace:LaavorRatingConception;assembly=RatingConception"
              x:Class="MostarGuide.MobileApp.Views.SekcijeDetaljiPage">
     <ContentPage.BindingContext>
         <vm:SekcijeDetaljiViewModel/>
@@ -49,7 +48,7 @@
                         <Button Text="Ocijeni" Clicked="Button_Clicked"
                    BackgroundColor="RoyalBlue" TextColor="White"></Button>
                     </StackLayout>
-
+                
                 </StackLayout>
         </StackLayout>
         </ScrollView>

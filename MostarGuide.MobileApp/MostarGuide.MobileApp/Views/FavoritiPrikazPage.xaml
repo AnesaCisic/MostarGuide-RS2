@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converters="clr-namespace:MostarGuide.MobileApp.Converters" xmlns:vm="clr-namespace:MostarGuide.MobileApp.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MostarGuide.MobileApp.Views.FavoritiPrikazPage">
+    <ContentPage.BindingContext>
+        <vm:FavoritiPrikazViewModel/>
+    </ContentPage.BindingContext>
+       
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding FavoritiList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                              
+                                <StackLayout Orientation="Vertical" Padding="20">
+                                    <Label Text="{Binding Sekcija}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+
+                                    <Button Clicked="Button_Clicked" Text="Ukloni" CornerRadius="7" HeightRequest="30" WidthRequest="60" Padding="3"
+                                        TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+                                    <Button Clicked="Button_Clicked_1" Text="Prikazi detalje" CornerRadius="7" HeightRequest="30" WidthRequest="100" Padding="3"
+                                        TextColor="White" BackgroundColor="Blue" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+
+                                </StackLayout>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

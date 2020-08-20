@@ -57,8 +57,6 @@ namespace MostarGuide.MobileApp.ViewModels
                     }
                 }
 
-                //await _service.Get<dynamic>(null);
-
                 Application.Current.MainPage = new MainPage();
             }
             catch (Exception)

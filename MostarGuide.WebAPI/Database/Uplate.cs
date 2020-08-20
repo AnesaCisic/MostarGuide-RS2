@@ -12,6 +12,7 @@ namespace MostarGuide.WebAPI.Database
         public int UplataID { get; set; }
         public int RezervacijaID { get; set; }
         public Rezervacije Rezervacija { get; set; }
+        public DateTime DatumUplate { get; set; }
         public decimal Iznos { get; set; }
 
     }
