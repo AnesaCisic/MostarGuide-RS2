@@ -57,8 +57,18 @@ namespace MostarGuide.MobileApp.ViewModels
                     }
                 }
 
-                Application.Current.MainPage = new MainPage();
+                if(list.Count > 0)
+                {
+                    Application.Current.MainPage = new MainPage();
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Mostar Guide", "Neispravni podaci!", "OK");
+                    Application.Current.MainPage = new LoginPage();
+                }
+
             }
+
             catch (Exception)
             {
                 await Application.Current.MainPage.DisplayAlert("Mostar Guide", "Pogresno korisnicko ime ili password!", "OK");

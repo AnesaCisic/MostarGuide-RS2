@@ -13,6 +13,7 @@ namespace MostarGuide.MobileApp.ViewModels
     {
         private readonly APIService _favoriti= new APIService("favorit");
         private readonly APIService _korisnici = new APIService("korisnikmob");
+        bool provjera = false;
         public Sekcije sekcija{ get; set; }
         public ICommand InitCommand { get; set; }
 
@@ -41,15 +42,23 @@ namespace MostarGuide.MobileApp.ViewModels
             {
                 if (f.SekcijaId == sekcija.SekcijaId && f.KorisnikId == korisnik.KorisnikId)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Poruka", "Ovo mjesto imate već u favoritima!", "OK");
+                    provjera = true;
                 }
             }
-           
-            FavoritiUpsertRequest request = new FavoritiUpsertRequest();
-            request.KorisnikId = korisnik.KorisnikId;
-            request.SekcijaId = sekcija.SekcijaId;
-            await _favoriti.Insert<Favoriti>(request);
-            await Application.Current.MainPage.DisplayAlert("Poruka", "Uspješno spašeno u favorite!", "OK");
+
+            if (provjera)
+            {
+                await Application.Current.MainPage.DisplayAlert("Poruka", "Ovo mjesto imate već u favoritima!", "OK");
+            }
+            else
+            {
+                FavoritiUpsertRequest request = new FavoritiUpsertRequest();
+                request.KorisnikId = korisnik.KorisnikId;
+                request.SekcijaId = sekcija.SekcijaId;
+                await _favoriti.Insert<Favoriti>(request);
+                await Application.Current.MainPage.DisplayAlert("Poruka", "Uspješno spašeno u favorite!", "OK");
+            }
+            
         }
     }
 }

@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Syncfusion.SfRating.XForms;
 
 namespace MostarGuide.MobileApp.Views
 {
