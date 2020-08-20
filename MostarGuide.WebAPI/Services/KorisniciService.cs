@@ -95,7 +95,6 @@ namespace MostarGuide.WebAPI.Services
             _context.Korisnici.Add(entity);
             _context.SaveChanges();
 
-            //kada je many to many veza 
             foreach(var uloga in request.Uloge)
             {
                 _context.KorisniciUloge.Add(new KorisniciUloge()

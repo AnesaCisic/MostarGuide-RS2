@@ -76,7 +76,7 @@ namespace MostarGuide.WebAPI.Services
             return Convert.ToBase64String(inArray);
         }
 
-        public bool ProvjeriKorisnika(string username)//prvojerava da li je korsinikkmob ili korisnik
+        public bool ProvjeriKorisnika(string username)
         {
             bool Provjera = false;
 
@@ -85,7 +85,7 @@ namespace MostarGuide.WebAPI.Services
 
             if (korisnik != null)
             {
-                Provjera = true; //ako je true onda je korisnikmob
+                Provjera = true;
             }
 
             return Provjera;

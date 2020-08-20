@@ -28,7 +28,6 @@ namespace MostarGuide.WinUI.Korisnici
         {
             var uloge = clbRole.CheckedItems.Cast<Model.Uloge>().Select(x => x.UlogaId).ToList();
 
-            //popunjavamo objekat iz textboxova
             if (this.ValidateChildren())
             {
                 request.Ime = txtIme.Text;
@@ -56,7 +55,6 @@ namespace MostarGuide.WinUI.Korisnici
                 }
                 else
                 {
-                    //da li je insert ili update
                     if (_id.HasValue)
                     {
                         await _aPIService.Update<Model.Korisnici>(_id.Value, request);
@@ -71,7 +69,6 @@ namespace MostarGuide.WinUI.Korisnici
                     this.Close();
                 }
 
-                
             }
         }
 
@@ -80,8 +77,6 @@ namespace MostarGuide.WinUI.Korisnici
             var uloge = await _uloge.Get<List<Model.Uloge>>(null);
             clbRole.DisplayMember = "Naziv";
             clbRole.DataSource = uloge;
-
-            //popunjavamo textboxove iz objekta
 
             if (_id.HasValue)
             {
@@ -109,7 +104,7 @@ namespace MostarGuide.WinUI.Korisnici
             if (string.IsNullOrWhiteSpace(txtIme.Text))
             {
                 errorProvider1.SetError(txtIme, Properties.Resources.Validation_RequiredField);
-                e.Cancel = true; //pravi put kada naidjemo na error zaustavi procesiranje i izadji iz kontrola
+                e.Cancel = true; 
             }
 
             else

@@ -75,7 +75,6 @@ namespace MostarGuide.WebAPI
             services.AddScoped<ICRUDService<Model.OcjeneIzleti, OcjeneIzletiSearchRequest, OcjeneIzletiUpsertRequest, OcjeneIzletiUpsertRequest>, OcjenaIzletService>();
             services.AddScoped<ICRUDService<Model.OcjeneSekcije, OcjeneSekcijeSearchRequest, OcjeneSekcijeUpsertRequest, OcjeneSekcijeUpsertRequest>, OcjenaSekcijaService>();
             services.AddScoped<IService<Model.Uloge, object>, BaseService<Model.Uloge, object, Uloge>>();
-            services.AddScoped<ICRUDService<Model.Uplate, UplateSearchRequest, UplateInsertRequest, UplateInsertRequest>, UplateService>();
             services.AddScoped<ICRUDService<Model.Favoriti, FavoritiSearchRequest, FavoritiUpsertRequest, FavoritiUpsertRequest>, FavoritiService>();
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IPreporukaService, PreporukaService>();

@@ -24,7 +24,6 @@ namespace MostarGuide.WebAPI.Database
         public virtual DbSet<Rezervacije> Rezervacije { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
         public virtual DbSet<Termini> Termini { get; set; }
-        public virtual DbSet<Uplate> Uplate { get; set; }
         public virtual DbSet<Favoriti> Favoriti { get; set; }
 
 

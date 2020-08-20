@@ -11,9 +11,6 @@
     <ContentPage.Content>
         <ScrollView BackgroundColor="White">
             <StackLayout  HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand" >
-                <!--<StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-                    <Image Source="tbb.png" HorizontalOptions="FillAndExpand"></Image>
-                </StackLayout>-->
 
                 <Entry  x:Name="Ime" Text="{ Binding Ime}" Placeholder="Ime" ></Entry>
                 <Label x:Name="Imegreska" Text=" " TextColor="Red" IsVisible="False"></Label>

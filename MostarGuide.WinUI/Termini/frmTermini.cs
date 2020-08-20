@@ -38,9 +38,7 @@ namespace MostarGuide.WinUI.Termini
             cmbVodic.SelectedText = "--Odaberite--";
         }
 
-
         List<Model.Termini> result = null;
-
         private async Task LoadTermini(int korisnikId)
         {
 

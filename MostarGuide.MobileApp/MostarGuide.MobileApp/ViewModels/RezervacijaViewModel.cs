@@ -103,6 +103,17 @@ namespace MostarGuide.MobileApp.ViewModels
              _brojSlobodnihMjesta = izlet.BrojMjesta - brojOsobaRezervacije;
         }
 
+        //public async Task Placeno(Rezervacije r)
+        //{
+        //    RezervacijeUpsertRequest req = 
+            
+            
+        //    r.Placeno = true;
+            
+        //    await _rezervacije.Update<Rezervacije>(r.RezervacijaId, r)
+
+        //}
+
         int _brojSlobodnihMjesta = 0;
         public int BrojSlobodnihMjesta
         {

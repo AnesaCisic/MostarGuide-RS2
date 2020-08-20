@@ -30,12 +30,9 @@ namespace MostarGuide.WinUI.Rezervacije
             {
                
                 var i = await _izleti.GetById<Model.Izleti>(r.IzletId);
-
-
                 r.Izlet = i.Naziv;
-               
-
             }
+
             cmbTermini.DisplayMember = "IzletDatum";
             cmbTermini.ValueMember = "TerminId";
             cmbTermini.DataSource = result;
@@ -60,18 +57,10 @@ namespace MostarGuide.WinUI.Rezervacije
         private async Task LoadRezervacije(int terminId)
         {
 
-            //if (terminId == 0)
-            //{
-            //    result = await _rezervacije.Get<List<Model.Rezervacije>>(null);
-            //}
-            //else
-            //{
-                result = await _rezervacije.Get<List<Model.Rezervacije>>(new RezervacijeSearchRequest()
-                {
-                    TerminId = terminId
-                });
-
-            //}
+            result = await _rezervacije.Get<List<Model.Rezervacije>>(new RezervacijeSearchRequest()
+            {
+               TerminId = terminId
+            });
 
             var brojrezervacija = 0;
             var maxbrojosoba = 0;
@@ -82,7 +71,6 @@ namespace MostarGuide.WinUI.Rezervacije
                 var k = await _korisnici.GetById<Model.KorisniciMob>(r.KorisnikMobId);
                 var t = await _termini.GetById<Model.Termini>(r.TerminId);
                 var i = await _izleti.GetById<Model.Izleti>(t.IzletId);
-
 
                 r.Korisnik = k.ImePrezime;
                 r.Izlet = i.Naziv;

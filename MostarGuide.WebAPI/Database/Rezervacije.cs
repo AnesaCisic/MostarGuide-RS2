@@ -18,8 +18,6 @@ namespace MostarGuide.WebAPI.Database
 
         public virtual Termini Termin { get; set; }
         public virtual KorisniciMob Korisnik { get; set; }
-        public virtual Uplate Uplata { get; set; }
-
 
     }
 }

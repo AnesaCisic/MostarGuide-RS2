@@ -18,7 +18,6 @@ namespace MostarGuide.WinUI.Termini
         private readonly APIService _izleti = new APIService("izlet");
         private readonly APIService _termini = new APIService("termin");
 
-
         private int? _id = null;
 
         public frmTerminiDetalji(int? korisnikId = null)
@@ -26,7 +25,6 @@ namespace MostarGuide.WinUI.Termini
             InitializeComponent();
             _id = korisnikId;
         }
-       
        
         private async Task LoadVodici()
         {
@@ -65,7 +63,6 @@ namespace MostarGuide.WinUI.Termini
 
             }
         }
-
 
         private async void btnSacuvaj_Click(object sender, EventArgs e)
         {

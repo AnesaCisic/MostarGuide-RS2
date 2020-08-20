@@ -65,10 +65,6 @@ namespace MostarGuide.WinUI.Izleti
                 request.Cijena = cijena;
             }
 
-            //request.BrojMjesta = int.Parse(txtBrojMjesta.Text.ToString());
-            //request.Cijena = decimal.Parse(txtCijena.Text.ToString());
-
-
             if (_id.HasValue)
             {
                 await _izleti.Update<Model.Izleti>(_id.Value, request);

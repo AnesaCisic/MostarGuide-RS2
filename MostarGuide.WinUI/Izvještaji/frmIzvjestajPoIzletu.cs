@@ -54,16 +54,16 @@ namespace MostarGuide.WinUI.Izvještaji
             foreach (var i in izleti)
             {
                 var termini = await _termini.Get<List<Model.Termini>>(new TerminiSearchRequest { IzletId = i.IzletId});
-                //sad imam sve termine za jedan izlet
-                foreach (var t in termini)//prolazim kroz te termine da prebrojim rezevacije
+
+                foreach (var t in termini)
                 {
                     var rezervacije = await _rezervacije.Get<List<Model.Rezervacije>>(new RezervacijeSearchRequest { Godina = idGodine, TerminId = t.TerminId });
-                    foreach (var r in rezervacije)// rez za termin 1 
+                    foreach (var r in rezervacije)
                     {
                         brojrezervacija++;
                         brojosoba += r.BrojOsoba;
                     }
-                    //rezosobe = brojrezervacija * brojosoba;
+                    
                     zarada += (int)i.Cijena * brojosoba;
                 }
 

@@ -50,12 +50,10 @@ namespace MostarGuide.WinUI.Izvještaji
 
             foreach (var v in vodici)
             {
-                //Daj mi sve termine koje je odradio ovaj vodic
                 List<Model.Termini> termini = await _termin.Get<List<Model.Termini>>(new TerminiSearchRequest { KorisnikId = v.KorisnikId});
                 
                 foreach (var t in termini)
                 {
-                    //daj mi sve rezervacije za ovaj termin; da mogu zaradu izracunati
                     var rezervacije = await _rezervacija.Get<List<Model.Rezervacije>>(new RezervacijeSearchRequest { TerminId = t.TerminId, Godina = _godina });
                     
                     foreach (var r in rezervacije)

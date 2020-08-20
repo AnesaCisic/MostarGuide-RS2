@@ -1,5 +1,6 @@
 ﻿using MostarGuide.MobileApp.ViewModels;
 using MostarGuide.Model;
+using MostarGuide.Model.Requests;
 using Stripe;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,13 @@ namespace MostarGuide.MobileApp.Views
 
         int _rezervacijaId = 0;
 
+        RezervacijaViewModel model = null;
+
         public PlacanjePage(Rezervacije rezervacija)
         {
             InitializeComponent();
             _rezervacijaId = rezervacija.RezervacijaId;
+            BindingContext = model = new RezervacijaViewModel();
         }
 
         protected async override void OnAppearing()
@@ -74,6 +78,16 @@ namespace MostarGuide.MobileApp.Views
 
                 var service = new ChargeService();
                 service.Create(options);
+
+                RezervacijeUpsertRequest req = new RezervacijeUpsertRequest();
+                req.Placeno = true;
+                req.TerminId = (int)rezervacija.TerminId;
+                req.DatumRezervacije = rezervacija.DatumRezervacije;
+                req.BrojOsoba = rezervacija.BrojOsoba;
+                req.KorisnikMobId = (int)rezervacija.KorisnikMobId;
+                req.UkupanIznos = rezervacija.UkupanIznos;
+
+                await _rezervacije.Update<Rezervacije>(rezervacija.RezervacijaId, req);
 
                 await DisplayAlert("Obavijest", "Uspješno ste kupili kartu!", "OK");
 

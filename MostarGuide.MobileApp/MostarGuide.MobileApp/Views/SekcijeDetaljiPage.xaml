@@ -40,17 +40,14 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" FontAttributes="Bold" />
                     
-                    <Label Text="{Binding Sekcija.Telefon}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" TextColor="SlateGray" FontSize="18" FontAttributes="Bold" />
-                </StackLayout>
                     <StackLayout>
                         <Button Text="Ocijeni" Clicked="Button_Clicked"
                    BackgroundColor="RoyalBlue" TextColor="White"></Button>
                     </StackLayout>
                 
                 </StackLayout>
-        </StackLayout>
+                </StackLayout>
+            </StackLayout>
         </ScrollView>
 
     </ContentPage.Content>

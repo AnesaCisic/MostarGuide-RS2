@@ -44,9 +44,6 @@ namespace MostarGuide.WebAPI.Mappers
             CreateMap<Database.Korisnici, Model.KorisnikLogin>();
             CreateMap<Database.KorisniciMob, Model.KorisnikLogin>();
 
-            CreateMap<Database.Uplate, Model.Uplate>().ReverseMap();
-            CreateMap<Database.OcjeneSekcije, OcjeneSekcijeUpsertRequest>().ReverseMap();
-
             CreateMap<Database.Favoriti, Model.Favoriti>().ReverseMap();
             CreateMap<Database.Favoriti, FavoritiUpsertRequest>().ReverseMap();
 

@@ -45,8 +45,6 @@ namespace MostarGuide.WinUI.Sekcije
             request.Webstranica = txtWebStr.Text;
             request.Adresa = txtAdresa.Text;
 
-            //request.KategorijaId = int.Parse(cmbKategorija.SelectedValue.ToString());
-
             var k = cmbKategorija.SelectedValue;
 
             if (int.TryParse(k.ToString(), out int idKategorija))

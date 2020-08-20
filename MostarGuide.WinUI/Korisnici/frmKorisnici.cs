@@ -41,7 +41,6 @@ namespace MostarGuide.WinUI.Korisnici
                 MessageBox.Show("Ne mozete pristupiti podacima!");
             }
             
-            
         }
 
         private void dgvKorisnici_MouseDoubleClick(object sender, MouseEventArgs e)
